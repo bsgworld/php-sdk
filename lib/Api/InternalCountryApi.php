@@ -132,7 +132,7 @@ class InternalCountryApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCountriesList200response
+     * @return \BSG\Api\V2\Model\InternalCountriesList200Response
      */
     public function internalCountriesList($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
     {
@@ -150,7 +150,7 @@ class InternalCountryApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCountriesList200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\InternalCountriesList200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function internalCountriesListWithHttpInfo($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
     {
@@ -181,11 +181,11 @@ class InternalCountryApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCountriesList200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\InternalCountriesList200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCountriesList200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\InternalCountriesList200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -203,7 +203,7 @@ class InternalCountryApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCountriesList200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCountriesList200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -222,7 +222,7 @@ class InternalCountryApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCountriesList200response';
+            $returnType = '\BSG\Api\V2\Model\InternalCountriesList200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -255,7 +255,7 @@ class InternalCountryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCountriesList200response',
+                        '\BSG\Api\V2\Model\InternalCountriesList200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class InternalCountryApi
      */
     public function internalCountriesListAsyncWithHttpInfo($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCountriesList200response';
+        $returnType = '\BSG\Api\V2\Model\InternalCountriesList200Response';
         $request = $this->internalCountriesListRequest($service, $contentType);
 
         return $this->client

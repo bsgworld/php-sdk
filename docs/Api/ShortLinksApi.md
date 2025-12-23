@@ -15,7 +15,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `shortUrlsClicks()`
 
 ```php
-shortUrlsClicks($from, $to, $page, $per_page, $campaign): \BSG\Api\V2\Model\ShortUrlsClicks200response
+shortUrlsClicks($from, $to, $page, $per_page, $campaign): \BSG\Api\V2\Model\ShortUrlsClicks200Response
 ```
 
 List of clicks
@@ -39,8 +39,8 @@ $apiInstance = new BSG\Api\V2\Api\ShortLinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$from = 2022-04-28; // string | From date
-$to = 2022-04-28; // string | To date
+$from = '2022-04-28'; //  string | From date
+$to = '2022-04-28'; //  string | To date
 $page = 1; // int | Get items starting from this page.
 $per_page = 20; // int | The number of items in the page. Possible values are from 10 to 500.
 $campaign = 56; // int | Campaign id to get only clicks on short link sent as part on [sms campaign](#tag/Campaign-SMS)
@@ -66,7 +66,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsClicks200response**](../Model/ShortUrlsClicks200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsClicks200Response**](../Model/ShortUrlsClicks200Response.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ try {
 ## `shortUrlsLink()`
 
 ```php
-shortUrlsLink($uuid): \BSG\Api\V2\Model\ShortUrlsLink200response
+shortUrlsLink($uuid): \BSG\Api\V2\Model\ShortUrlsLink200Response
 ```
 
 Get short link statistic
@@ -125,7 +125,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsLink200response**](../Model/ShortUrlsLink200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsLink200Response**](../Model/ShortUrlsLink200Response.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ try {
 ## `shortUrlsLinkCreate()`
 
 ```php
-shortUrlsLinkCreate($link_store_request): \BSG\Api\V2\Model\ShortUrlsLinkCreate201response
+shortUrlsLinkCreate($link_store_request): \BSG\Api\V2\Model\ShortUrlsLinkCreate201Response
 ```
 
 Create short link
@@ -167,7 +167,7 @@ $apiInstance = new BSG\Api\V2\Api\ShortLinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$link_store_request = json_decode('new \BSG\Api\V2\Model\LinkStoreRequest()', true); // \BSG\Api\V2\Model\LinkStoreRequest
+$link_store_request = new \BSG\Api\V2\Model\LinkStoreRequest(); // \BSG\Api\V2\Model\LinkStoreRequest
 
 try {
     $result = $apiInstance->shortUrlsLinkCreate($link_store_request);
@@ -186,7 +186,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsLinkCreate201response**](../Model/ShortUrlsLinkCreate201response.md)
+[**\BSG\Api\V2\Model\ShortUrlsLinkCreate201Response**](../Model/ShortUrlsLinkCreate201Response.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ try {
 ## `shortUrlsLinkUpdate()`
 
 ```php
-shortUrlsLinkUpdate($uuid, $link_update_request): \BSG\Api\V2\Model\ShortUrlsLinkUpdate200response
+shortUrlsLinkUpdate($uuid, $link_update_request): \BSG\Api\V2\Model\ShortUrlsLinkUpdate200Response
 ```
 
 Update short link
@@ -290,8 +290,9 @@ $apiInstance = new BSG\Api\V2\Api\ShortLinksApi(
     $config
 );
 $uuid = 'uuid_example'; // string | Uuid of entity
-$link_update_request = json_decode('{"name":"New name"}', true); // \BSG\Api\V2\Model\LinkUpdateRequest
-
+$link_update_request = new \BSG\Api\V2\Model\LinkUpdateRequest([
+    'name' => 'New name',
+]);
 try {
     $result = $apiInstance->shortUrlsLinkUpdate($uuid, $link_update_request);
     print_r($result);
@@ -310,7 +311,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsLinkUpdate200response**](../Model/ShortUrlsLinkUpdate200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsLinkUpdate200Response**](../Model/ShortUrlsLinkUpdate200Response.md)
 
 ### Authorization
 
@@ -328,7 +329,7 @@ try {
 ## `shortUrlsLinks()`
 
 ```php
-shortUrlsLinks($from, $to, $page, $per_page): \BSG\Api\V2\Model\ShortUrlsLinks200response
+shortUrlsLinks($from, $to, $page, $per_page): \BSG\Api\V2\Model\ShortUrlsLinks200Response
 ```
 
 List of short links
@@ -352,8 +353,8 @@ $apiInstance = new BSG\Api\V2\Api\ShortLinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$from = 2022-04-28; // string | From date
-$to = 2022-04-28; // string | To date
+$from = '2022-04-28'; //  string | From date
+$to = '2022-04-28'; //  string | To date
 $page = 1; // int | Get items starting from this page.
 $per_page = 20; // int | The number of items in the page. Possible values are from 10 to 500.
 
@@ -377,7 +378,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsLinks200response**](../Model/ShortUrlsLinks200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsLinks200Response**](../Model/ShortUrlsLinks200Response.md)
 
 ### Authorization
 

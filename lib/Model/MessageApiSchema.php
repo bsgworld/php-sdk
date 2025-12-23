@@ -74,7 +74,7 @@ class MessageApiSchema implements ModelInterface, ArrayAccess, \JsonSerializable
         'country' => 'string',
         'parts' => 'int',
         'rcs_options' => '\BSG\Api\V2\Model\Options',
-        'alternative_channels' => '\BSG\Api\V2\Model\MessageapischemaAlternativeChannels'
+        'alternative_channels' => '\BSG\Api\V2\Model\MessageApiSchemaAlternativeChannels'
     ];
 
     /**
@@ -925,7 +925,7 @@ class MessageApiSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets alternative_channels
      *
-     * @return \BSG\Api\V2\Model\MessageapischemaAlternativeChannels|null
+     * @return \BSG\Api\V2\Model\MessageApiSchemaAlternativeChannels|null
      */
     public function getAlternativeChannels()
     {
@@ -935,7 +935,7 @@ class MessageApiSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets alternative_channels
      *
-     * @param \BSG\Api\V2\Model\MessageapischemaAlternativeChannels|null $alternative_channels alternative_channels
+     * @param \BSG\Api\V2\Model\MessageApiSchemaAlternativeChannels|null $alternative_channels alternative_channels
      *
      * @return self
      */

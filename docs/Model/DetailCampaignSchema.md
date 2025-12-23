@@ -14,7 +14,7 @@
 | **finished_at** | **\DateTime** |  | [optional] |
 | **created_at** | **\DateTime** | Date when the item was created in the system ― set by the system automatically. Display format ― Y-m-d H:i:s | [optional] |
 | **statistics** | [**\BSG\Api\V2\Model\StatisticsData**](StatisticsData.md) |  | [optional] |
-| **alternative_channels** | [**\BSG\Api\V2\Model\DetailcampaignschemaAlternativeChannels**](DetailcampaignschemaAlternativeChannels.md) |  | [optional] |
+| **alternative_channels** | [**\BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannels**](DetailCampaignSchemaAlternativeChannels.md) |  | [optional] |
 | **total_messages** | **int** | Total count of messages sent in campaign | [optional] |
 | **total_phones** | **int** | Total count if phone numbers in campaign | [optional] |
 | **total_price** | **float** | Total price of all the messages sent in campaign | [optional] |

@@ -11,7 +11,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `accountBalance()`
 
 ```php
-accountBalance(): \BSG\Api\V2\Model\AccountBalance200response
+accountBalance(): \BSG\Api\V2\Model\AccountBalance200Response
 ```
 
 Get balance
@@ -50,7 +50,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\BSG\Api\V2\Model\AccountBalance200response**](../Model/AccountBalance200response.md)
+[**\BSG\Api\V2\Model\AccountBalance200Response**](../Model/AccountBalance200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 ## `accountTariffs()`
 
 ```php
-accountTariffs($page_offset, $page_limit): \BSG\Api\V2\Model\AccountTariffs200response
+accountTariffs($page_offset, $page_limit): \BSG\Api\V2\Model\AccountTariffs200Response
 ```
 
 Get tariffs
@@ -113,7 +113,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\AccountTariffs200response**](../Model/AccountTariffs200response.md)
+[**\BSG\Api\V2\Model\AccountTariffs200Response**](../Model/AccountTariffs200Response.md)
 
 ### Authorization
 

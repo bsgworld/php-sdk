@@ -21,6 +21,6 @@
 | **country** | **string** | Country code according to ISO 3166-1 alpha-2 standard | [optional] |
 | **parts** | **int** |  | [optional] |
 | **rcs_options** | [**\BSG\Api\V2\Model\Options**](Options.md) |  | [optional] |
-| **alternative_channels** | [**\BSG\Api\V2\Model\MessageapischemaAlternativeChannels**](MessageapischemaAlternativeChannels.md) |  | [optional] |
+| **alternative_channels** | [**\BSG\Api\V2\Model\MessageApiSchemaAlternativeChannels**](MessageApiSchemaAlternativeChannels.md) |  | [optional] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

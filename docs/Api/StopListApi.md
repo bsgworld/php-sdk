@@ -13,7 +13,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `stoplistAdd()`
 
 ```php
-stoplistAdd($stoplist_addrequest): \BSG\Api\V2\Model\StoplistAdd200response
+stoplistAdd($stoplist_add_request): \BSG\Api\V2\Model\StoplistAdd200Response
 ```
 
 Add contacts to stop list
@@ -37,10 +37,10 @@ $apiInstance = new BSG\Api\V2\Api\StopListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$stoplist_addrequest = json_decode('new \BSG\Api\V2\Model\StoplistAddrequest()', true); // \BSG\Api\V2\Model\StoplistAddrequest
+$stoplist_add_request = new \BSG\Api\V2\Model\StoplistAddRequest(); // \BSG\Api\V2\Model\StoplistAddRequest
 
 try {
-    $result = $apiInstance->stoplistAdd($stoplist_addrequest);
+    $result = $apiInstance->stoplistAdd($stoplist_add_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StopListApi->stoplistAdd: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **stoplist_addrequest** | [**\BSG\Api\V2\Model\StoplistAddrequest**](../Model/StoplistAddrequest.md) |  | |
+| **stoplist_add_request** | [**\BSG\Api\V2\Model\StoplistAddRequest**](../Model/StoplistAddRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\StoplistAdd200response**](../Model/StoplistAdd200response.md)
+[**\BSG\Api\V2\Model\StoplistAdd200Response**](../Model/StoplistAdd200Response.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `stoplistItems()`
 
 ```php
-stoplistItems($page_offset, $page_limit, $type): \BSG\Api\V2\Model\StoplistItems200response
+stoplistItems($page_offset, $page_limit, $type): \BSG\Api\V2\Model\StoplistItems200Response
 ```
 
 List the contacts of stop lists
@@ -121,7 +121,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\StoplistItems200response**](../Model/StoplistItems200response.md)
+[**\BSG\Api\V2\Model\StoplistItems200Response**](../Model/StoplistItems200Response.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ try {
 ## `stoplistRemove()`
 
 ```php
-stoplistRemove($stoplist_removerequest): object
+stoplistRemove($stoplist_remove_request): object
 ```
 
 Remove contacts from stop list
@@ -163,10 +163,10 @@ $apiInstance = new BSG\Api\V2\Api\StopListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$stoplist_removerequest = json_decode('new \BSG\Api\V2\Model\StoplistRemoverequest()', true); // \BSG\Api\V2\Model\StoplistRemoverequest
+$stoplist_remove_request = new \BSG\Api\V2\Model\StoplistRemoveRequest(); // \BSG\Api\V2\Model\StoplistRemoveRequest
 
 try {
-    $result = $apiInstance->stoplistRemove($stoplist_removerequest);
+    $result = $apiInstance->stoplistRemove($stoplist_remove_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StopListApi->stoplistRemove: ', $e->getMessage(), PHP_EOL;
@@ -178,7 +178,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **stoplist_removerequest** | [**\BSG\Api\V2\Model\StoplistRemoverequest**](../Model/StoplistRemoverequest.md) |  | |
+| **stoplist_remove_request** | [**\BSG\Api\V2\Model\StoplistRemoveRequest**](../Model/StoplistRemoveRequest.md) |  | |
 
 ### Return type
 
@@ -200,7 +200,7 @@ try {
 ## `stoplistSearch()`
 
 ```php
-stoplistSearch($page_offset, $page_limit, $sort, $way, $contact_group_id, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value): \BSG\Api\V2\Model\StoplistSearch200response
+stoplistSearch($page_offset, $page_limit, $sort, $way, $contact_group_id, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value): \BSG\Api\V2\Model\StoplistSearch200Response
 ```
 
 Search contacts in Stop lists
@@ -227,13 +227,13 @@ $apiInstance = new BSG\Api\V2\Api\StopListApi(
 $page_offset = 0; // int
 $page_limit = 50; // int | The number of items in the response
 $sort = 'id'; // string | Sort by conditions: id, phone
-$way = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SortWay(); // \BSG\Api\V2\Model\SortWay
+$way = \BSG\Api\V2\Model\SortWay::ASC; // string, one of \BSG\Api\V2\Model\SortWay::*
 $contact_group_id = 56; // int | Find only phone numbers in stop list that included into specified contact list
-$search_field = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\StoplistSearchField(); // \BSG\Api\V2\Model\StoplistSearchField
-$search_operator = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SearchOperator(); // \BSG\Api\V2\Model\SearchOperator
+$search_field = \BSG\Api\V2\Model\StoplistSearchField::ID; // string, one of \BSG\Api\V2\Model\StoplistSearchField::*
+$search_operator = \BSG\Api\V2\Model\SearchOperator::LIKE; // string, one of \BSG\Api\V2\Model\SearchOperator::*
 $search_value = 'search_value_example'; // string
-$search_fields_0_field = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\StoplistSearchField(); // \BSG\Api\V2\Model\StoplistSearchField
-$search_fields_0_operator = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SearchOperator(); // \BSG\Api\V2\Model\SearchOperator
+$search_fields_0_field = \BSG\Api\V2\Model\StoplistSearchField::ID; // string, one of \BSG\Api\V2\Model\StoplistSearchField::*
+$search_fields_0_operator = \BSG\Api\V2\Model\SearchOperator::LIKE; // string, one of \BSG\Api\V2\Model\SearchOperator::*
 $search_fields_0_value = 'search_fields_0_value_example'; // string
 
 try {
@@ -263,7 +263,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\StoplistSearch200response**](../Model/StoplistSearch200response.md)
+[**\BSG\Api\V2\Model\StoplistSearch200Response**](../Model/StoplistSearch200Response.md)
 
 ### Authorization
 

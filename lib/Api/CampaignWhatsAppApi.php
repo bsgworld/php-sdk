@@ -438,7 +438,7 @@ class CampaignWhatsAppApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\WhatsappSingle200response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\WhatsappSingle200Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
     public function whatsappSingle($whats_app_message, string $contentType = self::contentTypes['whatsappSingle'][0])
     {
@@ -456,7 +456,7 @@ class CampaignWhatsAppApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\WhatsappSingle200response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\WhatsappSingle200Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function whatsappSingleWithHttpInfo($whats_app_message, string $contentType = self::contentTypes['whatsappSingle'][0])
     {
@@ -487,11 +487,11 @@ class CampaignWhatsAppApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\WhatsappSingle200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\WhatsappSingle200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\WhatsappSingle200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\WhatsappSingle200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -509,16 +509,16 @@ class CampaignWhatsAppApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\WhatsappSingle200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\WhatsappSingle200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -536,7 +536,7 @@ class CampaignWhatsAppApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -555,7 +555,7 @@ class CampaignWhatsAppApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\WhatsappSingle200response';
+            $returnType = '\BSG\Api\V2\Model\WhatsappSingle200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -588,7 +588,7 @@ class CampaignWhatsAppApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\WhatsappSingle200response',
+                        '\BSG\Api\V2\Model\WhatsappSingle200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -596,7 +596,7 @@ class CampaignWhatsAppApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -640,7 +640,7 @@ class CampaignWhatsAppApi
      */
     public function whatsappSingleAsyncWithHttpInfo($whats_app_message, string $contentType = self::contentTypes['whatsappSingle'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\WhatsappSingle200response';
+        $returnType = '\BSG\Api\V2\Model\WhatsappSingle200Response';
         $request = $this->whatsappSingleRequest($whats_app_message, $contentType);
 
         return $this->client

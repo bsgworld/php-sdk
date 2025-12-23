@@ -60,8 +60,8 @@ class WhatsAppMessage implements ModelInterface, ArrayAccess, \JsonSerializable
         'phone' => '\BSG\Api\V2\Model\Phone',
         'sender' => 'string',
         'type' => 'string',
-        'template' => '\BSG\Api\V2\Model\WhatsappmessageTemplate',
-        'alternative_channel' => '\BSG\Api\V2\Model\WhatsappmessageAlternativeChannel',
+        'template' => '\BSG\Api\V2\Model\WhatsAppMessageTemplate',
+        'alternative_channel' => '\BSG\Api\V2\Model\WhatsAppMessageAlternativeChannel',
         'callback_url' => 'mixed',
         'add_to_contact_book' => 'bool',
         'check_stop_list' => 'bool'
@@ -482,7 +482,7 @@ class WhatsAppMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets template
      *
-     * @return \BSG\Api\V2\Model\WhatsappmessageTemplate|null
+     * @return \BSG\Api\V2\Model\WhatsAppMessageTemplate|null
      */
     public function getTemplate()
     {
@@ -492,7 +492,7 @@ class WhatsAppMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets template
      *
-     * @param \BSG\Api\V2\Model\WhatsappmessageTemplate|null $template template
+     * @param \BSG\Api\V2\Model\WhatsAppMessageTemplate|null $template template
      *
      * @return self
      */
@@ -516,7 +516,7 @@ class WhatsAppMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets alternative_channel
      *
-     * @return \BSG\Api\V2\Model\WhatsappmessageAlternativeChannel|null
+     * @return \BSG\Api\V2\Model\WhatsAppMessageAlternativeChannel|null
      */
     public function getAlternativeChannel()
     {
@@ -526,7 +526,7 @@ class WhatsAppMessage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets alternative_channel
      *
-     * @param \BSG\Api\V2\Model\WhatsappmessageAlternativeChannel|null $alternative_channel alternative_channel
+     * @param \BSG\Api\V2\Model\WhatsAppMessageAlternativeChannel|null $alternative_channel alternative_channel
      *
      * @return self
      */

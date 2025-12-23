@@ -63,7 +63,7 @@ class SendRcsCampaignGroups implements ModelInterface, ArrayAccess, \JsonSeriali
         'validity' => 'int',
         'start_at' => '\DateTime',
         'options' => '\BSG\Api\V2\Model\Options',
-        'alternative_channel' => '\BSG\Api\V2\Model\SendrcscampaigngroupsAlternativeChannel',
+        'alternative_channel' => '\BSG\Api\V2\Model\SendRcsCampaignGroupsAlternativeChannel',
         'add_to_contact_book' => 'bool',
         'check_stop_list' => 'bool'
     ];
@@ -565,7 +565,7 @@ class SendRcsCampaignGroups implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets alternative_channel
      *
-     * @return \BSG\Api\V2\Model\SendrcscampaigngroupsAlternativeChannel|null
+     * @return \BSG\Api\V2\Model\SendRcsCampaignGroupsAlternativeChannel|null
      */
     public function getAlternativeChannel()
     {
@@ -575,7 +575,7 @@ class SendRcsCampaignGroups implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets alternative_channel
      *
-     * @param \BSG\Api\V2\Model\SendrcscampaigngroupsAlternativeChannel|null $alternative_channel alternative_channel
+     * @param \BSG\Api\V2\Model\SendRcsCampaignGroupsAlternativeChannel|null $alternative_channel alternative_channel
      *
      * @return self
      */

@@ -136,7 +136,7 @@ class Internal2FAApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Internal2faPrice200response
+     * @return \BSG\Api\V2\Model\Internal2faPrice200Response
      */
     public function internal2faPrice($channel_type, $currency, $tariff_code = null, $country_code = null, $operator_id = null, string $contentType = self::contentTypes['internal2faPrice'][0])
     {
@@ -158,7 +158,7 @@ class Internal2FAApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Internal2faPrice200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\Internal2faPrice200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function internal2faPriceWithHttpInfo($channel_type, $currency, $tariff_code = null, $country_code = null, $operator_id = null, string $contentType = self::contentTypes['internal2faPrice'][0])
     {
@@ -189,11 +189,11 @@ class Internal2FAApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Internal2faPrice200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\Internal2faPrice200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Internal2faPrice200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\Internal2faPrice200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -211,7 +211,7 @@ class Internal2FAApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Internal2faPrice200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Internal2faPrice200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -230,7 +230,7 @@ class Internal2FAApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Internal2faPrice200response';
+            $returnType = '\BSG\Api\V2\Model\Internal2faPrice200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -263,7 +263,7 @@ class Internal2FAApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Internal2faPrice200response',
+                        '\BSG\Api\V2\Model\Internal2faPrice200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -315,7 +315,7 @@ class Internal2FAApi
      */
     public function internal2faPriceAsyncWithHttpInfo($channel_type, $currency, $tariff_code = null, $country_code = null, $operator_id = null, string $contentType = self::contentTypes['internal2faPrice'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Internal2faPrice200response';
+        $returnType = '\BSG\Api\V2\Model\Internal2faPrice200Response';
         $request = $this->internal2faPriceRequest($channel_type, $currency, $tariff_code, $country_code, $operator_id, $contentType);
 
         return $this->client

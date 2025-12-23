@@ -14,7 +14,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `shortUrlsDomain()`
 
 ```php
-shortUrlsDomain($uuid): \BSG\Api\V2\Model\ShortUrlsDomain200response
+shortUrlsDomain($uuid): \BSG\Api\V2\Model\ShortUrlsDomain200Response
 ```
 
 Get domain by uuid
@@ -36,7 +36,7 @@ $apiInstance = new BSG\Api\V2\Api\ShortDomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$uuid = db05af9e-107e-4ed6-b1ac-a373d90109c8; // string | Uuid of entity
+$uuid = 'db05af9e-107e-4ed6-b1ac-a373d90109c8'; //  string | Uuid of entity
 
 try {
     $result = $apiInstance->shortUrlsDomain($uuid);
@@ -55,7 +55,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsDomain200response**](../Model/ShortUrlsDomain200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsDomain200Response**](../Model/ShortUrlsDomain200Response.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ try {
 ## `shortUrlsDomainCreate()`
 
 ```php
-shortUrlsDomainCreate($domain_store_request): \BSG\Api\V2\Model\ShortUrlsDomainCreate201response
+shortUrlsDomainCreate($domain_store_request): \BSG\Api\V2\Model\ShortUrlsDomainCreate201Response
 ```
 
 Add domain
@@ -95,8 +95,10 @@ $apiInstance = new BSG\Api\V2\Api\ShortDomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$domain_store_request = json_decode('{"name":"short.ai","slug_type":"random"}', true); // \BSG\Api\V2\Model\DomainStoreRequest
-
+$domain_store_request = new \BSG\Api\V2\Model\DomainStoreRequest([
+    'name' => 'short.ai',
+    'slug_type' => 'random',
+]);
 try {
     $result = $apiInstance->shortUrlsDomainCreate($domain_store_request);
     print_r($result);
@@ -114,7 +116,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsDomainCreate201response**](../Model/ShortUrlsDomainCreate201response.md)
+[**\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response**](../Model/ShortUrlsDomainCreate201Response.md)
 
 ### Authorization
 
@@ -191,7 +193,7 @@ try {
 ## `shortUrlsDomainUpdate()`
 
 ```php
-shortUrlsDomainUpdate($uuid, $domain_update_request): \BSG\Api\V2\Model\ShortUrlsDomainUpdate200response
+shortUrlsDomainUpdate($uuid, $domain_update_request): \BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response
 ```
 
 Update domain
@@ -214,8 +216,9 @@ $apiInstance = new BSG\Api\V2\Api\ShortDomainsApi(
     $config
 );
 $uuid = 'uuid_example'; // string | Uuid of entity
-$domain_update_request = json_decode('{"is_default":true}', true); // \BSG\Api\V2\Model\DomainUpdateRequest
-
+$domain_update_request = new \BSG\Api\V2\Model\DomainUpdateRequest([
+    'is_default' => true,
+]);
 try {
     $result = $apiInstance->shortUrlsDomainUpdate($uuid, $domain_update_request);
     print_r($result);
@@ -234,7 +237,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response**](../Model/ShortUrlsDomainUpdate200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response**](../Model/ShortUrlsDomainUpdate200Response.md)
 
 ### Authorization
 
@@ -252,7 +255,7 @@ try {
 ## `shortUrlsDomains()`
 
 ```php
-shortUrlsDomains($from, $to, $page, $per_page): \BSG\Api\V2\Model\ShortUrlsDomains200response
+shortUrlsDomains($from, $to, $page, $per_page): \BSG\Api\V2\Model\ShortUrlsDomains200Response
 ```
 
 List of domains
@@ -276,8 +279,8 @@ $apiInstance = new BSG\Api\V2\Api\ShortDomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$from = 2022-04-28; // string | From date
-$to = 2022-04-28; // string | To date
+$from = '2022-04-28'; //  string | From date
+$to = '2022-04-28'; //  string | To date
 $page = 1; // int | Get items starting from this page.
 $per_page = 20; // int | The number of items in the page. Possible values are from 10 to 500.
 
@@ -301,7 +304,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ShortUrlsDomains200response**](../Model/ShortUrlsDomains200response.md)
+[**\BSG\Api\V2\Model\ShortUrlsDomains200Response**](../Model/ShortUrlsDomains200Response.md)
 
 ### Authorization
 

@@ -10,7 +10,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `internalCurrenciesList()`
 
 ```php
-internalCurrenciesList($currency_code): \BSG\Api\V2\Model\InternalCurrenciesList200response
+internalCurrenciesList($currency_code): \BSG\Api\V2\Model\InternalCurrenciesList200Response
 ```
 
 Get currencies list
@@ -32,7 +32,7 @@ $apiInstance = new BSG\Api\V2\Api\InternalCurrencyApi(
     new GuzzleHttp\Client(),
     $config
 );
-$currency_code = USD; // string | Product value
+$currency_code = 'USD'; //  string | Product value
 
 try {
     $result = $apiInstance->internalCurrenciesList($currency_code);
@@ -51,7 +51,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\InternalCurrenciesList200response**](../Model/InternalCurrenciesList200response.md)
+[**\BSG\Api\V2\Model\InternalCurrenciesList200Response**](../Model/InternalCurrenciesList200Response.md)
 
 ### Authorization
 

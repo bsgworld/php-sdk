@@ -134,7 +134,7 @@ class BalanceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\AccountBalance200response
+     * @return \BSG\Api\V2\Model\AccountBalance200Response
      */
     public function accountBalance(string $contentType = self::contentTypes['accountBalance'][0])
     {
@@ -151,7 +151,7 @@ class BalanceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\AccountBalance200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\AccountBalance200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountBalanceWithHttpInfo(string $contentType = self::contentTypes['accountBalance'][0])
     {
@@ -182,11 +182,11 @@ class BalanceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\AccountBalance200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\AccountBalance200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\AccountBalance200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\AccountBalance200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -204,7 +204,7 @@ class BalanceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\AccountBalance200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\AccountBalance200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -223,7 +223,7 @@ class BalanceApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\AccountBalance200response';
+            $returnType = '\BSG\Api\V2\Model\AccountBalance200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -256,7 +256,7 @@ class BalanceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\AccountBalance200response',
+                        '\BSG\Api\V2\Model\AccountBalance200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class BalanceApi
      */
     public function accountBalanceAsyncWithHttpInfo(string $contentType = self::contentTypes['accountBalance'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\AccountBalance200response';
+        $returnType = '\BSG\Api\V2\Model\AccountBalance200Response';
         $request = $this->accountBalanceRequest($contentType);
 
         return $this->client
@@ -428,7 +428,7 @@ class BalanceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\AccountTariffs200response
+     * @return \BSG\Api\V2\Model\AccountTariffs200Response
      */
     public function accountTariffs($page_offset = 0, $page_limit = 50, string $contentType = self::contentTypes['accountTariffs'][0])
     {
@@ -447,7 +447,7 @@ class BalanceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\AccountTariffs200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\AccountTariffs200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountTariffsWithHttpInfo($page_offset = 0, $page_limit = 50, string $contentType = self::contentTypes['accountTariffs'][0])
     {
@@ -478,11 +478,11 @@ class BalanceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\AccountTariffs200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\AccountTariffs200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\AccountTariffs200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\AccountTariffs200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -500,7 +500,7 @@ class BalanceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\AccountTariffs200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\AccountTariffs200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -519,7 +519,7 @@ class BalanceApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\AccountTariffs200response';
+            $returnType = '\BSG\Api\V2\Model\AccountTariffs200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -552,7 +552,7 @@ class BalanceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\AccountTariffs200response',
+                        '\BSG\Api\V2\Model\AccountTariffs200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -598,7 +598,7 @@ class BalanceApi
      */
     public function accountTariffsAsyncWithHttpInfo($page_offset = 0, $page_limit = 50, string $contentType = self::contentTypes['accountTariffs'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\AccountTariffs200response';
+        $returnType = '\BSG\Api\V2\Model\AccountTariffs200Response';
         $request = $this->accountTariffsRequest($page_offset, $page_limit, $contentType);
 
         return $this->client

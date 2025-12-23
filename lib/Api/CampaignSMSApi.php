@@ -133,16 +133,16 @@ class CampaignSMSApi
      *
      * Send SMS campaign
      *
-     * @param  \BSG\Api\V2\Model\SmsSendrequest $sms_sendrequest sms_sendrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendRequest $sms_send_request sms_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Smscampaignresponse|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\SmsCampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function smsSend($sms_sendrequest, string $contentType = self::contentTypes['smsSend'][0])
+    public function smsSend($sms_send_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        list($response) = $this->smsSendWithHttpInfo($sms_sendrequest, $contentType);
+        list($response) = $this->smsSendWithHttpInfo($sms_send_request, $contentType);
         return $response;
     }
 
@@ -151,16 +151,16 @@ class CampaignSMSApi
      *
      * Send SMS campaign
      *
-     * @param  \BSG\Api\V2\Model\SmsSendrequest $sms_sendrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendRequest $sms_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Smscampaignresponse|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\SmsCampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function smsSendWithHttpInfo($sms_sendrequest, string $contentType = self::contentTypes['smsSend'][0])
+    public function smsSendWithHttpInfo($sms_send_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        $request = $this->smsSendRequest($sms_sendrequest, $contentType);
+        $request = $this->smsSendRequest($sms_send_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -187,11 +187,11 @@ class CampaignSMSApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Smscampaignresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\SmsCampaignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Smscampaignresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\SmsCampaignResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -209,16 +209,16 @@ class CampaignSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Smscampaignresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SmsCampaignResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -236,7 +236,7 @@ class CampaignSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -255,7 +255,7 @@ class CampaignSMSApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Smscampaignresponse';
+            $returnType = '\BSG\Api\V2\Model\SmsCampaignResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -288,7 +288,7 @@ class CampaignSMSApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Smscampaignresponse',
+                        '\BSG\Api\V2\Model\SmsCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -296,7 +296,7 @@ class CampaignSMSApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -311,15 +311,15 @@ class CampaignSMSApi
      *
      * Send SMS campaign
      *
-     * @param  \BSG\Api\V2\Model\SmsSendrequest $sms_sendrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendRequest $sms_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsSendAsync($sms_sendrequest, string $contentType = self::contentTypes['smsSend'][0])
+    public function smsSendAsync($sms_send_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        return $this->smsSendAsyncWithHttpInfo($sms_sendrequest, $contentType)
+        return $this->smsSendAsyncWithHttpInfo($sms_send_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -332,16 +332,16 @@ class CampaignSMSApi
      *
      * Send SMS campaign
      *
-     * @param  \BSG\Api\V2\Model\SmsSendrequest $sms_sendrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendRequest $sms_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsSendAsyncWithHttpInfo($sms_sendrequest, string $contentType = self::contentTypes['smsSend'][0])
+    public function smsSendAsyncWithHttpInfo($sms_send_request, string $contentType = self::contentTypes['smsSend'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Smscampaignresponse';
-        $request = $this->smsSendRequest($sms_sendrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\SmsCampaignResponse';
+        $request = $this->smsSendRequest($sms_send_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -382,19 +382,19 @@ class CampaignSMSApi
     /**
      * Create request for operation 'smsSend'
      *
-     * @param  \BSG\Api\V2\Model\SmsSendrequest $sms_sendrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendRequest $sms_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSend'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function smsSendRequest($sms_sendrequest, string $contentType = self::contentTypes['smsSend'][0])
+    public function smsSendRequest($sms_send_request, string $contentType = self::contentTypes['smsSend'][0])
     {
 
-        // verify the required parameter 'sms_sendrequest' is set
-        if ($sms_sendrequest === null || (is_array($sms_sendrequest) && count($sms_sendrequest) === 0)) {
+        // verify the required parameter 'sms_send_request' is set
+        if ($sms_send_request === null || (is_array($sms_send_request) && count($sms_send_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sms_sendrequest when calling smsSend'
+                'Missing the required parameter $sms_send_request when calling smsSend'
             );
         }
 
@@ -417,12 +417,12 @@ class CampaignSMSApi
         );
 
         // for model (json/xml)
-        if (isset($sms_sendrequest)) {
+        if (isset($sms_send_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sms_sendrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sms_send_request));
             } else {
-                $httpBody = $sms_sendrequest;
+                $httpBody = $sms_send_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -479,16 +479,16 @@ class CampaignSMSApi
      *
      * Send SMS to contact list
      *
-     * @param  \BSG\Api\V2\Model\SmsSendGroupsrequest $sms_send_groupsrequest sms_send_groupsrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendGroupsRequest $sms_send_groups_request sms_send_groups_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendGroups'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Smscampaignresponse|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\SmsCampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function smsSendGroups($sms_send_groupsrequest, string $contentType = self::contentTypes['smsSendGroups'][0])
+    public function smsSendGroups($sms_send_groups_request, string $contentType = self::contentTypes['smsSendGroups'][0])
     {
-        list($response) = $this->smsSendGroupsWithHttpInfo($sms_send_groupsrequest, $contentType);
+        list($response) = $this->smsSendGroupsWithHttpInfo($sms_send_groups_request, $contentType);
         return $response;
     }
 
@@ -497,16 +497,16 @@ class CampaignSMSApi
      *
      * Send SMS to contact list
      *
-     * @param  \BSG\Api\V2\Model\SmsSendGroupsrequest $sms_send_groupsrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendGroupsRequest $sms_send_groups_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendGroups'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Smscampaignresponse|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\SmsCampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function smsSendGroupsWithHttpInfo($sms_send_groupsrequest, string $contentType = self::contentTypes['smsSendGroups'][0])
+    public function smsSendGroupsWithHttpInfo($sms_send_groups_request, string $contentType = self::contentTypes['smsSendGroups'][0])
     {
-        $request = $this->smsSendGroupsRequest($sms_send_groupsrequest, $contentType);
+        $request = $this->smsSendGroupsRequest($sms_send_groups_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -533,11 +533,11 @@ class CampaignSMSApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Smscampaignresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\SmsCampaignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Smscampaignresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\SmsCampaignResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -555,16 +555,16 @@ class CampaignSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Smscampaignresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SmsCampaignResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -582,7 +582,7 @@ class CampaignSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -601,7 +601,7 @@ class CampaignSMSApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Smscampaignresponse';
+            $returnType = '\BSG\Api\V2\Model\SmsCampaignResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -634,7 +634,7 @@ class CampaignSMSApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Smscampaignresponse',
+                        '\BSG\Api\V2\Model\SmsCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -642,7 +642,7 @@ class CampaignSMSApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -657,15 +657,15 @@ class CampaignSMSApi
      *
      * Send SMS to contact list
      *
-     * @param  \BSG\Api\V2\Model\SmsSendGroupsrequest $sms_send_groupsrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendGroupsRequest $sms_send_groups_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsSendGroupsAsync($sms_send_groupsrequest, string $contentType = self::contentTypes['smsSendGroups'][0])
+    public function smsSendGroupsAsync($sms_send_groups_request, string $contentType = self::contentTypes['smsSendGroups'][0])
     {
-        return $this->smsSendGroupsAsyncWithHttpInfo($sms_send_groupsrequest, $contentType)
+        return $this->smsSendGroupsAsyncWithHttpInfo($sms_send_groups_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -678,16 +678,16 @@ class CampaignSMSApi
      *
      * Send SMS to contact list
      *
-     * @param  \BSG\Api\V2\Model\SmsSendGroupsrequest $sms_send_groupsrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendGroupsRequest $sms_send_groups_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsSendGroupsAsyncWithHttpInfo($sms_send_groupsrequest, string $contentType = self::contentTypes['smsSendGroups'][0])
+    public function smsSendGroupsAsyncWithHttpInfo($sms_send_groups_request, string $contentType = self::contentTypes['smsSendGroups'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Smscampaignresponse';
-        $request = $this->smsSendGroupsRequest($sms_send_groupsrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\SmsCampaignResponse';
+        $request = $this->smsSendGroupsRequest($sms_send_groups_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -728,19 +728,19 @@ class CampaignSMSApi
     /**
      * Create request for operation 'smsSendGroups'
      *
-     * @param  \BSG\Api\V2\Model\SmsSendGroupsrequest $sms_send_groupsrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendGroupsRequest $sms_send_groups_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function smsSendGroupsRequest($sms_send_groupsrequest, string $contentType = self::contentTypes['smsSendGroups'][0])
+    public function smsSendGroupsRequest($sms_send_groups_request, string $contentType = self::contentTypes['smsSendGroups'][0])
     {
 
-        // verify the required parameter 'sms_send_groupsrequest' is set
-        if ($sms_send_groupsrequest === null || (is_array($sms_send_groupsrequest) && count($sms_send_groupsrequest) === 0)) {
+        // verify the required parameter 'sms_send_groups_request' is set
+        if ($sms_send_groups_request === null || (is_array($sms_send_groups_request) && count($sms_send_groups_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sms_send_groupsrequest when calling smsSendGroups'
+                'Missing the required parameter $sms_send_groups_request when calling smsSendGroups'
             );
         }
 
@@ -763,12 +763,12 @@ class CampaignSMSApi
         );
 
         // for model (json/xml)
-        if (isset($sms_send_groupsrequest)) {
+        if (isset($sms_send_groups_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sms_send_groupsrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sms_send_groups_request));
             } else {
-                $httpBody = $sms_send_groupsrequest;
+                $httpBody = $sms_send_groups_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -825,16 +825,16 @@ class CampaignSMSApi
      *
      * Send SMS with different text
      *
-     * @param  \BSG\Api\V2\Model\SmsSendIndividualrequest $sms_send_individualrequest sms_send_individualrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendIndividualRequest $sms_send_individual_request sms_send_individual_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendIndividual'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Smscampaignresponse|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\SmsCampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function smsSendIndividual($sms_send_individualrequest, string $contentType = self::contentTypes['smsSendIndividual'][0])
+    public function smsSendIndividual($sms_send_individual_request, string $contentType = self::contentTypes['smsSendIndividual'][0])
     {
-        list($response) = $this->smsSendIndividualWithHttpInfo($sms_send_individualrequest, $contentType);
+        list($response) = $this->smsSendIndividualWithHttpInfo($sms_send_individual_request, $contentType);
         return $response;
     }
 
@@ -843,16 +843,16 @@ class CampaignSMSApi
      *
      * Send SMS with different text
      *
-     * @param  \BSG\Api\V2\Model\SmsSendIndividualrequest $sms_send_individualrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendIndividualRequest $sms_send_individual_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendIndividual'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Smscampaignresponse|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\SmsCampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function smsSendIndividualWithHttpInfo($sms_send_individualrequest, string $contentType = self::contentTypes['smsSendIndividual'][0])
+    public function smsSendIndividualWithHttpInfo($sms_send_individual_request, string $contentType = self::contentTypes['smsSendIndividual'][0])
     {
-        $request = $this->smsSendIndividualRequest($sms_send_individualrequest, $contentType);
+        $request = $this->smsSendIndividualRequest($sms_send_individual_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -879,11 +879,11 @@ class CampaignSMSApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Smscampaignresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\SmsCampaignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Smscampaignresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\SmsCampaignResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -901,16 +901,16 @@ class CampaignSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Smscampaignresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SmsCampaignResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -928,7 +928,7 @@ class CampaignSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -947,7 +947,7 @@ class CampaignSMSApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Smscampaignresponse';
+            $returnType = '\BSG\Api\V2\Model\SmsCampaignResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -980,7 +980,7 @@ class CampaignSMSApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Smscampaignresponse',
+                        '\BSG\Api\V2\Model\SmsCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -988,7 +988,7 @@ class CampaignSMSApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1003,15 +1003,15 @@ class CampaignSMSApi
      *
      * Send SMS with different text
      *
-     * @param  \BSG\Api\V2\Model\SmsSendIndividualrequest $sms_send_individualrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendIndividualRequest $sms_send_individual_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendIndividual'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsSendIndividualAsync($sms_send_individualrequest, string $contentType = self::contentTypes['smsSendIndividual'][0])
+    public function smsSendIndividualAsync($sms_send_individual_request, string $contentType = self::contentTypes['smsSendIndividual'][0])
     {
-        return $this->smsSendIndividualAsyncWithHttpInfo($sms_send_individualrequest, $contentType)
+        return $this->smsSendIndividualAsyncWithHttpInfo($sms_send_individual_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1024,16 +1024,16 @@ class CampaignSMSApi
      *
      * Send SMS with different text
      *
-     * @param  \BSG\Api\V2\Model\SmsSendIndividualrequest $sms_send_individualrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendIndividualRequest $sms_send_individual_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendIndividual'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsSendIndividualAsyncWithHttpInfo($sms_send_individualrequest, string $contentType = self::contentTypes['smsSendIndividual'][0])
+    public function smsSendIndividualAsyncWithHttpInfo($sms_send_individual_request, string $contentType = self::contentTypes['smsSendIndividual'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Smscampaignresponse';
-        $request = $this->smsSendIndividualRequest($sms_send_individualrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\SmsCampaignResponse';
+        $request = $this->smsSendIndividualRequest($sms_send_individual_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1074,19 +1074,19 @@ class CampaignSMSApi
     /**
      * Create request for operation 'smsSendIndividual'
      *
-     * @param  \BSG\Api\V2\Model\SmsSendIndividualrequest $sms_send_individualrequest (required)
+     * @param  \BSG\Api\V2\Model\SmsSendIndividualRequest $sms_send_individual_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsSendIndividual'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function smsSendIndividualRequest($sms_send_individualrequest, string $contentType = self::contentTypes['smsSendIndividual'][0])
+    public function smsSendIndividualRequest($sms_send_individual_request, string $contentType = self::contentTypes['smsSendIndividual'][0])
     {
 
-        // verify the required parameter 'sms_send_individualrequest' is set
-        if ($sms_send_individualrequest === null || (is_array($sms_send_individualrequest) && count($sms_send_individualrequest) === 0)) {
+        // verify the required parameter 'sms_send_individual_request' is set
+        if ($sms_send_individual_request === null || (is_array($sms_send_individual_request) && count($sms_send_individual_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sms_send_individualrequest when calling smsSendIndividual'
+                'Missing the required parameter $sms_send_individual_request when calling smsSendIndividual'
             );
         }
 
@@ -1109,12 +1109,12 @@ class CampaignSMSApi
         );
 
         // for model (json/xml)
-        if (isset($sms_send_individualrequest)) {
+        if (isset($sms_send_individual_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sms_send_individualrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sms_send_individual_request));
             } else {
-                $httpBody = $sms_send_individualrequest;
+                $httpBody = $sms_send_individual_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

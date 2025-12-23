@@ -10,7 +10,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `internal2faPrice()`
 
 ```php
-internal2faPrice($channel_type, $currency, $tariff_code, $country_code, $operator_id): \BSG\Api\V2\Model\Internal2faPrice200response
+internal2faPrice($channel_type, $currency, $tariff_code, $country_code, $operator_id): \BSG\Api\V2\Model\Internal2faPrice200Response
 ```
 
 Show 2FA authentication full price
@@ -33,9 +33,9 @@ $apiInstance = new BSG\Api\V2\Api\Internal2FAApi(
     $config
 );
 $channel_type = 'channel_type_example'; // string
-$currency = EUR; // string
+$currency = 'EUR'; //  string
 $tariff_code = 28; // int
-$country_code = UA; // string
+$country_code = 'UA'; //  string
 $operator_id = 1; // int
 
 try {
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Internal2faPrice200response**](../Model/Internal2faPrice200response.md)
+[**\BSG\Api\V2\Model\Internal2faPrice200Response**](../Model/Internal2faPrice200Response.md)
 
 ### Authorization
 

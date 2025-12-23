@@ -144,7 +144,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Campaign200response
+     * @return \BSG\Api\V2\Model\Campaign200Response
      */
     public function campaign($id, string $contentType = self::contentTypes['campaign'][0])
     {
@@ -162,7 +162,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Campaign200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\Campaign200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function campaignWithHttpInfo($id, string $contentType = self::contentTypes['campaign'][0])
     {
@@ -193,11 +193,11 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Campaign200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\Campaign200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Campaign200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\Campaign200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -215,7 +215,7 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Campaign200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Campaign200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -234,7 +234,7 @@ class CampaignApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Campaign200response';
+            $returnType = '\BSG\Api\V2\Model\Campaign200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -267,7 +267,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Campaign200response',
+                        '\BSG\Api\V2\Model\Campaign200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -311,7 +311,7 @@ class CampaignApi
      */
     public function campaignAsyncWithHttpInfo($id, string $contentType = self::contentTypes['campaign'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Campaign200response';
+        $returnType = '\BSG\Api\V2\Model\Campaign200Response';
         $request = $this->campaignRequest($id, $contentType);
 
         return $this->client
@@ -456,7 +456,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\CampaignDetails200response
+     * @return \BSG\Api\V2\Model\CampaignDetails200Response
      */
     public function campaignDetails($id, string $contentType = self::contentTypes['campaignDetails'][0])
     {
@@ -474,7 +474,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\CampaignDetails200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\CampaignDetails200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function campaignDetailsWithHttpInfo($id, string $contentType = self::contentTypes['campaignDetails'][0])
     {
@@ -505,11 +505,11 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\CampaignDetails200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\CampaignDetails200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\CampaignDetails200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\CampaignDetails200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -527,7 +527,7 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignDetails200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignDetails200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -546,7 +546,7 @@ class CampaignApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\CampaignDetails200response';
+            $returnType = '\BSG\Api\V2\Model\CampaignDetails200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -579,7 +579,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\CampaignDetails200response',
+                        '\BSG\Api\V2\Model\CampaignDetails200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -623,7 +623,7 @@ class CampaignApi
      */
     public function campaignDetailsAsyncWithHttpInfo($id, string $contentType = self::contentTypes['campaignDetails'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\CampaignDetails200response';
+        $returnType = '\BSG\Api\V2\Model\CampaignDetails200Response';
         $request = $this->campaignDetailsRequest($id, $contentType);
 
         return $this->client
@@ -763,16 +763,16 @@ class CampaignApi
      *
      * Calculate campaign price
      *
-     * @param  \BSG\Api\V2\Model\CampaignPricerequest $campaign_pricerequest campaign_pricerequest (required)
+     * @param  \BSG\Api\V2\Model\CampaignPriceRequest $campaign_price_request campaign_price_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignPrice'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\CampaignPrice200response|\BSG\Api\V2\Model\CampaignPrice422response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\CampaignPrice200Response|\BSG\Api\V2\Model\CampaignPrice422Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function campaignPrice($campaign_pricerequest, string $contentType = self::contentTypes['campaignPrice'][0])
+    public function campaignPrice($campaign_price_request, string $contentType = self::contentTypes['campaignPrice'][0])
     {
-        list($response) = $this->campaignPriceWithHttpInfo($campaign_pricerequest, $contentType);
+        list($response) = $this->campaignPriceWithHttpInfo($campaign_price_request, $contentType);
         return $response;
     }
 
@@ -781,16 +781,16 @@ class CampaignApi
      *
      * Calculate campaign price
      *
-     * @param  \BSG\Api\V2\Model\CampaignPricerequest $campaign_pricerequest (required)
+     * @param  \BSG\Api\V2\Model\CampaignPriceRequest $campaign_price_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignPrice'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\CampaignPrice200response|\BSG\Api\V2\Model\CampaignPrice422response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\CampaignPrice200Response|\BSG\Api\V2\Model\CampaignPrice422Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function campaignPriceWithHttpInfo($campaign_pricerequest, string $contentType = self::contentTypes['campaignPrice'][0])
+    public function campaignPriceWithHttpInfo($campaign_price_request, string $contentType = self::contentTypes['campaignPrice'][0])
     {
-        $request = $this->campaignPriceRequest($campaign_pricerequest, $contentType);
+        $request = $this->campaignPriceRequest($campaign_price_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -817,11 +817,11 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\CampaignPrice200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\CampaignPrice200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\CampaignPrice200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\CampaignPrice200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -839,16 +839,16 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignPrice200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignPrice200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\CampaignPrice422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\CampaignPrice422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\CampaignPrice422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\CampaignPrice422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -866,16 +866,16 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignPrice422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignPrice422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -893,7 +893,7 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -912,7 +912,7 @@ class CampaignApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\CampaignPrice200response';
+            $returnType = '\BSG\Api\V2\Model\CampaignPrice200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -945,7 +945,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\CampaignPrice200response',
+                        '\BSG\Api\V2\Model\CampaignPrice200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -953,7 +953,7 @@ class CampaignApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\CampaignPrice422response',
+                        '\BSG\Api\V2\Model\CampaignPrice422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -961,7 +961,7 @@ class CampaignApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -976,15 +976,15 @@ class CampaignApi
      *
      * Calculate campaign price
      *
-     * @param  \BSG\Api\V2\Model\CampaignPricerequest $campaign_pricerequest (required)
+     * @param  \BSG\Api\V2\Model\CampaignPriceRequest $campaign_price_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function campaignPriceAsync($campaign_pricerequest, string $contentType = self::contentTypes['campaignPrice'][0])
+    public function campaignPriceAsync($campaign_price_request, string $contentType = self::contentTypes['campaignPrice'][0])
     {
-        return $this->campaignPriceAsyncWithHttpInfo($campaign_pricerequest, $contentType)
+        return $this->campaignPriceAsyncWithHttpInfo($campaign_price_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -997,16 +997,16 @@ class CampaignApi
      *
      * Calculate campaign price
      *
-     * @param  \BSG\Api\V2\Model\CampaignPricerequest $campaign_pricerequest (required)
+     * @param  \BSG\Api\V2\Model\CampaignPriceRequest $campaign_price_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function campaignPriceAsyncWithHttpInfo($campaign_pricerequest, string $contentType = self::contentTypes['campaignPrice'][0])
+    public function campaignPriceAsyncWithHttpInfo($campaign_price_request, string $contentType = self::contentTypes['campaignPrice'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\CampaignPrice200response';
-        $request = $this->campaignPriceRequest($campaign_pricerequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\CampaignPrice200Response';
+        $request = $this->campaignPriceRequest($campaign_price_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1047,19 +1047,19 @@ class CampaignApi
     /**
      * Create request for operation 'campaignPrice'
      *
-     * @param  \BSG\Api\V2\Model\CampaignPricerequest $campaign_pricerequest (required)
+     * @param  \BSG\Api\V2\Model\CampaignPriceRequest $campaign_price_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignPrice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function campaignPriceRequest($campaign_pricerequest, string $contentType = self::contentTypes['campaignPrice'][0])
+    public function campaignPriceRequest($campaign_price_request, string $contentType = self::contentTypes['campaignPrice'][0])
     {
 
-        // verify the required parameter 'campaign_pricerequest' is set
-        if ($campaign_pricerequest === null || (is_array($campaign_pricerequest) && count($campaign_pricerequest) === 0)) {
+        // verify the required parameter 'campaign_price_request' is set
+        if ($campaign_price_request === null || (is_array($campaign_price_request) && count($campaign_price_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $campaign_pricerequest when calling campaignPrice'
+                'Missing the required parameter $campaign_price_request when calling campaignPrice'
             );
         }
 
@@ -1082,12 +1082,12 @@ class CampaignApi
         );
 
         // for model (json/xml)
-        if (isset($campaign_pricerequest)) {
+        if (isset($campaign_price_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($campaign_pricerequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($campaign_price_request));
             } else {
-                $httpBody = $campaign_pricerequest;
+                $httpBody = $campaign_price_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1149,7 +1149,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\CampaignStop200response|\BSG\Api\V2\Model\CampaignStop422response
+     * @return \BSG\Api\V2\Model\CampaignStop200Response|\BSG\Api\V2\Model\CampaignStop422Response
      */
     public function campaignStop($id, string $contentType = self::contentTypes['campaignStop'][0])
     {
@@ -1167,7 +1167,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\CampaignStop200response|\BSG\Api\V2\Model\CampaignStop422response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\CampaignStop200Response|\BSG\Api\V2\Model\CampaignStop422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function campaignStopWithHttpInfo($id, string $contentType = self::contentTypes['campaignStop'][0])
     {
@@ -1198,11 +1198,11 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\CampaignStop200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\CampaignStop200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\CampaignStop200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\CampaignStop200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1220,16 +1220,16 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignStop200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignStop200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\CampaignStop422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\CampaignStop422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\CampaignStop422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\CampaignStop422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1247,7 +1247,7 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignStop422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignStop422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1266,7 +1266,7 @@ class CampaignApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\CampaignStop200response';
+            $returnType = '\BSG\Api\V2\Model\CampaignStop200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1299,7 +1299,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\CampaignStop200response',
+                        '\BSG\Api\V2\Model\CampaignStop200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1307,7 +1307,7 @@ class CampaignApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\CampaignStop422response',
+                        '\BSG\Api\V2\Model\CampaignStop422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1351,7 +1351,7 @@ class CampaignApi
      */
     public function campaignStopAsyncWithHttpInfo($id, string $contentType = self::contentTypes['campaignStop'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\CampaignStop200response';
+        $returnType = '\BSG\Api\V2\Model\CampaignStop200Response';
         $request = $this->campaignStopRequest($id, $contentType);
 
         return $this->client

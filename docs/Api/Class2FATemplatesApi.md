@@ -13,7 +13,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `otpTemplate()`
 
 ```php
-otpTemplate($template_id): \BSG\Api\V2\Model\OtpTemplate200response
+otpTemplate($template_id): \BSG\Api\V2\Model\OtpTemplate200Response
 ```
 
 Get message template
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\OtpTemplate200response**](../Model/OtpTemplate200response.md)
+[**\BSG\Api\V2\Model\OtpTemplate200Response**](../Model/OtpTemplate200Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `otpTemplateCreate()`
 
 ```php
-otpTemplateCreate($otp_template_createrequest): \BSG\Api\V2\Model\OtpTemplateCreate200response
+otpTemplateCreate($otp_template_create_request): \BSG\Api\V2\Model\OtpTemplateCreate200Response
 ```
 
 Create a message template
@@ -96,10 +96,10 @@ $apiInstance = new BSG\Api\V2\Api\Class2FATemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$otp_template_createrequest = json_decode('new \BSG\Api\V2\Model\OtpTemplateCreaterequest()', true); // \BSG\Api\V2\Model\OtpTemplateCreaterequest
+$otp_template_create_request = new \BSG\Api\V2\Model\OtpTemplateCreateRequest(); // \BSG\Api\V2\Model\OtpTemplateCreateRequest
 
 try {
-    $result = $apiInstance->otpTemplateCreate($otp_template_createrequest);
+    $result = $apiInstance->otpTemplateCreate($otp_template_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling Class2FATemplatesApi->otpTemplateCreate: ', $e->getMessage(), PHP_EOL;
@@ -111,11 +111,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **otp_template_createrequest** | [**\BSG\Api\V2\Model\OtpTemplateCreaterequest**](../Model/OtpTemplateCreaterequest.md) |  | |
+| **otp_template_create_request** | [**\BSG\Api\V2\Model\OtpTemplateCreateRequest**](../Model/OtpTemplateCreateRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\OtpTemplateCreate200response**](../Model/OtpTemplateCreate200response.md)
+[**\BSG\Api\V2\Model\OtpTemplateCreate200Response**](../Model/OtpTemplateCreate200Response.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ try {
 ## `otpTemplateDelete()`
 
 ```php
-otpTemplateDelete($template_id): \BSG\Api\V2\Model\OtpTemplateDelete200response
+otpTemplateDelete($template_id): \BSG\Api\V2\Model\OtpTemplateDelete200Response
 ```
 
 Delete a message template
@@ -176,7 +176,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\OtpTemplateDelete200response**](../Model/OtpTemplateDelete200response.md)
+[**\BSG\Api\V2\Model\OtpTemplateDelete200Response**](../Model/OtpTemplateDelete200Response.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ try {
 ## `otpTemplateList()`
 
 ```php
-otpTemplateList($page_offset, $page_limit, $filter_ids, $filter_status, $sort, $way): \BSG\Api\V2\Model\OtpTemplateList200response
+otpTemplateList($page_offset, $page_limit, $filter_ids, $filter_status, $sort, $way): \BSG\Api\V2\Model\OtpTemplateList200Response
 ```
 
 List of message templates
@@ -223,7 +223,7 @@ $page_limit = 10; // int
 $filter_ids = array(56); // int[]
 $filter_status = 'filter_status_example'; // string
 $sort = 'template_id'; // string | Sorting by
-$way = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SortWay(); // \BSG\Api\V2\Model\SortWay
+$way = \BSG\Api\V2\Model\SortWay::ASC; // string, one of \BSG\Api\V2\Model\SortWay::*
 
 try {
     $result = $apiInstance->otpTemplateList($page_offset, $page_limit, $filter_ids, $filter_status, $sort, $way);
@@ -247,7 +247,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\OtpTemplateList200response**](../Model/OtpTemplateList200response.md)
+[**\BSG\Api\V2\Model\OtpTemplateList200Response**](../Model/OtpTemplateList200Response.md)
 
 ### Authorization
 

@@ -33,7 +33,7 @@ $apiInstance = new BSG\Api\V2\Api\CampaignWhatsAppApi(
     new GuzzleHttp\Client(),
     $config
 );
-$send_whats_app_campaign = json_decode('new \BSG\Api\V2\Model\SendWhatsAppCampaign()', true); // \BSG\Api\V2\Model\SendWhatsAppCampaign
+$send_whats_app_campaign = new \BSG\Api\V2\Model\SendWhatsAppCampaign(); // \BSG\Api\V2\Model\SendWhatsAppCampaign
 
 try {
     $result = $apiInstance->whatsappCampaignSend($send_whats_app_campaign);
@@ -70,7 +70,7 @@ try {
 ## `whatsappSingle()`
 
 ```php
-whatsappSingle($whats_app_message): \BSG\Api\V2\Model\WhatsappSingle200response
+whatsappSingle($whats_app_message): \BSG\Api\V2\Model\WhatsappSingle200Response
 ```
 
 Send single WhatsApp message
@@ -94,8 +94,29 @@ $apiInstance = new BSG\Api\V2\Api\CampaignWhatsAppApi(
     new GuzzleHttp\Client(),
     $config
 );
-$whats_app_message = json_decode('{"phone":{"number":"380661231231"},"sender":"whatsapp_sender","template":{"name":"whatsapp_test","language":{"code":"en"},"components":[{"type":"body","parameters":[{"type":"text","text":"Hello! ☺️"}]}]}}', true); // \BSG\Api\V2\Model\WhatsAppMessage
-
+$whats_app_message = new \BSG\Api\V2\Model\WhatsAppMessage([
+    'phone' => [
+        'number' => '380661231231',
+    ],
+    'sender' => 'whatsapp_sender',
+    'template' => [
+        'name' => 'whatsapp_test',
+        'language' => [
+            'code' => 'en',
+        ],
+        'components' => [
+            0 => [
+                'type' => 'body',
+                'parameters' => [
+                    0 => [
+                        'type' => 'text',
+                        'text' => 'Hello! ☺️',
+                    ],
+                ],
+            ],
+        ],
+    ],
+]);
 try {
     $result = $apiInstance->whatsappSingle($whats_app_message);
     print_r($result);
@@ -113,7 +134,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\WhatsappSingle200response**](../Model/WhatsappSingle200response.md)
+[**\BSG\Api\V2\Model\WhatsappSingle200Response**](../Model/WhatsappSingle200Response.md)
 
 ### Authorization
 

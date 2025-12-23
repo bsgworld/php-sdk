@@ -17,7 +17,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `contactList()`
 
 ```php
-contactList($id): \BSG\Api\V2\Model\ContactList200response
+contactList($id): \BSG\Api\V2\Model\ContactList200Response
 ```
 
 Get list by id
@@ -60,7 +60,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactList200response**](../Model/ContactList200response.md)
+[**\BSG\Api\V2\Model\ContactList200Response**](../Model/ContactList200Response.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ try {
 ## `contactListAttach()`
 
 ```php
-contactListAttach($contact_list_attachrequest): object
+contactListAttach($contact_list_attach_request): object
 ```
 
 Add contacts to the list
@@ -102,10 +102,19 @@ $apiInstance = new BSG\Api\V2\Api\ContactListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_list_attachrequest = json_decode('{"contacts":[248452959,248452739,248452740],"groups":[1864623,1864621]}', true); // \BSG\Api\V2\Model\ContactListAttachrequest
-
+$contact_list_attach_request = new \BSG\Api\V2\Model\ContactListAttachRequest([
+    'contacts' => [
+        0 => 248452959,
+        1 => 248452739,
+        2 => 248452740,
+    ],
+    'groups' => [
+        0 => 1864623,
+        1 => 1864621,
+    ],
+]);
 try {
-    $result = $apiInstance->contactListAttach($contact_list_attachrequest);
+    $result = $apiInstance->contactListAttach($contact_list_attach_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListApi->contactListAttach: ', $e->getMessage(), PHP_EOL;
@@ -117,7 +126,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_list_attachrequest** | [**\BSG\Api\V2\Model\ContactListAttachrequest**](../Model/ContactListAttachrequest.md) |  | |
+| **contact_list_attach_request** | [**\BSG\Api\V2\Model\ContactListAttachRequest**](../Model/ContactListAttachRequest.md) |  | |
 
 ### Return type
 
@@ -139,7 +148,7 @@ try {
 ## `contactListCreate()`
 
 ```php
-contactListCreate($contact_list_createrequest): \BSG\Api\V2\Model\ContactListCreate201response
+contactListCreate($contact_list_create_request): \BSG\Api\V2\Model\ContactListCreate201Response
 ```
 
 Create list
@@ -163,10 +172,11 @@ $apiInstance = new BSG\Api\V2\Api\ContactListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_list_createrequest = json_decode('{"name":"new list 123"}', true); // \BSG\Api\V2\Model\ContactListCreaterequest
-
+$contact_list_create_request = new \BSG\Api\V2\Model\ContactListCreateRequest([
+    'name' => 'new list 123',
+]);
 try {
-    $result = $apiInstance->contactListCreate($contact_list_createrequest);
+    $result = $apiInstance->contactListCreate($contact_list_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListApi->contactListCreate: ', $e->getMessage(), PHP_EOL;
@@ -178,11 +188,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_list_createrequest** | [**\BSG\Api\V2\Model\ContactListCreaterequest**](../Model/ContactListCreaterequest.md) |  | |
+| **contact_list_create_request** | [**\BSG\Api\V2\Model\ContactListCreateRequest**](../Model/ContactListCreateRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactListCreate201response**](../Model/ContactListCreate201response.md)
+[**\BSG\Api\V2\Model\ContactListCreate201Response**](../Model/ContactListCreate201Response.md)
 
 ### Authorization
 
@@ -260,7 +270,7 @@ void (empty response body)
 ## `contactListDetach()`
 
 ```php
-contactListDetach($contact_list_detachrequest): object
+contactListDetach($contact_list_detach_request): object
 ```
 
 Remove contacts from the list
@@ -284,10 +294,19 @@ $apiInstance = new BSG\Api\V2\Api\ContactListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_list_detachrequest = json_decode('{"contacts":[248452959,248452739,248452740],"groups":[1864623,1864621]}', true); // \BSG\Api\V2\Model\ContactListDetachrequest
-
+$contact_list_detach_request = new \BSG\Api\V2\Model\ContactListDetachRequest([
+    'contacts' => [
+        0 => 248452959,
+        1 => 248452739,
+        2 => 248452740,
+    ],
+    'groups' => [
+        0 => 1864623,
+        1 => 1864621,
+    ],
+]);
 try {
-    $result = $apiInstance->contactListDetach($contact_list_detachrequest);
+    $result = $apiInstance->contactListDetach($contact_list_detach_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListApi->contactListDetach: ', $e->getMessage(), PHP_EOL;
@@ -299,7 +318,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_list_detachrequest** | [**\BSG\Api\V2\Model\ContactListDetachrequest**](../Model/ContactListDetachrequest.md) |  | |
+| **contact_list_detach_request** | [**\BSG\Api\V2\Model\ContactListDetachRequest**](../Model/ContactListDetachRequest.md) |  | |
 
 ### Return type
 
@@ -321,7 +340,7 @@ try {
 ## `contactListSearch()`
 
 ```php
-contactListSearch($page_offset, $page_limit, $sort, $way, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value): \BSG\Api\V2\Model\ContactListSearch200response
+contactListSearch($page_offset, $page_limit, $sort, $way, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value): \BSG\Api\V2\Model\ContactListSearch200Response
 ```
 
 Search list
@@ -348,12 +367,12 @@ $apiInstance = new BSG\Api\V2\Api\ContactListApi(
 $page_offset = 0; // int
 $page_limit = 50; // int | The number of items in the response
 $sort = 'id'; // string
-$way = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SortWay(); // \BSG\Api\V2\Model\SortWay
-$search_field = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\ContactGroupSearchField(); // \BSG\Api\V2\Model\ContactGroupSearchField
-$search_operator = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SearchOperator(); // \BSG\Api\V2\Model\SearchOperator
+$way = \BSG\Api\V2\Model\SortWay::ASC; // string, one of \BSG\Api\V2\Model\SortWay::*
+$search_field = \BSG\Api\V2\Model\ContactGroupSearchField::ID; // string, one of \BSG\Api\V2\Model\ContactGroupSearchField::*
+$search_operator = \BSG\Api\V2\Model\SearchOperator::LIKE; // string, one of \BSG\Api\V2\Model\SearchOperator::*
 $search_value = 'search_value_example'; // string
-$search_fields_0_field = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\ContactGroupSearchField(); // \BSG\Api\V2\Model\ContactGroupSearchField
-$search_fields_0_operator = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SearchOperator(); // \BSG\Api\V2\Model\SearchOperator
+$search_fields_0_field = \BSG\Api\V2\Model\ContactGroupSearchField::ID; // string, one of \BSG\Api\V2\Model\ContactGroupSearchField::*
+$search_fields_0_operator = \BSG\Api\V2\Model\SearchOperator::LIKE; // string, one of \BSG\Api\V2\Model\SearchOperator::*
 $search_fields_0_value = 'search_fields_0_value_example'; // string
 
 try {
@@ -382,7 +401,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactListSearch200response**](../Model/ContactListSearch200response.md)
+[**\BSG\Api\V2\Model\ContactListSearch200Response**](../Model/ContactListSearch200Response.md)
 
 ### Authorization
 
@@ -400,7 +419,7 @@ try {
 ## `contactListUpdate()`
 
 ```php
-contactListUpdate($id, $contact_list_updaterequest): \BSG\Api\V2\Model\ContactListUpdate200response
+contactListUpdate($id, $contact_list_update_request): \BSG\Api\V2\Model\ContactListUpdate200Response
 ```
 
 Update list
@@ -425,10 +444,10 @@ $apiInstance = new BSG\Api\V2\Api\ContactListApi(
     $config
 );
 $id = 56; // int
-$contact_list_updaterequest = json_decode('new \BSG\Api\V2\Model\ContactListUpdaterequest()', true); // \BSG\Api\V2\Model\ContactListUpdaterequest
+$contact_list_update_request = new \BSG\Api\V2\Model\ContactListUpdateRequest(); // \BSG\Api\V2\Model\ContactListUpdateRequest
 
 try {
-    $result = $apiInstance->contactListUpdate($id, $contact_list_updaterequest);
+    $result = $apiInstance->contactListUpdate($id, $contact_list_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactListApi->contactListUpdate: ', $e->getMessage(), PHP_EOL;
@@ -441,11 +460,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int** |  | |
-| **contact_list_updaterequest** | [**\BSG\Api\V2\Model\ContactListUpdaterequest**](../Model/ContactListUpdaterequest.md) |  | |
+| **contact_list_update_request** | [**\BSG\Api\V2\Model\ContactListUpdateRequest**](../Model/ContactListUpdateRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactListUpdate200response**](../Model/ContactListUpdate200response.md)
+[**\BSG\Api\V2\Model\ContactListUpdate200Response**](../Model/ContactListUpdate200Response.md)
 
 ### Authorization
 
@@ -463,7 +482,7 @@ try {
 ## `contactLists()`
 
 ```php
-contactLists($page_offset, $page_limit): \BSG\Api\V2\Model\ContactLists200response
+contactLists($page_offset, $page_limit): \BSG\Api\V2\Model\ContactLists200Response
 ```
 
 List of contact lists
@@ -508,7 +527,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactLists200response**](../Model/ContactLists200response.md)
+[**\BSG\Api\V2\Model\ContactLists200Response**](../Model/ContactLists200Response.md)
 
 ### Authorization
 

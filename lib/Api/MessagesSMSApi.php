@@ -140,7 +140,7 @@ class MessagesSMSApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\SmsMessagesFind200response
+     * @return \BSG\Api\V2\Model\GetMessages200Response
      */
     public function smsMessagesFind($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
     {
@@ -166,7 +166,7 @@ class MessagesSMSApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\SmsMessagesFind200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\GetMessages200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function smsMessagesFindWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
     {
@@ -197,11 +197,11 @@ class MessagesSMSApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\SmsMessagesFind200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\GetMessages200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\SmsMessagesFind200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\GetMessages200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -219,7 +219,7 @@ class MessagesSMSApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SmsMessagesFind200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\GetMessages200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -238,7 +238,7 @@ class MessagesSMSApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\SmsMessagesFind200response';
+            $returnType = '\BSG\Api\V2\Model\GetMessages200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -271,7 +271,7 @@ class MessagesSMSApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\SmsMessagesFind200response',
+                        '\BSG\Api\V2\Model\GetMessages200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -331,7 +331,7 @@ class MessagesSMSApi
      */
     public function smsMessagesFindAsyncWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\SmsMessagesFind200response';
+        $returnType = '\BSG\Api\V2\Model\GetMessages200Response';
         $request = $this->smsMessagesFindRequest($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
 
         return $this->client

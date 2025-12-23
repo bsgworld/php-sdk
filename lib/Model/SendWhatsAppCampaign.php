@@ -61,7 +61,7 @@ class SendWhatsAppCampaign implements ModelInterface, ArrayAccess, \JsonSerializ
         'sender' => 'string',
         'type' => 'string',
         'template' => '\BSG\Api\V2\Model\Template',
-        'alternative_channel' => '\BSG\Api\V2\Model\SendwhatsappcampaignAlternativeChannel',
+        'alternative_channel' => '\BSG\Api\V2\Model\SendWhatsAppCampaignAlternativeChannel',
         'start_at' => '\DateTime',
         'add_to_contact_book' => 'bool',
         'check_stop_list' => 'bool'
@@ -520,7 +520,7 @@ class SendWhatsAppCampaign implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets alternative_channel
      *
-     * @return \BSG\Api\V2\Model\SendwhatsappcampaignAlternativeChannel|null
+     * @return \BSG\Api\V2\Model\SendWhatsAppCampaignAlternativeChannel|null
      */
     public function getAlternativeChannel()
     {
@@ -530,7 +530,7 @@ class SendWhatsAppCampaign implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets alternative_channel
      *
-     * @param \BSG\Api\V2\Model\SendwhatsappcampaignAlternativeChannel|null $alternative_channel alternative_channel
+     * @param \BSG\Api\V2\Model\SendWhatsAppCampaignAlternativeChannel|null $alternative_channel alternative_channel
      *
      * @return self
      */

@@ -13,7 +13,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `contactFieldCreate()`
 
 ```php
-contactFieldCreate($contact_field_createrequest): \BSG\Api\V2\Model\ContactFieldCreate201response
+contactFieldCreate($contact_field_create_request): \BSG\Api\V2\Model\ContactFieldCreate201Response
 ```
 
 Create contact field
@@ -37,10 +37,10 @@ $apiInstance = new BSG\Api\V2\Api\ContactFieldApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_field_createrequest = json_decode('new \BSG\Api\V2\Model\ContactFieldCreaterequest()', true); // \BSG\Api\V2\Model\ContactFieldCreaterequest
+$contact_field_create_request = new \BSG\Api\V2\Model\ContactFieldCreateRequest(); // \BSG\Api\V2\Model\ContactFieldCreateRequest
 
 try {
-    $result = $apiInstance->contactFieldCreate($contact_field_createrequest);
+    $result = $apiInstance->contactFieldCreate($contact_field_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->contactFieldCreate: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_field_createrequest** | [**\BSG\Api\V2\Model\ContactFieldCreaterequest**](../Model/ContactFieldCreaterequest.md) |  | |
+| **contact_field_create_request** | [**\BSG\Api\V2\Model\ContactFieldCreateRequest**](../Model/ContactFieldCreateRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactFieldCreate201response**](../Model/ContactFieldCreate201response.md)
+[**\BSG\Api\V2\Model\ContactFieldCreate201Response**](../Model/ContactFieldCreate201Response.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `contactFieldUpdate()`
 
 ```php
-contactFieldUpdate($id, $contact_field_updaterequest): \BSG\Api\V2\Model\ContactFieldUpdate200response
+contactFieldUpdate($id, $contact_field_update_request): \BSG\Api\V2\Model\ContactFieldUpdate200Response
 ```
 
 Update contact field
@@ -99,10 +99,10 @@ $apiInstance = new BSG\Api\V2\Api\ContactFieldApi(
     $config
 );
 $id = 56; // int | Contact field id
-$contact_field_updaterequest = json_decode('new \BSG\Api\V2\Model\ContactFieldUpdaterequest()', true); // \BSG\Api\V2\Model\ContactFieldUpdaterequest
+$contact_field_update_request = new \BSG\Api\V2\Model\ContactFieldUpdateRequest(); // \BSG\Api\V2\Model\ContactFieldUpdateRequest
 
 try {
-    $result = $apiInstance->contactFieldUpdate($id, $contact_field_updaterequest);
+    $result = $apiInstance->contactFieldUpdate($id, $contact_field_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->contactFieldUpdate: ', $e->getMessage(), PHP_EOL;
@@ -115,11 +115,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int** | Contact field id | |
-| **contact_field_updaterequest** | [**\BSG\Api\V2\Model\ContactFieldUpdaterequest**](../Model/ContactFieldUpdaterequest.md) |  | |
+| **contact_field_update_request** | [**\BSG\Api\V2\Model\ContactFieldUpdateRequest**](../Model/ContactFieldUpdateRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactFieldUpdate200response**](../Model/ContactFieldUpdate200response.md)
+[**\BSG\Api\V2\Model\ContactFieldUpdate200Response**](../Model/ContactFieldUpdate200Response.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ This endpoint does not need any parameter.
 ## `contactFieldsDeleteBatch()`
 
 ```php
-contactFieldsDeleteBatch($contact_fields_delete_batchrequest): object
+contactFieldsDeleteBatch($post_contacts_fields_delete_request): object
 ```
 
 Delete contact fields by ids
@@ -218,10 +218,10 @@ $apiInstance = new BSG\Api\V2\Api\ContactFieldApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contact_fields_delete_batchrequest = json_decode('new \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest()', true); // \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest
+$post_contacts_fields_delete_request = new \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest(); // \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest
 
 try {
-    $result = $apiInstance->contactFieldsDeleteBatch($contact_fields_delete_batchrequest);
+    $result = $apiInstance->contactFieldsDeleteBatch($post_contacts_fields_delete_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactFieldApi->contactFieldsDeleteBatch: ', $e->getMessage(), PHP_EOL;
@@ -233,7 +233,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **contact_fields_delete_batchrequest** | [**\BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest**](../Model/ContactFieldsDeleteBatchrequest.md) |  | |
+| **post_contacts_fields_delete_request** | [**\BSG\Api\V2\Model\PostContactsFieldsDeleteRequest**](../Model/PostContactsFieldsDeleteRequest.md) |  | |
 
 ### Return type
 

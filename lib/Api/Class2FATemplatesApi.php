@@ -141,7 +141,7 @@ class Class2FATemplatesApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\OtpTemplate200response|\BSG\Api\V2\Model\OtpTemplate404response
+     * @return \BSG\Api\V2\Model\OtpTemplate200Response|\BSG\Api\V2\Model\OtpTemplate404Response
      */
     public function otpTemplate($template_id, string $contentType = self::contentTypes['otpTemplate'][0])
     {
@@ -159,7 +159,7 @@ class Class2FATemplatesApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\OtpTemplate200response|\BSG\Api\V2\Model\OtpTemplate404response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\OtpTemplate200Response|\BSG\Api\V2\Model\OtpTemplate404Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function otpTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['otpTemplate'][0])
     {
@@ -190,11 +190,11 @@ class Class2FATemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\OtpTemplate200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\OtpTemplate200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\OtpTemplate200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\OtpTemplate200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -212,16 +212,16 @@ class Class2FATemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplate200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplate200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\BSG\Api\V2\Model\OtpTemplate404response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\OtpTemplate404Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\OtpTemplate404response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\OtpTemplate404Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -239,7 +239,7 @@ class Class2FATemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplate404response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplate404Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -258,7 +258,7 @@ class Class2FATemplatesApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\OtpTemplate200response';
+            $returnType = '\BSG\Api\V2\Model\OtpTemplate200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -291,7 +291,7 @@ class Class2FATemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\OtpTemplate200response',
+                        '\BSG\Api\V2\Model\OtpTemplate200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class Class2FATemplatesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\OtpTemplate404response',
+                        '\BSG\Api\V2\Model\OtpTemplate404Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -343,7 +343,7 @@ class Class2FATemplatesApi
      */
     public function otpTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['otpTemplate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\OtpTemplate200response';
+        $returnType = '\BSG\Api\V2\Model\OtpTemplate200Response';
         $request = $this->otpTemplateRequest($template_id, $contentType);
 
         return $this->client
@@ -483,16 +483,16 @@ class Class2FATemplatesApi
      *
      * Create a message template
      *
-     * @param  \BSG\Api\V2\Model\OtpTemplateCreaterequest $otp_template_createrequest otp_template_createrequest (required)
+     * @param  \BSG\Api\V2\Model\OtpTemplateCreateRequest $otp_template_create_request otp_template_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['otpTemplateCreate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\OtpTemplateCreate200response|\BSG\Api\V2\Model\OtpTemplateCreate422response
+     * @return \BSG\Api\V2\Model\OtpTemplateCreate200Response|\BSG\Api\V2\Model\OtpTemplateCreate422Response
      */
-    public function otpTemplateCreate($otp_template_createrequest, string $contentType = self::contentTypes['otpTemplateCreate'][0])
+    public function otpTemplateCreate($otp_template_create_request, string $contentType = self::contentTypes['otpTemplateCreate'][0])
     {
-        list($response) = $this->otpTemplateCreateWithHttpInfo($otp_template_createrequest, $contentType);
+        list($response) = $this->otpTemplateCreateWithHttpInfo($otp_template_create_request, $contentType);
         return $response;
     }
 
@@ -501,16 +501,16 @@ class Class2FATemplatesApi
      *
      * Create a message template
      *
-     * @param  \BSG\Api\V2\Model\OtpTemplateCreaterequest $otp_template_createrequest (required)
+     * @param  \BSG\Api\V2\Model\OtpTemplateCreateRequest $otp_template_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['otpTemplateCreate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\OtpTemplateCreate200response|\BSG\Api\V2\Model\OtpTemplateCreate422response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\OtpTemplateCreate200Response|\BSG\Api\V2\Model\OtpTemplateCreate422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function otpTemplateCreateWithHttpInfo($otp_template_createrequest, string $contentType = self::contentTypes['otpTemplateCreate'][0])
+    public function otpTemplateCreateWithHttpInfo($otp_template_create_request, string $contentType = self::contentTypes['otpTemplateCreate'][0])
     {
-        $request = $this->otpTemplateCreateRequest($otp_template_createrequest, $contentType);
+        $request = $this->otpTemplateCreateRequest($otp_template_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -537,11 +537,11 @@ class Class2FATemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\OtpTemplateCreate200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\OtpTemplateCreate200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\OtpTemplateCreate200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\OtpTemplateCreate200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -559,16 +559,16 @@ class Class2FATemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateCreate200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateCreate200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\OtpTemplateCreate422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\OtpTemplateCreate422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\OtpTemplateCreate422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\OtpTemplateCreate422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -586,7 +586,7 @@ class Class2FATemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateCreate422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateCreate422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -605,7 +605,7 @@ class Class2FATemplatesApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\OtpTemplateCreate200response';
+            $returnType = '\BSG\Api\V2\Model\OtpTemplateCreate200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -638,7 +638,7 @@ class Class2FATemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\OtpTemplateCreate200response',
+                        '\BSG\Api\V2\Model\OtpTemplateCreate200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -646,7 +646,7 @@ class Class2FATemplatesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\OtpTemplateCreate422response',
+                        '\BSG\Api\V2\Model\OtpTemplateCreate422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -661,15 +661,15 @@ class Class2FATemplatesApi
      *
      * Create a message template
      *
-     * @param  \BSG\Api\V2\Model\OtpTemplateCreaterequest $otp_template_createrequest (required)
+     * @param  \BSG\Api\V2\Model\OtpTemplateCreateRequest $otp_template_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['otpTemplateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function otpTemplateCreateAsync($otp_template_createrequest, string $contentType = self::contentTypes['otpTemplateCreate'][0])
+    public function otpTemplateCreateAsync($otp_template_create_request, string $contentType = self::contentTypes['otpTemplateCreate'][0])
     {
-        return $this->otpTemplateCreateAsyncWithHttpInfo($otp_template_createrequest, $contentType)
+        return $this->otpTemplateCreateAsyncWithHttpInfo($otp_template_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -682,16 +682,16 @@ class Class2FATemplatesApi
      *
      * Create a message template
      *
-     * @param  \BSG\Api\V2\Model\OtpTemplateCreaterequest $otp_template_createrequest (required)
+     * @param  \BSG\Api\V2\Model\OtpTemplateCreateRequest $otp_template_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['otpTemplateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function otpTemplateCreateAsyncWithHttpInfo($otp_template_createrequest, string $contentType = self::contentTypes['otpTemplateCreate'][0])
+    public function otpTemplateCreateAsyncWithHttpInfo($otp_template_create_request, string $contentType = self::contentTypes['otpTemplateCreate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\OtpTemplateCreate200response';
-        $request = $this->otpTemplateCreateRequest($otp_template_createrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\OtpTemplateCreate200Response';
+        $request = $this->otpTemplateCreateRequest($otp_template_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -732,19 +732,19 @@ class Class2FATemplatesApi
     /**
      * Create request for operation 'otpTemplateCreate'
      *
-     * @param  \BSG\Api\V2\Model\OtpTemplateCreaterequest $otp_template_createrequest (required)
+     * @param  \BSG\Api\V2\Model\OtpTemplateCreateRequest $otp_template_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['otpTemplateCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function otpTemplateCreateRequest($otp_template_createrequest, string $contentType = self::contentTypes['otpTemplateCreate'][0])
+    public function otpTemplateCreateRequest($otp_template_create_request, string $contentType = self::contentTypes['otpTemplateCreate'][0])
     {
 
-        // verify the required parameter 'otp_template_createrequest' is set
-        if ($otp_template_createrequest === null || (is_array($otp_template_createrequest) && count($otp_template_createrequest) === 0)) {
+        // verify the required parameter 'otp_template_create_request' is set
+        if ($otp_template_create_request === null || (is_array($otp_template_create_request) && count($otp_template_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $otp_template_createrequest when calling otpTemplateCreate'
+                'Missing the required parameter $otp_template_create_request when calling otpTemplateCreate'
             );
         }
 
@@ -767,12 +767,12 @@ class Class2FATemplatesApi
         );
 
         // for model (json/xml)
-        if (isset($otp_template_createrequest)) {
+        if (isset($otp_template_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($otp_template_createrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($otp_template_create_request));
             } else {
-                $httpBody = $otp_template_createrequest;
+                $httpBody = $otp_template_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -834,7 +834,7 @@ class Class2FATemplatesApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\OtpTemplateDelete200response|\BSG\Api\V2\Model\OtpTemplateDelete404response|\BSG\Api\V2\Model\OtpTemplateDelete422response
+     * @return \BSG\Api\V2\Model\OtpTemplateDelete200Response|\BSG\Api\V2\Model\OtpTemplateDelete404response|\BSG\Api\V2\Model\OtpTemplateDelete422response
      */
     public function otpTemplateDelete($template_id, string $contentType = self::contentTypes['otpTemplateDelete'][0])
     {
@@ -852,7 +852,7 @@ class Class2FATemplatesApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\OtpTemplateDelete200response|\BSG\Api\V2\Model\OtpTemplateDelete404response|\BSG\Api\V2\Model\OtpTemplateDelete422response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\OtpTemplateDelete200Response|\BSG\Api\V2\Model\OtpTemplateDelete404response|\BSG\Api\V2\Model\OtpTemplateDelete422response, HTTP status code, HTTP response headers (array of strings)
      */
     public function otpTemplateDeleteWithHttpInfo($template_id, string $contentType = self::contentTypes['otpTemplateDelete'][0])
     {
@@ -883,11 +883,11 @@ class Class2FATemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\OtpTemplateDelete200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\OtpTemplateDelete200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\OtpTemplateDelete200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\OtpTemplateDelete200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -905,7 +905,7 @@ class Class2FATemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateDelete200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateDelete200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -978,7 +978,7 @@ class Class2FATemplatesApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\OtpTemplateDelete200response';
+            $returnType = '\BSG\Api\V2\Model\OtpTemplateDelete200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1011,7 +1011,7 @@ class Class2FATemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\OtpTemplateDelete200response',
+                        '\BSG\Api\V2\Model\OtpTemplateDelete200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1071,7 +1071,7 @@ class Class2FATemplatesApi
      */
     public function otpTemplateDeleteAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['otpTemplateDelete'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\OtpTemplateDelete200response';
+        $returnType = '\BSG\Api\V2\Model\OtpTemplateDelete200Response';
         $request = $this->otpTemplateDeleteRequest($template_id, $contentType);
 
         return $this->client
@@ -1221,7 +1221,7 @@ class Class2FATemplatesApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\OtpTemplateList200response
+     * @return \BSG\Api\V2\Model\OtpTemplateList200Response
      */
     public function otpTemplateList($page_offset = 0, $page_limit = 10, $filter_ids = null, $filter_status = null, $sort = 'template_id', $way = null, string $contentType = self::contentTypes['otpTemplateList'][0])
     {
@@ -1244,7 +1244,7 @@ class Class2FATemplatesApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\OtpTemplateList200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\OtpTemplateList200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function otpTemplateListWithHttpInfo($page_offset = 0, $page_limit = 10, $filter_ids = null, $filter_status = null, $sort = 'template_id', $way = null, string $contentType = self::contentTypes['otpTemplateList'][0])
     {
@@ -1275,11 +1275,11 @@ class Class2FATemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\OtpTemplateList200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\OtpTemplateList200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\OtpTemplateList200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\OtpTemplateList200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1297,7 +1297,7 @@ class Class2FATemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateList200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\OtpTemplateList200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1316,7 +1316,7 @@ class Class2FATemplatesApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\OtpTemplateList200response';
+            $returnType = '\BSG\Api\V2\Model\OtpTemplateList200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1349,7 +1349,7 @@ class Class2FATemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\OtpTemplateList200response',
+                        '\BSG\Api\V2\Model\OtpTemplateList200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1403,7 +1403,7 @@ class Class2FATemplatesApi
      */
     public function otpTemplateListAsyncWithHttpInfo($page_offset = 0, $page_limit = 10, $filter_ids = null, $filter_status = null, $sort = 'template_id', $way = null, string $contentType = self::contentTypes['otpTemplateList'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\OtpTemplateList200response';
+        $returnType = '\BSG\Api\V2\Model\OtpTemplateList200Response';
         $request = $this->otpTemplateListRequest($page_offset, $page_limit, $filter_ids, $filter_status, $sort, $way, $contentType);
 
         return $this->client

@@ -68,7 +68,7 @@ class DetailCampaignSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'finished_at' => '\DateTime',
         'created_at' => '\DateTime',
         'statistics' => '\BSG\Api\V2\Model\StatisticsData',
-        'alternative_channels' => '\BSG\Api\V2\Model\DetailcampaignschemaAlternativeChannels',
+        'alternative_channels' => '\BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannels',
         'total_messages' => 'int',
         'total_phones' => 'int',
         'total_price' => 'float',
@@ -675,7 +675,7 @@ class DetailCampaignSchema implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets alternative_channels
      *
-     * @return \BSG\Api\V2\Model\DetailcampaignschemaAlternativeChannels|null
+     * @return \BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannels|null
      */
     public function getAlternativeChannels()
     {
@@ -685,7 +685,7 @@ class DetailCampaignSchema implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets alternative_channels
      *
-     * @param \BSG\Api\V2\Model\DetailcampaignschemaAlternativeChannels|null $alternative_channels alternative_channels
+     * @param \BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannels|null $alternative_channels alternative_channels
      *
      * @return self
      */

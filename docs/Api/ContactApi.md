@@ -16,7 +16,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `contact()`
 
 ```php
-contact($id): \BSG\Api\V2\Model\Contact200response
+contact($id): \BSG\Api\V2\Model\Contact200Response
 ```
 
 Get contact by ID
@@ -59,7 +59,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Contact200response**](../Model/Contact200response.md)
+[**\BSG\Api\V2\Model\Contact200Response**](../Model/Contact200Response.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `contactCreate()`
 
 ```php
-contactCreate($store_contact): \BSG\Api\V2\Model\ContactCreate201response
+contactCreate($store_contact): \BSG\Api\V2\Model\ContactCreate201Response
 ```
 
 Create a contact
@@ -101,8 +101,9 @@ $apiInstance = new BSG\Api\V2\Api\ContactApi(
     new GuzzleHttp\Client(),
     $config
 );
-$store_contact = json_decode('{"phone":61401629754}', true); // \BSG\Api\V2\Model\StoreContact
-
+$store_contact = new \BSG\Api\V2\Model\StoreContact([
+    'phone' => 61401629754,
+]);
 try {
     $result = $apiInstance->contactCreate($store_contact);
     print_r($result);
@@ -120,7 +121,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactCreate201response**](../Model/ContactCreate201response.md)
+[**\BSG\Api\V2\Model\ContactCreate201Response**](../Model/ContactCreate201Response.md)
 
 ### Authorization
 
@@ -199,7 +200,7 @@ try {
 ## `contactUpdate()`
 
 ```php
-contactUpdate($id, $contact_updaterequest): \BSG\Api\V2\Model\ContactUpdate200response
+contactUpdate($id, $contact_update_request): \BSG\Api\V2\Model\ContactUpdate200Response
 ```
 
 Update contact
@@ -224,10 +225,20 @@ $apiInstance = new BSG\Api\V2\Api\ContactApi(
     $config
 );
 $id = 56; // int | Contact id
-$contact_updaterequest = json_decode('{"phone":61401629754,"fields":[{"id":387714,"value":"Ilya Muromets"}],"groups":[1864618]}', true); // \BSG\Api\V2\Model\ContactUpdaterequest
-
+$contact_update_request = new \BSG\Api\V2\Model\ContactUpdateRequest([
+    'phone' => 61401629754,
+    'fields' => [
+        0 => [
+            'id' => 387714,
+            'value' => 'Ilya Muromets',
+        ],
+    ],
+    'groups' => [
+        0 => 1864618,
+    ],
+]);
 try {
-    $result = $apiInstance->contactUpdate($id, $contact_updaterequest);
+    $result = $apiInstance->contactUpdate($id, $contact_update_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->contactUpdate: ', $e->getMessage(), PHP_EOL;
@@ -240,11 +251,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **int** | Contact id | |
-| **contact_updaterequest** | [**\BSG\Api\V2\Model\ContactUpdaterequest**](../Model/ContactUpdaterequest.md) |  | |
+| **contact_update_request** | [**\BSG\Api\V2\Model\ContactUpdateRequest**](../Model/ContactUpdateRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactUpdate200response**](../Model/ContactUpdate200response.md)
+[**\BSG\Api\V2\Model\ContactUpdate200Response**](../Model/ContactUpdate200Response.md)
 
 ### Authorization
 
@@ -262,7 +273,7 @@ try {
 ## `contacts()`
 
 ```php
-contacts($page_offset, $page_limit, $groups): \BSG\Api\V2\Model\Contacts200response
+contacts($page_offset, $page_limit, $groups): \BSG\Api\V2\Model\Contacts200Response
 ```
 
 List of contacts
@@ -309,7 +320,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Contacts200response**](../Model/Contacts200response.md)
+[**\BSG\Api\V2\Model\Contacts200Response**](../Model/Contacts200Response.md)
 
 ### Authorization
 
@@ -390,7 +401,7 @@ try {
 ## `contactsSearch()`
 
 ```php
-contactsSearch($page_offset, $page_limit, $sort, $way, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value): \BSG\Api\V2\Model\ContactsSearch200response
+contactsSearch($page_offset, $page_limit, $sort, $way, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value): \BSG\Api\V2\Model\ContactsSearch200Response
 ```
 
 Search contacts
@@ -417,12 +428,12 @@ $apiInstance = new BSG\Api\V2\Api\ContactApi(
 $page_offset = 0; // int
 $page_limit = 50; // int | The number of items in the response
 $sort = 'id'; // string | Sort by conditions: id, phone
-$way = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SortWay(); // \BSG\Api\V2\Model\SortWay
+$way = \BSG\Api\V2\Model\SortWay::ASC; // string, one of \BSG\Api\V2\Model\SortWay::*
 $search_field = 'search_field_example'; // string
-$search_operator = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SearchOperator(); // \BSG\Api\V2\Model\SearchOperator
+$search_operator = \BSG\Api\V2\Model\SearchOperator::LIKE; // string, one of \BSG\Api\V2\Model\SearchOperator::*
 $search_value = 'search_value_example'; // string
 $search_fields_0_field = 'search_fields_0_field_example'; // string
-$search_fields_0_operator = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SearchOperator(); // \BSG\Api\V2\Model\SearchOperator
+$search_fields_0_operator = \BSG\Api\V2\Model\SearchOperator::LIKE; // string, one of \BSG\Api\V2\Model\SearchOperator::*
 $search_fields_0_value = 'search_fields_0_value_example'; // string
 
 try {
@@ -451,7 +462,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\ContactsSearch200response**](../Model/ContactsSearch200response.md)
+[**\BSG\Api\V2\Model\ContactsSearch200Response**](../Model/ContactsSearch200Response.md)
 
 ### Authorization
 

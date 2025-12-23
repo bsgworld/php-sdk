@@ -150,7 +150,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Contact200response|\BSG\Api\V2\Model\Contact422response
+     * @return \BSG\Api\V2\Model\Contact200Response|\BSG\Api\V2\Model\Contact422Response
      */
     public function contact($id, string $contentType = self::contentTypes['contact'][0])
     {
@@ -168,7 +168,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Contact200response|\BSG\Api\V2\Model\Contact422response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\Contact200Response|\BSG\Api\V2\Model\Contact422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contactWithHttpInfo($id, string $contentType = self::contentTypes['contact'][0])
     {
@@ -199,11 +199,11 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Contact200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\Contact200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Contact200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\Contact200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -221,16 +221,16 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Contact200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Contact200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\Contact422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\Contact422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Contact422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\Contact422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -248,7 +248,7 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Contact422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Contact422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -267,7 +267,7 @@ class ContactApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Contact200response';
+            $returnType = '\BSG\Api\V2\Model\Contact200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -300,7 +300,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Contact200response',
+                        '\BSG\Api\V2\Model\Contact200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -308,7 +308,7 @@ class ContactApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Contact422response',
+                        '\BSG\Api\V2\Model\Contact422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -352,7 +352,7 @@ class ContactApi
      */
     public function contactAsyncWithHttpInfo($id, string $contentType = self::contentTypes['contact'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Contact200response';
+        $returnType = '\BSG\Api\V2\Model\Contact200Response';
         $request = $this->contactRequest($id, $contentType);
 
         return $this->client
@@ -500,7 +500,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ContactCreate201response|\BSG\Api\V2\Model\ContactCreate422response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\ContactCreate201Response|\BSG\Api\V2\Model\ContactCreate422Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
     public function contactCreate($store_contact, string $contentType = self::contentTypes['contactCreate'][0])
     {
@@ -518,7 +518,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ContactCreate201response|\BSG\Api\V2\Model\ContactCreate422response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ContactCreate201Response|\BSG\Api\V2\Model\ContactCreate422Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function contactCreateWithHttpInfo($store_contact, string $contentType = self::contentTypes['contactCreate'][0])
     {
@@ -549,11 +549,11 @@ class ContactApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\BSG\Api\V2\Model\ContactCreate201response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactCreate201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactCreate201response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactCreate201Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -571,16 +571,16 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactCreate201response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactCreate201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\ContactCreate422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactCreate422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactCreate422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactCreate422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -598,16 +598,16 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactCreate422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactCreate422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -625,7 +625,7 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -644,7 +644,7 @@ class ContactApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ContactCreate201response';
+            $returnType = '\BSG\Api\V2\Model\ContactCreate201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -677,7 +677,7 @@ class ContactApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactCreate201response',
+                        '\BSG\Api\V2\Model\ContactCreate201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -685,7 +685,7 @@ class ContactApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactCreate422response',
+                        '\BSG\Api\V2\Model\ContactCreate422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -693,7 +693,7 @@ class ContactApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -737,7 +737,7 @@ class ContactApi
      */
     public function contactCreateAsyncWithHttpInfo($store_contact, string $contentType = self::contentTypes['contactCreate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ContactCreate201response';
+        $returnType = '\BSG\Api\V2\Model\ContactCreate201Response';
         $request = $this->contactCreateRequest($store_contact, $contentType);
 
         return $this->client
@@ -1189,16 +1189,16 @@ class ContactApi
      * Update contact
      *
      * @param  int $id Contact id (required)
-     * @param  \BSG\Api\V2\Model\ContactUpdaterequest $contact_updaterequest contact_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactUpdateRequest $contact_update_request contact_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactUpdate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ContactUpdate200response|\BSG\Api\V2\Model\ContactUpdate422response
+     * @return \BSG\Api\V2\Model\ContactUpdate200Response|\BSG\Api\V2\Model\ContactUpdate422Response
      */
-    public function contactUpdate($id, $contact_updaterequest, string $contentType = self::contentTypes['contactUpdate'][0])
+    public function contactUpdate($id, $contact_update_request, string $contentType = self::contentTypes['contactUpdate'][0])
     {
-        list($response) = $this->contactUpdateWithHttpInfo($id, $contact_updaterequest, $contentType);
+        list($response) = $this->contactUpdateWithHttpInfo($id, $contact_update_request, $contentType);
         return $response;
     }
 
@@ -1208,16 +1208,16 @@ class ContactApi
      * Update contact
      *
      * @param  int $id Contact id (required)
-     * @param  \BSG\Api\V2\Model\ContactUpdaterequest $contact_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactUpdateRequest $contact_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactUpdate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ContactUpdate200response|\BSG\Api\V2\Model\ContactUpdate422response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ContactUpdate200Response|\BSG\Api\V2\Model\ContactUpdate422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contactUpdateWithHttpInfo($id, $contact_updaterequest, string $contentType = self::contentTypes['contactUpdate'][0])
+    public function contactUpdateWithHttpInfo($id, $contact_update_request, string $contentType = self::contentTypes['contactUpdate'][0])
     {
-        $request = $this->contactUpdateRequest($id, $contact_updaterequest, $contentType);
+        $request = $this->contactUpdateRequest($id, $contact_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1244,11 +1244,11 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\ContactUpdate200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactUpdate200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactUpdate200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactUpdate200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1266,16 +1266,16 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactUpdate200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactUpdate200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\ContactUpdate422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactUpdate422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactUpdate422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactUpdate422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1293,7 +1293,7 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactUpdate422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactUpdate422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1312,7 +1312,7 @@ class ContactApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ContactUpdate200response';
+            $returnType = '\BSG\Api\V2\Model\ContactUpdate200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1345,7 +1345,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactUpdate200response',
+                        '\BSG\Api\V2\Model\ContactUpdate200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1353,7 +1353,7 @@ class ContactApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactUpdate422response',
+                        '\BSG\Api\V2\Model\ContactUpdate422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1369,15 +1369,15 @@ class ContactApi
      * Update contact
      *
      * @param  int $id Contact id (required)
-     * @param  \BSG\Api\V2\Model\ContactUpdaterequest $contact_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactUpdateRequest $contact_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactUpdateAsync($id, $contact_updaterequest, string $contentType = self::contentTypes['contactUpdate'][0])
+    public function contactUpdateAsync($id, $contact_update_request, string $contentType = self::contentTypes['contactUpdate'][0])
     {
-        return $this->contactUpdateAsyncWithHttpInfo($id, $contact_updaterequest, $contentType)
+        return $this->contactUpdateAsyncWithHttpInfo($id, $contact_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1391,16 +1391,16 @@ class ContactApi
      * Update contact
      *
      * @param  int $id Contact id (required)
-     * @param  \BSG\Api\V2\Model\ContactUpdaterequest $contact_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactUpdateRequest $contact_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactUpdateAsyncWithHttpInfo($id, $contact_updaterequest, string $contentType = self::contentTypes['contactUpdate'][0])
+    public function contactUpdateAsyncWithHttpInfo($id, $contact_update_request, string $contentType = self::contentTypes['contactUpdate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ContactUpdate200response';
-        $request = $this->contactUpdateRequest($id, $contact_updaterequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\ContactUpdate200Response';
+        $request = $this->contactUpdateRequest($id, $contact_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1442,13 +1442,13 @@ class ContactApi
      * Create request for operation 'contactUpdate'
      *
      * @param  int $id Contact id (required)
-     * @param  \BSG\Api\V2\Model\ContactUpdaterequest $contact_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactUpdateRequest $contact_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function contactUpdateRequest($id, $contact_updaterequest, string $contentType = self::contentTypes['contactUpdate'][0])
+    public function contactUpdateRequest($id, $contact_update_request, string $contentType = self::contentTypes['contactUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1461,10 +1461,10 @@ class ContactApi
             throw new \InvalidArgumentException('invalid value for "$id" when calling ContactApi.contactUpdate, must be bigger than or equal to 1.');
         }
         
-        // verify the required parameter 'contact_updaterequest' is set
-        if ($contact_updaterequest === null || (is_array($contact_updaterequest) && count($contact_updaterequest) === 0)) {
+        // verify the required parameter 'contact_update_request' is set
+        if ($contact_update_request === null || (is_array($contact_update_request) && count($contact_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_updaterequest when calling contactUpdate'
+                'Missing the required parameter $contact_update_request when calling contactUpdate'
             );
         }
 
@@ -1495,12 +1495,12 @@ class ContactApi
         );
 
         // for model (json/xml)
-        if (isset($contact_updaterequest)) {
+        if (isset($contact_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_updaterequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_update_request));
             } else {
-                $httpBody = $contact_updaterequest;
+                $httpBody = $contact_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1564,7 +1564,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Contacts200response
+     * @return \BSG\Api\V2\Model\Contacts200Response
      */
     public function contacts($page_offset = 0, $page_limit = 20, $groups = null, string $contentType = self::contentTypes['contacts'][0])
     {
@@ -1584,7 +1584,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Contacts200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\Contacts200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contactsWithHttpInfo($page_offset = 0, $page_limit = 20, $groups = null, string $contentType = self::contentTypes['contacts'][0])
     {
@@ -1615,11 +1615,11 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Contacts200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\Contacts200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Contacts200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\Contacts200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1637,7 +1637,7 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Contacts200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Contacts200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1656,7 +1656,7 @@ class ContactApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Contacts200response';
+            $returnType = '\BSG\Api\V2\Model\Contacts200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1689,7 +1689,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Contacts200response',
+                        '\BSG\Api\V2\Model\Contacts200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1737,7 +1737,7 @@ class ContactApi
      */
     public function contactsAsyncWithHttpInfo($page_offset = 0, $page_limit = 20, $groups = null, string $contentType = self::contentTypes['contacts'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Contacts200response';
+        $returnType = '\BSG\Api\V2\Model\Contacts200Response';
         $request = $this->contactsRequest($page_offset, $page_limit, $groups, $contentType);
 
         return $this->client
@@ -2239,7 +2239,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ContactsSearch200response
+     * @return \BSG\Api\V2\Model\ContactsSearch200Response
      */
     public function contactsSearch($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $search_field = null, $search_operator = null, $search_value = null, $search_fields_0_field = null, $search_fields_0_operator = null, $search_fields_0_value = null, string $contentType = self::contentTypes['contactsSearch'][0])
     {
@@ -2266,7 +2266,7 @@ class ContactApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ContactsSearch200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ContactsSearch200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function contactsSearchWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $search_field = null, $search_operator = null, $search_value = null, $search_fields_0_field = null, $search_fields_0_operator = null, $search_fields_0_value = null, string $contentType = self::contentTypes['contactsSearch'][0])
     {
@@ -2297,11 +2297,11 @@ class ContactApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\ContactsSearch200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactsSearch200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactsSearch200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactsSearch200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2319,7 +2319,7 @@ class ContactApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactsSearch200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactsSearch200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2338,7 +2338,7 @@ class ContactApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ContactsSearch200response';
+            $returnType = '\BSG\Api\V2\Model\ContactsSearch200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2371,7 +2371,7 @@ class ContactApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactsSearch200response',
+                        '\BSG\Api\V2\Model\ContactsSearch200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2433,7 +2433,7 @@ class ContactApi
      */
     public function contactsSearchAsyncWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $search_field = null, $search_operator = null, $search_value = null, $search_fields_0_field = null, $search_fields_0_operator = null, $search_fields_0_value = null, string $contentType = self::contentTypes['contactsSearch'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ContactsSearch200response';
+        $returnType = '\BSG\Api\V2\Model\ContactsSearch200Response';
         $request = $this->contactsSearchRequest($page_offset, $page_limit, $sort, $way, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value, $contentType);
 
         return $this->client

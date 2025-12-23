@@ -59,7 +59,7 @@ class SenderSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'int',
         'status' => 'string',
-        'country' => '\BSG\Api\V2\Model\SenderschemaCountry',
+        'country' => '\BSG\Api\V2\Model\SenderSchemaCountry',
         'sender' => 'string',
         'created_at' => '\DateTime',
         'is_default' => 'bool'
@@ -433,7 +433,7 @@ class SenderSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country
      *
-     * @return \BSG\Api\V2\Model\SenderschemaCountry|null
+     * @return \BSG\Api\V2\Model\SenderSchemaCountry|null
      */
     public function getCountry()
     {
@@ -443,7 +443,7 @@ class SenderSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param \BSG\Api\V2\Model\SenderschemaCountry|null $country country
+     * @param \BSG\Api\V2\Model\SenderSchemaCountry|null $country country
      *
      * @return self
      */

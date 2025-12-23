@@ -130,16 +130,16 @@ class AuthApi
      *
      * Receive JWT token
      *
-     * @param  \BSG\Api\V2\Model\Loginrequest $loginrequest loginrequest (required)
+     * @param  \BSG\Api\V2\Model\LoginRequest $login_request login_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['login'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \BSG\Api\V2\Model\TokenSchema
      */
-    public function login($loginrequest, string $contentType = self::contentTypes['login'][0])
+    public function login($login_request, string $contentType = self::contentTypes['login'][0])
     {
-        list($response) = $this->loginWithHttpInfo($loginrequest, $contentType);
+        list($response) = $this->loginWithHttpInfo($login_request, $contentType);
         return $response;
     }
 
@@ -148,16 +148,16 @@ class AuthApi
      *
      * Receive JWT token
      *
-     * @param  \BSG\Api\V2\Model\Loginrequest $loginrequest (required)
+     * @param  \BSG\Api\V2\Model\LoginRequest $login_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['login'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \BSG\Api\V2\Model\TokenSchema, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginWithHttpInfo($loginrequest, string $contentType = self::contentTypes['login'][0])
+    public function loginWithHttpInfo($login_request, string $contentType = self::contentTypes['login'][0])
     {
-        $request = $this->loginRequest($loginrequest, $contentType);
+        $request = $this->loginRequest($login_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -273,15 +273,15 @@ class AuthApi
      *
      * Receive JWT token
      *
-     * @param  \BSG\Api\V2\Model\Loginrequest $loginrequest (required)
+     * @param  \BSG\Api\V2\Model\LoginRequest $login_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['login'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginAsync($loginrequest, string $contentType = self::contentTypes['login'][0])
+    public function loginAsync($login_request, string $contentType = self::contentTypes['login'][0])
     {
-        return $this->loginAsyncWithHttpInfo($loginrequest, $contentType)
+        return $this->loginAsyncWithHttpInfo($login_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -294,16 +294,16 @@ class AuthApi
      *
      * Receive JWT token
      *
-     * @param  \BSG\Api\V2\Model\Loginrequest $loginrequest (required)
+     * @param  \BSG\Api\V2\Model\LoginRequest $login_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['login'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginAsyncWithHttpInfo($loginrequest, string $contentType = self::contentTypes['login'][0])
+    public function loginAsyncWithHttpInfo($login_request, string $contentType = self::contentTypes['login'][0])
     {
         $returnType = '\BSG\Api\V2\Model\TokenSchema';
-        $request = $this->loginRequest($loginrequest, $contentType);
+        $request = $this->loginRequest($login_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -344,19 +344,19 @@ class AuthApi
     /**
      * Create request for operation 'login'
      *
-     * @param  \BSG\Api\V2\Model\Loginrequest $loginrequest (required)
+     * @param  \BSG\Api\V2\Model\LoginRequest $login_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['login'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function loginRequest($loginrequest, string $contentType = self::contentTypes['login'][0])
+    public function loginRequest($login_request, string $contentType = self::contentTypes['login'][0])
     {
 
-        // verify the required parameter 'loginrequest' is set
-        if ($loginrequest === null || (is_array($loginrequest) && count($loginrequest) === 0)) {
+        // verify the required parameter 'login_request' is set
+        if ($login_request === null || (is_array($login_request) && count($login_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $loginrequest when calling login'
+                'Missing the required parameter $login_request when calling login'
             );
         }
 
@@ -379,12 +379,12 @@ class AuthApi
         );
 
         // for model (json/xml)
-        if (isset($loginrequest)) {
+        if (isset($login_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($loginrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($login_request));
             } else {
-                $httpBody = $loginrequest;
+                $httpBody = $login_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

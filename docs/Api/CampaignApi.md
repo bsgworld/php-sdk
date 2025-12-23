@@ -14,7 +14,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `campaign()`
 
 ```php
-campaign($id): \BSG\Api\V2\Model\Campaign200response
+campaign($id): \BSG\Api\V2\Model\Campaign200Response
 ```
 
 Get campaign info
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Campaign200response**](../Model/Campaign200response.md)
+[**\BSG\Api\V2\Model\Campaign200Response**](../Model/Campaign200Response.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `campaignDetails()`
 
 ```php
-campaignDetails($id): \BSG\Api\V2\Model\CampaignDetails200response
+campaignDetails($id): \BSG\Api\V2\Model\CampaignDetails200Response
 ```
 
 Get campaign details
@@ -118,7 +118,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\CampaignDetails200response**](../Model/CampaignDetails200response.md)
+[**\BSG\Api\V2\Model\CampaignDetails200Response**](../Model/CampaignDetails200Response.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ try {
 ## `campaignPrice()`
 
 ```php
-campaignPrice($campaign_pricerequest): \BSG\Api\V2\Model\CampaignPrice200response
+campaignPrice($campaign_price_request): \BSG\Api\V2\Model\CampaignPrice200Response
 ```
 
 Calculate campaign price
@@ -160,10 +160,17 @@ $apiInstance = new BSG\Api\V2\Api\CampaignApi(
     new GuzzleHttp\Client(),
     $config
 );
-$campaign_pricerequest = json_decode('{"sender":"Vet klinika","text":"hello!","messages":[{"phone":38267161234}]}', true); // \BSG\Api\V2\Model\CampaignPricerequest
-
+$campaign_price_request = new \BSG\Api\V2\Model\CampaignPriceRequest([
+    'sender' => 'Vet klinika',
+    'text' => 'hello!',
+    'messages' => [
+        0 => [
+            'phone' => 38267161234,
+        ],
+    ],
+]);
 try {
-    $result = $apiInstance->campaignPrice($campaign_pricerequest);
+    $result = $apiInstance->campaignPrice($campaign_price_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignApi->campaignPrice: ', $e->getMessage(), PHP_EOL;
@@ -175,11 +182,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **campaign_pricerequest** | [**\BSG\Api\V2\Model\CampaignPricerequest**](../Model/CampaignPricerequest.md) |  | |
+| **campaign_price_request** | [**\BSG\Api\V2\Model\CampaignPriceRequest**](../Model/CampaignPriceRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\CampaignPrice200response**](../Model/CampaignPrice200response.md)
+[**\BSG\Api\V2\Model\CampaignPrice200Response**](../Model/CampaignPrice200Response.md)
 
 ### Authorization
 
@@ -197,7 +204,7 @@ try {
 ## `campaignStop()`
 
 ```php
-campaignStop($id): \BSG\Api\V2\Model\CampaignStop200response
+campaignStop($id): \BSG\Api\V2\Model\CampaignStop200Response
 ```
 
 Cancel campaign
@@ -240,7 +247,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\CampaignStop200response**](../Model/CampaignStop200response.md)
+[**\BSG\Api\V2\Model\CampaignStop200Response**](../Model/CampaignStop200Response.md)
 
 ### Authorization
 
@@ -285,9 +292,9 @@ $apiInstance = new BSG\Api\V2\Api\CampaignApi(
 $page_offset = 0; // int
 $page_limit = 50; // int | The number of items in the response
 $sort = 'id'; // string | Sort items by
-$way = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SortWay(); // \BSG\Api\V2\Model\SortWay
-$filter_from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Include items from
-$filter_to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Include items to
+$way = \BSG\Api\V2\Model\SortWay::ASC; // string, one of \BSG\Api\V2\Model\SortWay::*
+$filter_from = 'new \\DateTime(\'2013-10-20T19:20:30+01:00\')'; // string | Include items from
+$filter_to = 'new \\DateTime(\'2013-10-20T19:20:30+01:00\')'; // string | Include items to
 $filter_type = 'filter_type_example'; // string | Filter items by type type
 $search_field = 'search_field_example'; // string | Filter items by search[field]=search[value]
 $search_value = 'search_value_example'; // string | Filter items by search[field]=search[value]

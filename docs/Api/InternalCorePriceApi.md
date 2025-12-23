@@ -11,7 +11,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `internalCorePricesByCountry()`
 
 ```php
-internalCorePricesByCountry($country_code, $product): \BSG\Api\V2\Model\InternalCorePricesByCountry200response
+internalCorePricesByCountry($country_code, $product): \BSG\Api\V2\Model\InternalCorePricesByCountry200Response
 ```
 
 Get prices for country
@@ -33,7 +33,7 @@ $apiInstance = new BSG\Api\V2\Api\InternalCorePriceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$country_code = AB; // string | Country ISO Code
+$country_code = 'AB'; //  string | Country ISO Code
 $product = 'product_example'; // string | Product value
 
 try {
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\InternalCorePricesByCountry200response**](../Model/InternalCorePricesByCountry200response.md)
+[**\BSG\Api\V2\Model\InternalCorePricesByCountry200Response**](../Model/InternalCorePricesByCountry200Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `internalCorePricesList()`
 
 ```php
-internalCorePricesList($product): \BSG\Api\V2\Model\InternalCorePricesList200response
+internalCorePricesList($product): \BSG\Api\V2\Model\InternalCorePricesList200Response
 ```
 
 Get price list for each country
@@ -113,7 +113,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\InternalCorePricesList200response**](../Model/InternalCorePricesList200response.md)
+[**\BSG\Api\V2\Model\InternalCorePricesList200Response**](../Model/InternalCorePricesList200Response.md)
 
 ### Authorization
 

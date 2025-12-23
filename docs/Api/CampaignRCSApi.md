@@ -12,7 +12,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `rcsSend()`
 
 ```php
-rcsSend($send_rcs_campaign): \BSG\Api\V2\Model\RcsSend200response
+rcsSend($send_rcs_campaign): \BSG\Api\V2\Model\RcsSend200Response
 ```
 
 Send RCS message
@@ -36,8 +36,17 @@ $apiInstance = new BSG\Api\V2\Api\CampaignRCSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$send_rcs_campaign = json_decode('{"phones":[{"number":"380661231231"}],"sender":"rcs_sender","options":{"text":"Hello! ☺️"}}', true); // \BSG\Api\V2\Model\SendRcsCampaign
-
+$send_rcs_campaign = new \BSG\Api\V2\Model\SendRcsCampaign([
+    'phones' => [
+        0 => [
+            'number' => '380661231231',
+        ],
+    ],
+    'sender' => 'rcs_sender',
+    'options' => [
+        'text' => 'Hello! ☺️',
+    ],
+]);
 try {
     $result = $apiInstance->rcsSend($send_rcs_campaign);
     print_r($result);
@@ -55,7 +64,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\RcsSend200response**](../Model/RcsSend200response.md)
+[**\BSG\Api\V2\Model\RcsSend200Response**](../Model/RcsSend200Response.md)
 
 ### Authorization
 
@@ -73,7 +82,7 @@ try {
 ## `rcsSendGroups()`
 
 ```php
-rcsSendGroups($send_rcs_campaign_groups): \BSG\Api\V2\Model\RcsSendGroups200response
+rcsSendGroups($send_rcs_campaign_groups): \BSG\Api\V2\Model\RcsSendGroups200Response
 ```
 
 Send RCS message to contact list
@@ -97,8 +106,15 @@ $apiInstance = new BSG\Api\V2\Api\CampaignRCSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$send_rcs_campaign_groups = json_decode('{"groups":[1864275],"sender":"rcs_sender","options":{"text":"Hello! ☺️"}}', true); // \BSG\Api\V2\Model\SendRcsCampaignGroups
-
+$send_rcs_campaign_groups = new \BSG\Api\V2\Model\SendRcsCampaignGroups([
+    'groups' => [
+        0 => 1864275,
+    ],
+    'sender' => 'rcs_sender',
+    'options' => [
+        'text' => 'Hello! ☺️',
+    ],
+]);
 try {
     $result = $apiInstance->rcsSendGroups($send_rcs_campaign_groups);
     print_r($result);
@@ -116,7 +132,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\RcsSendGroups200response**](../Model/RcsSendGroups200response.md)
+[**\BSG\Api\V2\Model\RcsSendGroups200Response**](../Model/RcsSendGroups200Response.md)
 
 ### Authorization
 
@@ -134,7 +150,7 @@ try {
 ## `rcsSingle()`
 
 ```php
-rcsSingle($rcs_message): \BSG\Api\V2\Model\RcsSingle200response
+rcsSingle($rcs_message): \BSG\Api\V2\Model\RcsSingle200Response
 ```
 
 Send single RCS message
@@ -158,8 +174,15 @@ $apiInstance = new BSG\Api\V2\Api\CampaignRCSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$rcs_message = json_decode('{"phone":{"number":"380661231231"},"sender":"rcs_sender","options":{"text":"Hello! ☺️"}}', true); // \BSG\Api\V2\Model\RcsMessage
-
+$rcs_message = new \BSG\Api\V2\Model\RcsMessage([
+    'phone' => [
+        'number' => '380661231231',
+    ],
+    'sender' => 'rcs_sender',
+    'options' => [
+        'text' => 'Hello! ☺️',
+    ],
+]);
 try {
     $result = $apiInstance->rcsSingle($rcs_message);
     print_r($result);
@@ -177,7 +200,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\RcsSingle200response**](../Model/RcsSingle200response.md)
+[**\BSG\Api\V2\Model\RcsSingle200Response**](../Model/RcsSingle200Response.md)
 
 ### Authorization
 

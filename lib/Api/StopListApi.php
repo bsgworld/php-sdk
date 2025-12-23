@@ -136,16 +136,16 @@ class StopListApi
      *
      * Add contacts to stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistAddrequest $stoplist_addrequest stoplist_addrequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistAddRequest $stoplist_add_request stoplist_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistAdd'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\StoplistAdd200response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\StoplistAdd200Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function stoplistAdd($stoplist_addrequest, string $contentType = self::contentTypes['stoplistAdd'][0])
+    public function stoplistAdd($stoplist_add_request, string $contentType = self::contentTypes['stoplistAdd'][0])
     {
-        list($response) = $this->stoplistAddWithHttpInfo($stoplist_addrequest, $contentType);
+        list($response) = $this->stoplistAddWithHttpInfo($stoplist_add_request, $contentType);
         return $response;
     }
 
@@ -154,16 +154,16 @@ class StopListApi
      *
      * Add contacts to stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistAddrequest $stoplist_addrequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistAddRequest $stoplist_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistAdd'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\StoplistAdd200response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\StoplistAdd200Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function stoplistAddWithHttpInfo($stoplist_addrequest, string $contentType = self::contentTypes['stoplistAdd'][0])
+    public function stoplistAddWithHttpInfo($stoplist_add_request, string $contentType = self::contentTypes['stoplistAdd'][0])
     {
-        $request = $this->stoplistAddRequest($stoplist_addrequest, $contentType);
+        $request = $this->stoplistAddRequest($stoplist_add_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -190,11 +190,11 @@ class StopListApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\StoplistAdd200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\StoplistAdd200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\StoplistAdd200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\StoplistAdd200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -212,16 +212,16 @@ class StopListApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\StoplistAdd200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\StoplistAdd200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -239,7 +239,7 @@ class StopListApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -258,7 +258,7 @@ class StopListApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\StoplistAdd200response';
+            $returnType = '\BSG\Api\V2\Model\StoplistAdd200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -291,7 +291,7 @@ class StopListApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\StoplistAdd200response',
+                        '\BSG\Api\V2\Model\StoplistAdd200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class StopListApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,15 +314,15 @@ class StopListApi
      *
      * Add contacts to stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistAddrequest $stoplist_addrequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistAddRequest $stoplist_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistAdd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function stoplistAddAsync($stoplist_addrequest, string $contentType = self::contentTypes['stoplistAdd'][0])
+    public function stoplistAddAsync($stoplist_add_request, string $contentType = self::contentTypes['stoplistAdd'][0])
     {
-        return $this->stoplistAddAsyncWithHttpInfo($stoplist_addrequest, $contentType)
+        return $this->stoplistAddAsyncWithHttpInfo($stoplist_add_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -335,16 +335,16 @@ class StopListApi
      *
      * Add contacts to stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistAddrequest $stoplist_addrequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistAddRequest $stoplist_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistAdd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function stoplistAddAsyncWithHttpInfo($stoplist_addrequest, string $contentType = self::contentTypes['stoplistAdd'][0])
+    public function stoplistAddAsyncWithHttpInfo($stoplist_add_request, string $contentType = self::contentTypes['stoplistAdd'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\StoplistAdd200response';
-        $request = $this->stoplistAddRequest($stoplist_addrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\StoplistAdd200Response';
+        $request = $this->stoplistAddRequest($stoplist_add_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -385,19 +385,19 @@ class StopListApi
     /**
      * Create request for operation 'stoplistAdd'
      *
-     * @param  \BSG\Api\V2\Model\StoplistAddrequest $stoplist_addrequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistAddRequest $stoplist_add_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistAdd'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function stoplistAddRequest($stoplist_addrequest, string $contentType = self::contentTypes['stoplistAdd'][0])
+    public function stoplistAddRequest($stoplist_add_request, string $contentType = self::contentTypes['stoplistAdd'][0])
     {
 
-        // verify the required parameter 'stoplist_addrequest' is set
-        if ($stoplist_addrequest === null || (is_array($stoplist_addrequest) && count($stoplist_addrequest) === 0)) {
+        // verify the required parameter 'stoplist_add_request' is set
+        if ($stoplist_add_request === null || (is_array($stoplist_add_request) && count($stoplist_add_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $stoplist_addrequest when calling stoplistAdd'
+                'Missing the required parameter $stoplist_add_request when calling stoplistAdd'
             );
         }
 
@@ -420,12 +420,12 @@ class StopListApi
         );
 
         // for model (json/xml)
-        if (isset($stoplist_addrequest)) {
+        if (isset($stoplist_add_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($stoplist_addrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($stoplist_add_request));
             } else {
-                $httpBody = $stoplist_addrequest;
+                $httpBody = $stoplist_add_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -489,7 +489,7 @@ class StopListApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\StoplistItems200response
+     * @return \BSG\Api\V2\Model\StoplistItems200Response
      */
     public function stoplistItems($page_offset = 0, $page_limit = 20, $type = null, string $contentType = self::contentTypes['stoplistItems'][0])
     {
@@ -509,7 +509,7 @@ class StopListApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\StoplistItems200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\StoplistItems200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function stoplistItemsWithHttpInfo($page_offset = 0, $page_limit = 20, $type = null, string $contentType = self::contentTypes['stoplistItems'][0])
     {
@@ -540,11 +540,11 @@ class StopListApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\StoplistItems200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\StoplistItems200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\StoplistItems200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\StoplistItems200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -562,7 +562,7 @@ class StopListApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\StoplistItems200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\StoplistItems200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -581,7 +581,7 @@ class StopListApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\StoplistItems200response';
+            $returnType = '\BSG\Api\V2\Model\StoplistItems200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -614,7 +614,7 @@ class StopListApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\StoplistItems200response',
+                        '\BSG\Api\V2\Model\StoplistItems200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -662,7 +662,7 @@ class StopListApi
      */
     public function stoplistItemsAsyncWithHttpInfo($page_offset = 0, $page_limit = 20, $type = null, string $contentType = self::contentTypes['stoplistItems'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\StoplistItems200response';
+        $returnType = '\BSG\Api\V2\Model\StoplistItems200Response';
         $request = $this->stoplistItemsRequest($page_offset, $page_limit, $type, $contentType);
 
         return $this->client
@@ -828,16 +828,16 @@ class StopListApi
      *
      * Remove contacts from stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistRemoverequest $stoplist_removerequest stoplist_removerequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistRemoveRequest $stoplist_remove_request stoplist_remove_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistRemove'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return object|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return object|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function stoplistRemove($stoplist_removerequest, string $contentType = self::contentTypes['stoplistRemove'][0])
+    public function stoplistRemove($stoplist_remove_request, string $contentType = self::contentTypes['stoplistRemove'][0])
     {
-        list($response) = $this->stoplistRemoveWithHttpInfo($stoplist_removerequest, $contentType);
+        list($response) = $this->stoplistRemoveWithHttpInfo($stoplist_remove_request, $contentType);
         return $response;
     }
 
@@ -846,16 +846,16 @@ class StopListApi
      *
      * Remove contacts from stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistRemoverequest $stoplist_removerequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistRemoveRequest $stoplist_remove_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistRemove'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of object|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function stoplistRemoveWithHttpInfo($stoplist_removerequest, string $contentType = self::contentTypes['stoplistRemove'][0])
+    public function stoplistRemoveWithHttpInfo($stoplist_remove_request, string $contentType = self::contentTypes['stoplistRemove'][0])
     {
-        $request = $this->stoplistRemoveRequest($stoplist_removerequest, $contentType);
+        $request = $this->stoplistRemoveRequest($stoplist_remove_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -909,11 +909,11 @@ class StopListApi
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -931,7 +931,7 @@ class StopListApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -991,7 +991,7 @@ class StopListApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1006,15 +1006,15 @@ class StopListApi
      *
      * Remove contacts from stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistRemoverequest $stoplist_removerequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistRemoveRequest $stoplist_remove_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function stoplistRemoveAsync($stoplist_removerequest, string $contentType = self::contentTypes['stoplistRemove'][0])
+    public function stoplistRemoveAsync($stoplist_remove_request, string $contentType = self::contentTypes['stoplistRemove'][0])
     {
-        return $this->stoplistRemoveAsyncWithHttpInfo($stoplist_removerequest, $contentType)
+        return $this->stoplistRemoveAsyncWithHttpInfo($stoplist_remove_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1027,16 +1027,16 @@ class StopListApi
      *
      * Remove contacts from stop list
      *
-     * @param  \BSG\Api\V2\Model\StoplistRemoverequest $stoplist_removerequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistRemoveRequest $stoplist_remove_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function stoplistRemoveAsyncWithHttpInfo($stoplist_removerequest, string $contentType = self::contentTypes['stoplistRemove'][0])
+    public function stoplistRemoveAsyncWithHttpInfo($stoplist_remove_request, string $contentType = self::contentTypes['stoplistRemove'][0])
     {
         $returnType = 'object';
-        $request = $this->stoplistRemoveRequest($stoplist_removerequest, $contentType);
+        $request = $this->stoplistRemoveRequest($stoplist_remove_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1077,19 +1077,19 @@ class StopListApi
     /**
      * Create request for operation 'stoplistRemove'
      *
-     * @param  \BSG\Api\V2\Model\StoplistRemoverequest $stoplist_removerequest (required)
+     * @param  \BSG\Api\V2\Model\StoplistRemoveRequest $stoplist_remove_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['stoplistRemove'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function stoplistRemoveRequest($stoplist_removerequest, string $contentType = self::contentTypes['stoplistRemove'][0])
+    public function stoplistRemoveRequest($stoplist_remove_request, string $contentType = self::contentTypes['stoplistRemove'][0])
     {
 
-        // verify the required parameter 'stoplist_removerequest' is set
-        if ($stoplist_removerequest === null || (is_array($stoplist_removerequest) && count($stoplist_removerequest) === 0)) {
+        // verify the required parameter 'stoplist_remove_request' is set
+        if ($stoplist_remove_request === null || (is_array($stoplist_remove_request) && count($stoplist_remove_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $stoplist_removerequest when calling stoplistRemove'
+                'Missing the required parameter $stoplist_remove_request when calling stoplistRemove'
             );
         }
 
@@ -1112,12 +1112,12 @@ class StopListApi
         );
 
         // for model (json/xml)
-        if (isset($stoplist_removerequest)) {
+        if (isset($stoplist_remove_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($stoplist_removerequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($stoplist_remove_request));
             } else {
-                $httpBody = $stoplist_removerequest;
+                $httpBody = $stoplist_remove_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1189,7 +1189,7 @@ class StopListApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\StoplistSearch200response
+     * @return \BSG\Api\V2\Model\StoplistSearch200Response
      */
     public function stoplistSearch($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $contact_group_id = null, $search_field = null, $search_operator = null, $search_value = null, $search_fields_0_field = null, $search_fields_0_operator = null, $search_fields_0_value = null, string $contentType = self::contentTypes['stoplistSearch'][0])
     {
@@ -1217,7 +1217,7 @@ class StopListApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\StoplistSearch200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\StoplistSearch200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function stoplistSearchWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $contact_group_id = null, $search_field = null, $search_operator = null, $search_value = null, $search_fields_0_field = null, $search_fields_0_operator = null, $search_fields_0_value = null, string $contentType = self::contentTypes['stoplistSearch'][0])
     {
@@ -1248,11 +1248,11 @@ class StopListApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\StoplistSearch200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\StoplistSearch200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\StoplistSearch200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\StoplistSearch200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1270,7 +1270,7 @@ class StopListApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\StoplistSearch200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\StoplistSearch200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1289,7 +1289,7 @@ class StopListApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\StoplistSearch200response';
+            $returnType = '\BSG\Api\V2\Model\StoplistSearch200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1322,7 +1322,7 @@ class StopListApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\StoplistSearch200response',
+                        '\BSG\Api\V2\Model\StoplistSearch200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1386,7 +1386,7 @@ class StopListApi
      */
     public function stoplistSearchAsyncWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $contact_group_id = null, $search_field = null, $search_operator = null, $search_value = null, $search_fields_0_field = null, $search_fields_0_operator = null, $search_fields_0_value = null, string $contentType = self::contentTypes['stoplistSearch'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\StoplistSearch200response';
+        $returnType = '\BSG\Api\V2\Model\StoplistSearch200Response';
         $request = $this->stoplistSearchRequest($page_offset, $page_limit, $sort, $way, $contact_group_id, $search_field, $search_operator, $search_value, $search_fields_0_field, $search_fields_0_operator, $search_fields_0_value, $contentType);
 
         return $this->client

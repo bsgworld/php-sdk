@@ -13,7 +13,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `senderRequestLegal()`
 
 ```php
-senderRequestLegal($sender_request_legalrequest): \BSG\Api\V2\Model\SenderRequestLegal201response
+senderRequestLegal($sender_request_legal_request): \BSG\Api\V2\Model\SenderRequestLegal201Response
 ```
 
 Sender registration by a legal entity
@@ -37,10 +37,10 @@ $apiInstance = new BSG\Api\V2\Api\SendersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sender_request_legalrequest = json_decode('new \BSG\Api\V2\Model\SenderRequestLegalrequest()', true); // \BSG\Api\V2\Model\SenderRequestLegalrequest
+$sender_request_legal_request = new \BSG\Api\V2\Model\SenderRequestLegalRequest(); // \BSG\Api\V2\Model\SenderRequestLegalRequest
 
 try {
-    $result = $apiInstance->senderRequestLegal($sender_request_legalrequest);
+    $result = $apiInstance->senderRequestLegal($sender_request_legal_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->senderRequestLegal: ', $e->getMessage(), PHP_EOL;
@@ -52,11 +52,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_request_legalrequest** | [**\BSG\Api\V2\Model\SenderRequestLegalrequest**](../Model/SenderRequestLegalrequest.md) |  | |
+| **sender_request_legal_request** | [**\BSG\Api\V2\Model\SenderRequestLegalRequest**](../Model/SenderRequestLegalRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\SenderRequestLegal201response**](../Model/SenderRequestLegal201response.md)
+[**\BSG\Api\V2\Model\SenderRequestLegal201Response**](../Model/SenderRequestLegal201Response.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `senderRequestNatural()`
 
 ```php
-senderRequestNatural($sender_request_naturalrequest): \BSG\Api\V2\Model\SenderRequestNatural201response
+senderRequestNatural($sender_request_natural_request): \BSG\Api\V2\Model\SenderRequestNatural201Response
 ```
 
 Sender registration by an individual
@@ -98,10 +98,10 @@ $apiInstance = new BSG\Api\V2\Api\SendersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sender_request_naturalrequest = json_decode('new \BSG\Api\V2\Model\SenderRequestNaturalrequest()', true); // \BSG\Api\V2\Model\SenderRequestNaturalrequest
+$sender_request_natural_request = new \BSG\Api\V2\Model\SenderRequestNaturalRequest(); // \BSG\Api\V2\Model\SenderRequestNaturalRequest
 
 try {
-    $result = $apiInstance->senderRequestNatural($sender_request_naturalrequest);
+    $result = $apiInstance->senderRequestNatural($sender_request_natural_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SendersApi->senderRequestNatural: ', $e->getMessage(), PHP_EOL;
@@ -113,11 +113,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sender_request_naturalrequest** | [**\BSG\Api\V2\Model\SenderRequestNaturalrequest**](../Model/SenderRequestNaturalrequest.md) |  | |
+| **sender_request_natural_request** | [**\BSG\Api\V2\Model\SenderRequestNaturalRequest**](../Model/SenderRequestNaturalRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\SenderRequestNatural201response**](../Model/SenderRequestNatural201response.md)
+[**\BSG\Api\V2\Model\SenderRequestNatural201Response**](../Model/SenderRequestNatural201Response.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ try {
 ## `senderRequests()`
 
 ```php
-senderRequests($page_limit, $page_offset, $sort, $way, $filter_status, $filter_id, $filter_country_code, $filter_sender, $filter_created_at): \BSG\Api\V2\Model\SenderRequests200response
+senderRequests($page_limit, $page_offset, $sort, $way, $filter_status, $filter_id, $filter_country_code, $filter_sender, $filter_created_at): \BSG\Api\V2\Model\SenderRequests200Response
 ```
 
 List of Sender Requests
@@ -162,8 +162,8 @@ $apiInstance = new BSG\Api\V2\Api\SendersApi(
 $page_limit = 50; // int
 $page_offset = 0; // int
 $sort = 'id'; // string
-$way = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SortWay(); // \BSG\Api\V2\Model\SortWay
-$filter_status = new \BSG\Api\V2\Model\\BSG\Api\V2\Model\SenderRequestStatus(); // \BSG\Api\V2\Model\SenderRequestStatus
+$way = \BSG\Api\V2\Model\SortWay::ASC; // string, one of \BSG\Api\V2\Model\SortWay::*
+$filter_status = \BSG\Api\V2\Model\SenderRequestStatus::_NEW; // string, one of \BSG\Api\V2\Model\SenderRequestStatus::*
 $filter_id = 56; // int
 $filter_country_code = 'filter_country_code_example'; // string
 $filter_sender = 'filter_sender_example'; // string
@@ -194,7 +194,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\SenderRequests200response**](../Model/SenderRequests200response.md)
+[**\BSG\Api\V2\Model\SenderRequests200Response**](../Model/SenderRequests200Response.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ try {
 ## `senders()`
 
 ```php
-senders($type): \BSG\Api\V2\Model\Senders200response
+senders($type): \BSG\Api\V2\Model\Senders200Response
 ```
 
 List of Senders
@@ -255,7 +255,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Senders200response**](../Model/Senders200response.md)
+[**\BSG\Api\V2\Model\Senders200Response**](../Model/Senders200Response.md)
 
 ### Authorization
 

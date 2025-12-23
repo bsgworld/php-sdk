@@ -11,7 +11,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `login()`
 
 ```php
-login($loginrequest): \BSG\Api\V2\Model\TokenSchema
+login($login_request): \BSG\Api\V2\Model\TokenSchema
 ```
 
 Receive JWT token
@@ -31,10 +31,11 @@ $apiInstance = new BSG\Api\V2\Api\AuthApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$loginrequest = json_decode('new \BSG\Api\V2\Model\Loginrequest()', true); // \BSG\Api\V2\Model\Loginrequest
-
+$login_request = new \BSG\Api\V2\Model\LoginRequest([
+    'api_key' => 'live_XXXXXXXXXXXXXXXXXXXX',
+]);
 try {
-    $result = $apiInstance->login($loginrequest);
+    $result = $apiInstance->login($login_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthApi->login: ', $e->getMessage(), PHP_EOL;
@@ -46,7 +47,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **loginrequest** | [**\BSG\Api\V2\Model\Loginrequest**](../Model/Loginrequest.md) |  | |
+| **login_request** | [**\BSG\Api\V2\Model\LoginRequest**](../Model/LoginRequest.md) |  | |
 
 ### Return type
 

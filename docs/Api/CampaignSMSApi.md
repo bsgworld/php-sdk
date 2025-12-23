@@ -12,7 +12,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `smsSend()`
 
 ```php
-smsSend($sms_sendrequest): \BSG\Api\V2\Model\Smscampaignresponse
+smsSend($sms_send_request): \BSG\Api\V2\Model\SmsCampaignResponse
 ```
 
 Send SMS campaign
@@ -36,10 +36,17 @@ $apiInstance = new BSG\Api\V2\Api\CampaignSMSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sms_sendrequest = json_decode('{"phones":[{"number":380661231231}],"sender":"Vet klinika","text":"test"}', true); // \BSG\Api\V2\Model\SmsSendrequest
-
+$sms_send_request = new \BSG\Api\V2\Model\SmsSendRequest([
+    'phones' => [
+        0 => [
+            'number' => 380661231231,
+        ],
+    ],
+    'sender' => 'Vet klinika',
+    'text' => 'test',
+]);
 try {
-    $result = $apiInstance->smsSend($sms_sendrequest);
+    $result = $apiInstance->smsSend($sms_send_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignSMSApi->smsSend: ', $e->getMessage(), PHP_EOL;
@@ -51,11 +58,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sms_sendrequest** | [**\BSG\Api\V2\Model\SmsSendrequest**](../Model/SmsSendrequest.md) |  | |
+| **sms_send_request** | [**\BSG\Api\V2\Model\SmsSendRequest**](../Model/SmsSendRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Smscampaignresponse**](../Model/Smscampaignresponse.md)
+[**\BSG\Api\V2\Model\SmsCampaignResponse**](../Model/SmsCampaignResponse.md)
 
 ### Authorization
 
@@ -73,7 +80,7 @@ try {
 ## `smsSendGroups()`
 
 ```php
-smsSendGroups($sms_send_groupsrequest): \BSG\Api\V2\Model\Smscampaignresponse
+smsSendGroups($sms_send_groups_request): \BSG\Api\V2\Model\SmsCampaignResponse
 ```
 
 Send SMS to contact list
@@ -97,10 +104,15 @@ $apiInstance = new BSG\Api\V2\Api\CampaignSMSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sms_send_groupsrequest = json_decode('{"groups":[1864275],"text":"hello!","sender":"Vet klinika"}', true); // \BSG\Api\V2\Model\SmsSendGroupsrequest
-
+$sms_send_groups_request = new \BSG\Api\V2\Model\SmsSendGroupsRequest([
+    'groups' => [
+        0 => 1864275,
+    ],
+    'text' => 'hello!',
+    'sender' => 'Vet klinika',
+]);
 try {
-    $result = $apiInstance->smsSendGroups($sms_send_groupsrequest);
+    $result = $apiInstance->smsSendGroups($sms_send_groups_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignSMSApi->smsSendGroups: ', $e->getMessage(), PHP_EOL;
@@ -112,11 +124,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sms_send_groupsrequest** | [**\BSG\Api\V2\Model\SmsSendGroupsrequest**](../Model/SmsSendGroupsrequest.md) |  | |
+| **sms_send_groups_request** | [**\BSG\Api\V2\Model\SmsSendGroupsRequest**](../Model/SmsSendGroupsRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Smscampaignresponse**](../Model/Smscampaignresponse.md)
+[**\BSG\Api\V2\Model\SmsCampaignResponse**](../Model/SmsCampaignResponse.md)
 
 ### Authorization
 
@@ -134,7 +146,7 @@ try {
 ## `smsSendIndividual()`
 
 ```php
-smsSendIndividual($sms_send_individualrequest): \BSG\Api\V2\Model\Smscampaignresponse
+smsSendIndividual($sms_send_individual_request): \BSG\Api\V2\Model\SmsCampaignResponse
 ```
 
 Send SMS with different text
@@ -158,10 +170,27 @@ $apiInstance = new BSG\Api\V2\Api\CampaignSMSApi(
     new GuzzleHttp\Client(),
     $config
 );
-$sms_send_individualrequest = json_decode('{"messages":[{"phone":380661231231,"text":"hello Jack","sender":"Vet klinika"},{"phone":380661231232,"text":"hello Anna","sender":"Vet klinika"},{"phone":380661231233,"text":"Hi Hellen","sender":"Vet klinika"}]}', true); // \BSG\Api\V2\Model\SmsSendIndividualrequest
-
+$sms_send_individual_request = new \BSG\Api\V2\Model\SmsSendIndividualRequest([
+    'messages' => [
+        0 => [
+            'phone' => 380661231231,
+            'text' => 'hello Jack',
+            'sender' => 'Vet klinika',
+        ],
+        1 => [
+            'phone' => 380661231232,
+            'text' => 'hello Anna',
+            'sender' => 'Vet klinika',
+        ],
+        2 => [
+            'phone' => 380661231233,
+            'text' => 'Hi Hellen',
+            'sender' => 'Vet klinika',
+        ],
+    ],
+]);
 try {
-    $result = $apiInstance->smsSendIndividual($sms_send_individualrequest);
+    $result = $apiInstance->smsSendIndividual($sms_send_individual_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CampaignSMSApi->smsSendIndividual: ', $e->getMessage(), PHP_EOL;
@@ -173,11 +202,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **sms_send_individualrequest** | [**\BSG\Api\V2\Model\SmsSendIndividualrequest**](../Model/SmsSendIndividualrequest.md) |  | |
+| **sms_send_individual_request** | [**\BSG\Api\V2\Model\SmsSendIndividualRequest**](../Model/SmsSendIndividualRequest.md) |  | |
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Smscampaignresponse**](../Model/Smscampaignresponse.md)
+[**\BSG\Api\V2\Model\SmsCampaignResponse**](../Model/SmsCampaignResponse.md)
 
 ### Authorization
 

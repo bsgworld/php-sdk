@@ -136,16 +136,16 @@ class SendersApi
      *
      * Sender registration by a legal entity
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestLegalrequest $sender_request_legalrequest sender_request_legalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestLegalRequest $sender_request_legal_request sender_request_legal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestLegal'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\SenderRequestLegal201response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\SenderRequestLegal201Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function senderRequestLegal($sender_request_legalrequest, string $contentType = self::contentTypes['senderRequestLegal'][0])
+    public function senderRequestLegal($sender_request_legal_request, string $contentType = self::contentTypes['senderRequestLegal'][0])
     {
-        list($response) = $this->senderRequestLegalWithHttpInfo($sender_request_legalrequest, $contentType);
+        list($response) = $this->senderRequestLegalWithHttpInfo($sender_request_legal_request, $contentType);
         return $response;
     }
 
@@ -154,16 +154,16 @@ class SendersApi
      *
      * Sender registration by a legal entity
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestLegalrequest $sender_request_legalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestLegalRequest $sender_request_legal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestLegal'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\SenderRequestLegal201response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\SenderRequestLegal201Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function senderRequestLegalWithHttpInfo($sender_request_legalrequest, string $contentType = self::contentTypes['senderRequestLegal'][0])
+    public function senderRequestLegalWithHttpInfo($sender_request_legal_request, string $contentType = self::contentTypes['senderRequestLegal'][0])
     {
-        $request = $this->senderRequestLegalRequest($sender_request_legalrequest, $contentType);
+        $request = $this->senderRequestLegalRequest($sender_request_legal_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -190,11 +190,11 @@ class SendersApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\BSG\Api\V2\Model\SenderRequestLegal201response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\SenderRequestLegal201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\SenderRequestLegal201response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\SenderRequestLegal201Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -212,16 +212,16 @@ class SendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SenderRequestLegal201response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SenderRequestLegal201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -239,7 +239,7 @@ class SendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -258,7 +258,7 @@ class SendersApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\SenderRequestLegal201response';
+            $returnType = '\BSG\Api\V2\Model\SenderRequestLegal201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -291,7 +291,7 @@ class SendersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\SenderRequestLegal201response',
+                        '\BSG\Api\V2\Model\SenderRequestLegal201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class SendersApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,15 +314,15 @@ class SendersApi
      *
      * Sender registration by a legal entity
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestLegalrequest $sender_request_legalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestLegalRequest $sender_request_legal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestLegal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function senderRequestLegalAsync($sender_request_legalrequest, string $contentType = self::contentTypes['senderRequestLegal'][0])
+    public function senderRequestLegalAsync($sender_request_legal_request, string $contentType = self::contentTypes['senderRequestLegal'][0])
     {
-        return $this->senderRequestLegalAsyncWithHttpInfo($sender_request_legalrequest, $contentType)
+        return $this->senderRequestLegalAsyncWithHttpInfo($sender_request_legal_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -335,16 +335,16 @@ class SendersApi
      *
      * Sender registration by a legal entity
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestLegalrequest $sender_request_legalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestLegalRequest $sender_request_legal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestLegal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function senderRequestLegalAsyncWithHttpInfo($sender_request_legalrequest, string $contentType = self::contentTypes['senderRequestLegal'][0])
+    public function senderRequestLegalAsyncWithHttpInfo($sender_request_legal_request, string $contentType = self::contentTypes['senderRequestLegal'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\SenderRequestLegal201response';
-        $request = $this->senderRequestLegalRequest($sender_request_legalrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\SenderRequestLegal201Response';
+        $request = $this->senderRequestLegalRequest($sender_request_legal_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -385,19 +385,19 @@ class SendersApi
     /**
      * Create request for operation 'senderRequestLegal'
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestLegalrequest $sender_request_legalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestLegalRequest $sender_request_legal_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestLegal'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function senderRequestLegalRequest($sender_request_legalrequest, string $contentType = self::contentTypes['senderRequestLegal'][0])
+    public function senderRequestLegalRequest($sender_request_legal_request, string $contentType = self::contentTypes['senderRequestLegal'][0])
     {
 
-        // verify the required parameter 'sender_request_legalrequest' is set
-        if ($sender_request_legalrequest === null || (is_array($sender_request_legalrequest) && count($sender_request_legalrequest) === 0)) {
+        // verify the required parameter 'sender_request_legal_request' is set
+        if ($sender_request_legal_request === null || (is_array($sender_request_legal_request) && count($sender_request_legal_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sender_request_legalrequest when calling senderRequestLegal'
+                'Missing the required parameter $sender_request_legal_request when calling senderRequestLegal'
             );
         }
 
@@ -420,12 +420,12 @@ class SendersApi
         );
 
         // for model (json/xml)
-        if (isset($sender_request_legalrequest)) {
+        if (isset($sender_request_legal_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sender_request_legalrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sender_request_legal_request));
             } else {
-                $httpBody = $sender_request_legalrequest;
+                $httpBody = $sender_request_legal_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -482,16 +482,16 @@ class SendersApi
      *
      * Sender registration by an individual
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestNaturalrequest $sender_request_naturalrequest sender_request_naturalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestNaturalRequest $sender_request_natural_request sender_request_natural_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestNatural'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\SenderRequestNatural201response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\SenderRequestNatural201Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function senderRequestNatural($sender_request_naturalrequest, string $contentType = self::contentTypes['senderRequestNatural'][0])
+    public function senderRequestNatural($sender_request_natural_request, string $contentType = self::contentTypes['senderRequestNatural'][0])
     {
-        list($response) = $this->senderRequestNaturalWithHttpInfo($sender_request_naturalrequest, $contentType);
+        list($response) = $this->senderRequestNaturalWithHttpInfo($sender_request_natural_request, $contentType);
         return $response;
     }
 
@@ -500,16 +500,16 @@ class SendersApi
      *
      * Sender registration by an individual
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestNaturalrequest $sender_request_naturalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestNaturalRequest $sender_request_natural_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestNatural'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\SenderRequestNatural201response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\SenderRequestNatural201Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function senderRequestNaturalWithHttpInfo($sender_request_naturalrequest, string $contentType = self::contentTypes['senderRequestNatural'][0])
+    public function senderRequestNaturalWithHttpInfo($sender_request_natural_request, string $contentType = self::contentTypes['senderRequestNatural'][0])
     {
-        $request = $this->senderRequestNaturalRequest($sender_request_naturalrequest, $contentType);
+        $request = $this->senderRequestNaturalRequest($sender_request_natural_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -536,11 +536,11 @@ class SendersApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\BSG\Api\V2\Model\SenderRequestNatural201response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\SenderRequestNatural201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\SenderRequestNatural201response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\SenderRequestNatural201Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -558,16 +558,16 @@ class SendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SenderRequestNatural201response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SenderRequestNatural201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -585,7 +585,7 @@ class SendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -604,7 +604,7 @@ class SendersApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\SenderRequestNatural201response';
+            $returnType = '\BSG\Api\V2\Model\SenderRequestNatural201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -637,7 +637,7 @@ class SendersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\SenderRequestNatural201response',
+                        '\BSG\Api\V2\Model\SenderRequestNatural201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -645,7 +645,7 @@ class SendersApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -660,15 +660,15 @@ class SendersApi
      *
      * Sender registration by an individual
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestNaturalrequest $sender_request_naturalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestNaturalRequest $sender_request_natural_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestNatural'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function senderRequestNaturalAsync($sender_request_naturalrequest, string $contentType = self::contentTypes['senderRequestNatural'][0])
+    public function senderRequestNaturalAsync($sender_request_natural_request, string $contentType = self::contentTypes['senderRequestNatural'][0])
     {
-        return $this->senderRequestNaturalAsyncWithHttpInfo($sender_request_naturalrequest, $contentType)
+        return $this->senderRequestNaturalAsyncWithHttpInfo($sender_request_natural_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -681,16 +681,16 @@ class SendersApi
      *
      * Sender registration by an individual
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestNaturalrequest $sender_request_naturalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestNaturalRequest $sender_request_natural_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestNatural'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function senderRequestNaturalAsyncWithHttpInfo($sender_request_naturalrequest, string $contentType = self::contentTypes['senderRequestNatural'][0])
+    public function senderRequestNaturalAsyncWithHttpInfo($sender_request_natural_request, string $contentType = self::contentTypes['senderRequestNatural'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\SenderRequestNatural201response';
-        $request = $this->senderRequestNaturalRequest($sender_request_naturalrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\SenderRequestNatural201Response';
+        $request = $this->senderRequestNaturalRequest($sender_request_natural_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -731,19 +731,19 @@ class SendersApi
     /**
      * Create request for operation 'senderRequestNatural'
      *
-     * @param  \BSG\Api\V2\Model\SenderRequestNaturalrequest $sender_request_naturalrequest (required)
+     * @param  \BSG\Api\V2\Model\SenderRequestNaturalRequest $sender_request_natural_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['senderRequestNatural'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function senderRequestNaturalRequest($sender_request_naturalrequest, string $contentType = self::contentTypes['senderRequestNatural'][0])
+    public function senderRequestNaturalRequest($sender_request_natural_request, string $contentType = self::contentTypes['senderRequestNatural'][0])
     {
 
-        // verify the required parameter 'sender_request_naturalrequest' is set
-        if ($sender_request_naturalrequest === null || (is_array($sender_request_naturalrequest) && count($sender_request_naturalrequest) === 0)) {
+        // verify the required parameter 'sender_request_natural_request' is set
+        if ($sender_request_natural_request === null || (is_array($sender_request_natural_request) && count($sender_request_natural_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sender_request_naturalrequest when calling senderRequestNatural'
+                'Missing the required parameter $sender_request_natural_request when calling senderRequestNatural'
             );
         }
 
@@ -766,12 +766,12 @@ class SendersApi
         );
 
         // for model (json/xml)
-        if (isset($sender_request_naturalrequest)) {
+        if (isset($sender_request_natural_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sender_request_naturalrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($sender_request_natural_request));
             } else {
-                $httpBody = $sender_request_naturalrequest;
+                $httpBody = $sender_request_natural_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -841,7 +841,7 @@ class SendersApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\SenderRequests200response
+     * @return \BSG\Api\V2\Model\SenderRequests200Response
      */
     public function senderRequests($page_limit = 50, $page_offset = 0, $sort = 'id', $way = null, $filter_status = null, $filter_id = null, $filter_country_code = null, $filter_sender = null, $filter_created_at = null, string $contentType = self::contentTypes['senderRequests'][0])
     {
@@ -867,7 +867,7 @@ class SendersApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\SenderRequests200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\SenderRequests200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function senderRequestsWithHttpInfo($page_limit = 50, $page_offset = 0, $sort = 'id', $way = null, $filter_status = null, $filter_id = null, $filter_country_code = null, $filter_sender = null, $filter_created_at = null, string $contentType = self::contentTypes['senderRequests'][0])
     {
@@ -898,11 +898,11 @@ class SendersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\SenderRequests200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\SenderRequests200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\SenderRequests200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\SenderRequests200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -920,7 +920,7 @@ class SendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SenderRequests200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\SenderRequests200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -939,7 +939,7 @@ class SendersApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\SenderRequests200response';
+            $returnType = '\BSG\Api\V2\Model\SenderRequests200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -972,7 +972,7 @@ class SendersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\SenderRequests200response',
+                        '\BSG\Api\V2\Model\SenderRequests200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1032,7 +1032,7 @@ class SendersApi
      */
     public function senderRequestsAsyncWithHttpInfo($page_limit = 50, $page_offset = 0, $sort = 'id', $way = null, $filter_status = null, $filter_id = null, $filter_country_code = null, $filter_sender = null, $filter_created_at = null, string $contentType = self::contentTypes['senderRequests'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\SenderRequests200response';
+        $returnType = '\BSG\Api\V2\Model\SenderRequests200Response';
         $request = $this->senderRequestsRequest($page_limit, $page_offset, $sort, $way, $filter_status, $filter_id, $filter_country_code, $filter_sender, $filter_created_at, $contentType);
 
         return $this->client
@@ -1269,7 +1269,7 @@ class SendersApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Senders200response
+     * @return \BSG\Api\V2\Model\Senders200Response
      */
     public function senders($type, string $contentType = self::contentTypes['senders'][0])
     {
@@ -1287,7 +1287,7 @@ class SendersApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Senders200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\Senders200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendersWithHttpInfo($type, string $contentType = self::contentTypes['senders'][0])
     {
@@ -1318,11 +1318,11 @@ class SendersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Senders200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\Senders200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Senders200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\Senders200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1340,7 +1340,7 @@ class SendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Senders200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Senders200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1359,7 +1359,7 @@ class SendersApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Senders200response';
+            $returnType = '\BSG\Api\V2\Model\Senders200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1392,7 +1392,7 @@ class SendersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Senders200response',
+                        '\BSG\Api\V2\Model\Senders200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1436,7 +1436,7 @@ class SendersApi
      */
     public function sendersAsyncWithHttpInfo($type, string $contentType = self::contentTypes['senders'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Senders200response';
+        $returnType = '\BSG\Api\V2\Model\Senders200Response';
         $request = $this->sendersRequest($type, $contentType);
 
         return $this->client

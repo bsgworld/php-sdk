@@ -10,7 +10,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `internalCountriesList()`
 
 ```php
-internalCountriesList($service): \BSG\Api\V2\Model\InternalCountriesList200response
+internalCountriesList($service): \BSG\Api\V2\Model\InternalCountriesList200Response
 ```
 
 Get countries list
@@ -51,7 +51,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\InternalCountriesList200response**](../Model/InternalCountriesList200response.md)
+[**\BSG\Api\V2\Model\InternalCountriesList200Response**](../Model/InternalCountriesList200Response.md)
 
 ### Authorization
 

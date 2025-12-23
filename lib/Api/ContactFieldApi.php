@@ -136,16 +136,16 @@ class ContactFieldApi
      *
      * Create contact field
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldCreaterequest $contact_field_createrequest contact_field_createrequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldCreateRequest $contact_field_create_request contact_field_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldCreate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ContactFieldCreate201response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\ContactFieldCreate201Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
-    public function contactFieldCreate($contact_field_createrequest, string $contentType = self::contentTypes['contactFieldCreate'][0])
+    public function contactFieldCreate($contact_field_create_request, string $contentType = self::contentTypes['contactFieldCreate'][0])
     {
-        list($response) = $this->contactFieldCreateWithHttpInfo($contact_field_createrequest, $contentType);
+        list($response) = $this->contactFieldCreateWithHttpInfo($contact_field_create_request, $contentType);
         return $response;
     }
 
@@ -154,16 +154,16 @@ class ContactFieldApi
      *
      * Create contact field
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldCreaterequest $contact_field_createrequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldCreateRequest $contact_field_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldCreate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ContactFieldCreate201response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ContactFieldCreate201Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contactFieldCreateWithHttpInfo($contact_field_createrequest, string $contentType = self::contentTypes['contactFieldCreate'][0])
+    public function contactFieldCreateWithHttpInfo($contact_field_create_request, string $contentType = self::contentTypes['contactFieldCreate'][0])
     {
-        $request = $this->contactFieldCreateRequest($contact_field_createrequest, $contentType);
+        $request = $this->contactFieldCreateRequest($contact_field_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -190,11 +190,11 @@ class ContactFieldApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\BSG\Api\V2\Model\ContactFieldCreate201response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactFieldCreate201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactFieldCreate201response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactFieldCreate201Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -212,16 +212,16 @@ class ContactFieldApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactFieldCreate201response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactFieldCreate201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -239,7 +239,7 @@ class ContactFieldApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -258,7 +258,7 @@ class ContactFieldApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ContactFieldCreate201response';
+            $returnType = '\BSG\Api\V2\Model\ContactFieldCreate201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -291,7 +291,7 @@ class ContactFieldApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactFieldCreate201response',
+                        '\BSG\Api\V2\Model\ContactFieldCreate201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class ContactFieldApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,15 +314,15 @@ class ContactFieldApi
      *
      * Create contact field
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldCreaterequest $contact_field_createrequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldCreateRequest $contact_field_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldCreateAsync($contact_field_createrequest, string $contentType = self::contentTypes['contactFieldCreate'][0])
+    public function contactFieldCreateAsync($contact_field_create_request, string $contentType = self::contentTypes['contactFieldCreate'][0])
     {
-        return $this->contactFieldCreateAsyncWithHttpInfo($contact_field_createrequest, $contentType)
+        return $this->contactFieldCreateAsyncWithHttpInfo($contact_field_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -335,16 +335,16 @@ class ContactFieldApi
      *
      * Create contact field
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldCreaterequest $contact_field_createrequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldCreateRequest $contact_field_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldCreateAsyncWithHttpInfo($contact_field_createrequest, string $contentType = self::contentTypes['contactFieldCreate'][0])
+    public function contactFieldCreateAsyncWithHttpInfo($contact_field_create_request, string $contentType = self::contentTypes['contactFieldCreate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ContactFieldCreate201response';
-        $request = $this->contactFieldCreateRequest($contact_field_createrequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\ContactFieldCreate201Response';
+        $request = $this->contactFieldCreateRequest($contact_field_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -385,19 +385,19 @@ class ContactFieldApi
     /**
      * Create request for operation 'contactFieldCreate'
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldCreaterequest $contact_field_createrequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldCreateRequest $contact_field_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldCreate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function contactFieldCreateRequest($contact_field_createrequest, string $contentType = self::contentTypes['contactFieldCreate'][0])
+    public function contactFieldCreateRequest($contact_field_create_request, string $contentType = self::contentTypes['contactFieldCreate'][0])
     {
 
-        // verify the required parameter 'contact_field_createrequest' is set
-        if ($contact_field_createrequest === null || (is_array($contact_field_createrequest) && count($contact_field_createrequest) === 0)) {
+        // verify the required parameter 'contact_field_create_request' is set
+        if ($contact_field_create_request === null || (is_array($contact_field_create_request) && count($contact_field_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_field_createrequest when calling contactFieldCreate'
+                'Missing the required parameter $contact_field_create_request when calling contactFieldCreate'
             );
         }
 
@@ -420,12 +420,12 @@ class ContactFieldApi
         );
 
         // for model (json/xml)
-        if (isset($contact_field_createrequest)) {
+        if (isset($contact_field_create_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_field_createrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_field_create_request));
             } else {
-                $httpBody = $contact_field_createrequest;
+                $httpBody = $contact_field_create_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -483,16 +483,16 @@ class ContactFieldApi
      * Update contact field
      *
      * @param  int $id Contact field id (required)
-     * @param  \BSG\Api\V2\Model\ContactFieldUpdaterequest $contact_field_updaterequest contact_field_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldUpdateRequest $contact_field_update_request contact_field_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldUpdate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ContactFieldUpdate200response
+     * @return \BSG\Api\V2\Model\ContactFieldUpdate200Response
      */
-    public function contactFieldUpdate($id, $contact_field_updaterequest, string $contentType = self::contentTypes['contactFieldUpdate'][0])
+    public function contactFieldUpdate($id, $contact_field_update_request, string $contentType = self::contentTypes['contactFieldUpdate'][0])
     {
-        list($response) = $this->contactFieldUpdateWithHttpInfo($id, $contact_field_updaterequest, $contentType);
+        list($response) = $this->contactFieldUpdateWithHttpInfo($id, $contact_field_update_request, $contentType);
         return $response;
     }
 
@@ -502,16 +502,16 @@ class ContactFieldApi
      * Update contact field
      *
      * @param  int $id Contact field id (required)
-     * @param  \BSG\Api\V2\Model\ContactFieldUpdaterequest $contact_field_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldUpdateRequest $contact_field_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldUpdate'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ContactFieldUpdate200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ContactFieldUpdate200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contactFieldUpdateWithHttpInfo($id, $contact_field_updaterequest, string $contentType = self::contentTypes['contactFieldUpdate'][0])
+    public function contactFieldUpdateWithHttpInfo($id, $contact_field_update_request, string $contentType = self::contentTypes['contactFieldUpdate'][0])
     {
-        $request = $this->contactFieldUpdateRequest($id, $contact_field_updaterequest, $contentType);
+        $request = $this->contactFieldUpdateRequest($id, $contact_field_update_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -538,11 +538,11 @@ class ContactFieldApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\ContactFieldUpdate200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ContactFieldUpdate200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ContactFieldUpdate200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ContactFieldUpdate200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -560,7 +560,7 @@ class ContactFieldApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactFieldUpdate200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ContactFieldUpdate200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -579,7 +579,7 @@ class ContactFieldApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ContactFieldUpdate200response';
+            $returnType = '\BSG\Api\V2\Model\ContactFieldUpdate200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -612,7 +612,7 @@ class ContactFieldApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ContactFieldUpdate200response',
+                        '\BSG\Api\V2\Model\ContactFieldUpdate200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -628,15 +628,15 @@ class ContactFieldApi
      * Update contact field
      *
      * @param  int $id Contact field id (required)
-     * @param  \BSG\Api\V2\Model\ContactFieldUpdaterequest $contact_field_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldUpdateRequest $contact_field_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldUpdateAsync($id, $contact_field_updaterequest, string $contentType = self::contentTypes['contactFieldUpdate'][0])
+    public function contactFieldUpdateAsync($id, $contact_field_update_request, string $contentType = self::contentTypes['contactFieldUpdate'][0])
     {
-        return $this->contactFieldUpdateAsyncWithHttpInfo($id, $contact_field_updaterequest, $contentType)
+        return $this->contactFieldUpdateAsyncWithHttpInfo($id, $contact_field_update_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -650,16 +650,16 @@ class ContactFieldApi
      * Update contact field
      *
      * @param  int $id Contact field id (required)
-     * @param  \BSG\Api\V2\Model\ContactFieldUpdaterequest $contact_field_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldUpdateRequest $contact_field_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldUpdateAsyncWithHttpInfo($id, $contact_field_updaterequest, string $contentType = self::contentTypes['contactFieldUpdate'][0])
+    public function contactFieldUpdateAsyncWithHttpInfo($id, $contact_field_update_request, string $contentType = self::contentTypes['contactFieldUpdate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ContactFieldUpdate200response';
-        $request = $this->contactFieldUpdateRequest($id, $contact_field_updaterequest, $contentType);
+        $returnType = '\BSG\Api\V2\Model\ContactFieldUpdate200Response';
+        $request = $this->contactFieldUpdateRequest($id, $contact_field_update_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -701,13 +701,13 @@ class ContactFieldApi
      * Create request for operation 'contactFieldUpdate'
      *
      * @param  int $id Contact field id (required)
-     * @param  \BSG\Api\V2\Model\ContactFieldUpdaterequest $contact_field_updaterequest (required)
+     * @param  \BSG\Api\V2\Model\ContactFieldUpdateRequest $contact_field_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function contactFieldUpdateRequest($id, $contact_field_updaterequest, string $contentType = self::contentTypes['contactFieldUpdate'][0])
+    public function contactFieldUpdateRequest($id, $contact_field_update_request, string $contentType = self::contentTypes['contactFieldUpdate'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -717,10 +717,10 @@ class ContactFieldApi
             );
         }
 
-        // verify the required parameter 'contact_field_updaterequest' is set
-        if ($contact_field_updaterequest === null || (is_array($contact_field_updaterequest) && count($contact_field_updaterequest) === 0)) {
+        // verify the required parameter 'contact_field_update_request' is set
+        if ($contact_field_update_request === null || (is_array($contact_field_update_request) && count($contact_field_update_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_field_updaterequest when calling contactFieldUpdate'
+                'Missing the required parameter $contact_field_update_request when calling contactFieldUpdate'
             );
         }
 
@@ -751,12 +751,12 @@ class ContactFieldApi
         );
 
         // for model (json/xml)
-        if (isset($contact_field_updaterequest)) {
+        if (isset($contact_field_update_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_field_updaterequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_field_update_request));
             } else {
-                $httpBody = $contact_field_updaterequest;
+                $httpBody = $contact_field_update_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1105,16 +1105,16 @@ class ContactFieldApi
      *
      * Delete contact fields by ids
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest $contact_fields_delete_batchrequest contact_fields_delete_batchrequest (required)
+     * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request post_contacts_fields_delete_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function contactFieldsDeleteBatch($contact_fields_delete_batchrequest, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function contactFieldsDeleteBatch($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
     {
-        list($response) = $this->contactFieldsDeleteBatchWithHttpInfo($contact_fields_delete_batchrequest, $contentType);
+        list($response) = $this->contactFieldsDeleteBatchWithHttpInfo($post_contacts_fields_delete_request, $contentType);
         return $response;
     }
 
@@ -1123,16 +1123,16 @@ class ContactFieldApi
      *
      * Delete contact fields by ids
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest $contact_fields_delete_batchrequest (required)
+     * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contactFieldsDeleteBatchWithHttpInfo($contact_fields_delete_batchrequest, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function contactFieldsDeleteBatchWithHttpInfo($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
     {
-        $request = $this->contactFieldsDeleteBatchRequest($contact_fields_delete_batchrequest, $contentType);
+        $request = $this->contactFieldsDeleteBatchRequest($post_contacts_fields_delete_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1248,15 +1248,15 @@ class ContactFieldApi
      *
      * Delete contact fields by ids
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest $contact_fields_delete_batchrequest (required)
+     * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldsDeleteBatchAsync($contact_fields_delete_batchrequest, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function contactFieldsDeleteBatchAsync($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
     {
-        return $this->contactFieldsDeleteBatchAsyncWithHttpInfo($contact_fields_delete_batchrequest, $contentType)
+        return $this->contactFieldsDeleteBatchAsyncWithHttpInfo($post_contacts_fields_delete_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1269,16 +1269,16 @@ class ContactFieldApi
      *
      * Delete contact fields by ids
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest $contact_fields_delete_batchrequest (required)
+     * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldsDeleteBatchAsyncWithHttpInfo($contact_fields_delete_batchrequest, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function contactFieldsDeleteBatchAsyncWithHttpInfo($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
     {
         $returnType = 'object';
-        $request = $this->contactFieldsDeleteBatchRequest($contact_fields_delete_batchrequest, $contentType);
+        $request = $this->contactFieldsDeleteBatchRequest($post_contacts_fields_delete_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1319,19 +1319,19 @@ class ContactFieldApi
     /**
      * Create request for operation 'contactFieldsDeleteBatch'
      *
-     * @param  \BSG\Api\V2\Model\ContactFieldsDeleteBatchrequest $contact_fields_delete_batchrequest (required)
+     * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function contactFieldsDeleteBatchRequest($contact_fields_delete_batchrequest, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function contactFieldsDeleteBatchRequest($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
     {
 
-        // verify the required parameter 'contact_fields_delete_batchrequest' is set
-        if ($contact_fields_delete_batchrequest === null || (is_array($contact_fields_delete_batchrequest) && count($contact_fields_delete_batchrequest) === 0)) {
+        // verify the required parameter 'post_contacts_fields_delete_request' is set
+        if ($post_contacts_fields_delete_request === null || (is_array($post_contacts_fields_delete_request) && count($post_contacts_fields_delete_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $contact_fields_delete_batchrequest when calling contactFieldsDeleteBatch'
+                'Missing the required parameter $post_contacts_fields_delete_request when calling contactFieldsDeleteBatch'
             );
         }
 
@@ -1354,12 +1354,12 @@ class ContactFieldApi
         );
 
         // for model (json/xml)
-        if (isset($contact_fields_delete_batchrequest)) {
+        if (isset($post_contacts_fields_delete_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($contact_fields_delete_batchrequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($post_contacts_fields_delete_request));
             } else {
-                $httpBody = $contact_fields_delete_batchrequest;
+                $httpBody = $post_contacts_fields_delete_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

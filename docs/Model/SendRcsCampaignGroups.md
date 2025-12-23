@@ -10,7 +10,7 @@
 | **validity** | **int** | validity time in hours. The default is 72 hours. Integer from 1 to 72 | [optional] [default to 72] |
 | **start_at** | **\DateTime** | Start sending the messages at | [optional] |
 | **options** | [**\BSG\Api\V2\Model\Options**](Options.md) |  | |
-| **alternative_channel** | [**\BSG\Api\V2\Model\SendrcscampaigngroupsAlternativeChannel**](SendrcscampaigngroupsAlternativeChannel.md) |  | [optional] |
+| **alternative_channel** | [**\BSG\Api\V2\Model\SendRcsCampaignGroupsAlternativeChannel**](SendRcsCampaignGroupsAlternativeChannel.md) |  | [optional] |
 | **add_to_contact_book** | **bool** | Specifies whether to add the specified phone number of the message recipient to the contact book | [optional] [default to true] |
 | **check_stop_list** | **bool** | Check the recipient’s phone number for being in the stop list.  Possible values:    - true – if the number is found in the stop list, do not send the message  - false – ignore the stop list | [optional] [default to true] |
 

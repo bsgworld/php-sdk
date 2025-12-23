@@ -144,7 +144,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ShortUrlsDomain200response|\BSG\Api\V2\Model\ShortDomainNotFound
+     * @return \BSG\Api\V2\Model\ShortUrlsDomain200Response|\BSG\Api\V2\Model\ShortDomainNotFound
      */
     public function shortUrlsDomain($uuid, string $contentType = self::contentTypes['shortUrlsDomain'][0])
     {
@@ -162,7 +162,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ShortUrlsDomain200response|\BSG\Api\V2\Model\ShortDomainNotFound, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ShortUrlsDomain200Response|\BSG\Api\V2\Model\ShortDomainNotFound, HTTP status code, HTTP response headers (array of strings)
      */
     public function shortUrlsDomainWithHttpInfo($uuid, string $contentType = self::contentTypes['shortUrlsDomain'][0])
     {
@@ -193,11 +193,11 @@ class ShortDomainsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\ShortUrlsDomain200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ShortUrlsDomain200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ShortUrlsDomain200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ShortUrlsDomain200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -215,7 +215,7 @@ class ShortDomainsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomain200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomain200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -261,7 +261,7 @@ class ShortDomainsApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomain200response';
+            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomain200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -294,7 +294,7 @@ class ShortDomainsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ShortUrlsDomain200response',
+                        '\BSG\Api\V2\Model\ShortUrlsDomain200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -346,7 +346,7 @@ class ShortDomainsApi
      */
     public function shortUrlsDomainAsyncWithHttpInfo($uuid, string $contentType = self::contentTypes['shortUrlsDomain'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomain200response';
+        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomain200Response';
         $request = $this->shortUrlsDomainRequest($uuid, $contentType);
 
         return $this->client
@@ -491,7 +491,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ShortUrlsDomainCreate201response|\BSG\Api\V2\Model\ShortUrlsDomainCreate422response|\BSG\Api\V2\Model\Toomanyrequestsresponse
+     * @return \BSG\Api\V2\Model\ShortUrlsDomainCreate201Response|\BSG\Api\V2\Model\ShortUrlsDomainCreate422Response|\BSG\Api\V2\Model\TooManyRequestsResponse
      */
     public function shortUrlsDomainCreate($domain_store_request = null, string $contentType = self::contentTypes['shortUrlsDomainCreate'][0])
     {
@@ -509,7 +509,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ShortUrlsDomainCreate201response|\BSG\Api\V2\Model\ShortUrlsDomainCreate422response|\BSG\Api\V2\Model\Toomanyrequestsresponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ShortUrlsDomainCreate201Response|\BSG\Api\V2\Model\ShortUrlsDomainCreate422Response|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function shortUrlsDomainCreateWithHttpInfo($domain_store_request = null, string $contentType = self::contentTypes['shortUrlsDomainCreate'][0])
     {
@@ -540,11 +540,11 @@ class ShortDomainsApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate201response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate201response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -562,16 +562,16 @@ class ShortDomainsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomainCreate201response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate422response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate422Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate422response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ShortUrlsDomainCreate422Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -589,16 +589,16 @@ class ShortDomainsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomainCreate422response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomainCreate422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Toomanyrequestsresponse' !== 'string') {
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -616,7 +616,7 @@ class ShortDomainsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Toomanyrequestsresponse', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -635,7 +635,7 @@ class ShortDomainsApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainCreate201response';
+            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -668,7 +668,7 @@ class ShortDomainsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ShortUrlsDomainCreate201response',
+                        '\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -676,7 +676,7 @@ class ShortDomainsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ShortUrlsDomainCreate422response',
+                        '\BSG\Api\V2\Model\ShortUrlsDomainCreate422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -684,7 +684,7 @@ class ShortDomainsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Toomanyrequestsresponse',
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -728,7 +728,7 @@ class ShortDomainsApi
      */
     public function shortUrlsDomainCreateAsyncWithHttpInfo($domain_store_request = null, string $contentType = self::contentTypes['shortUrlsDomainCreate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainCreate201response';
+        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainCreate201Response';
         $request = $this->shortUrlsDomainCreateRequest($domain_store_request, $contentType);
 
         return $this->client
@@ -1214,7 +1214,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ShortUrlsDomainUpdate200response|\BSG\Api\V2\Model\ShortDomainNotFound
+     * @return \BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response|\BSG\Api\V2\Model\ShortDomainNotFound
      */
     public function shortUrlsDomainUpdate($uuid, $domain_update_request, string $contentType = self::contentTypes['shortUrlsDomainUpdate'][0])
     {
@@ -1233,7 +1233,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ShortUrlsDomainUpdate200response|\BSG\Api\V2\Model\ShortDomainNotFound, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response|\BSG\Api\V2\Model\ShortDomainNotFound, HTTP status code, HTTP response headers (array of strings)
      */
     public function shortUrlsDomainUpdateWithHttpInfo($uuid, $domain_update_request, string $contentType = self::contentTypes['shortUrlsDomainUpdate'][0])
     {
@@ -1264,11 +1264,11 @@ class ShortDomainsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1286,7 +1286,7 @@ class ShortDomainsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1332,7 +1332,7 @@ class ShortDomainsApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response';
+            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1365,7 +1365,7 @@ class ShortDomainsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response',
+                        '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1419,7 +1419,7 @@ class ShortDomainsApi
      */
     public function shortUrlsDomainUpdateAsyncWithHttpInfo($uuid, $domain_update_request, string $contentType = self::contentTypes['shortUrlsDomainUpdate'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200response';
+        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomainUpdate200Response';
         $request = $this->shortUrlsDomainUpdateRequest($uuid, $domain_update_request, $contentType);
 
         return $this->client
@@ -1582,7 +1582,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\ShortUrlsDomains200response
+     * @return \BSG\Api\V2\Model\ShortUrlsDomains200Response
      */
     public function shortUrlsDomains($from, $to, $page = 1, $per_page = 20, string $contentType = self::contentTypes['shortUrlsDomains'][0])
     {
@@ -1603,7 +1603,7 @@ class ShortDomainsApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\ShortUrlsDomains200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\ShortUrlsDomains200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function shortUrlsDomainsWithHttpInfo($from, $to, $page = 1, $per_page = 20, string $contentType = self::contentTypes['shortUrlsDomains'][0])
     {
@@ -1634,11 +1634,11 @@ class ShortDomainsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\ShortUrlsDomains200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\ShortUrlsDomains200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\ShortUrlsDomains200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\ShortUrlsDomains200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1656,7 +1656,7 @@ class ShortDomainsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomains200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\ShortUrlsDomains200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1675,7 +1675,7 @@ class ShortDomainsApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomains200response';
+            $returnType = '\BSG\Api\V2\Model\ShortUrlsDomains200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1708,7 +1708,7 @@ class ShortDomainsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\ShortUrlsDomains200response',
+                        '\BSG\Api\V2\Model\ShortUrlsDomains200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1758,7 +1758,7 @@ class ShortDomainsApi
      */
     public function shortUrlsDomainsAsyncWithHttpInfo($from, $to, $page = 1, $per_page = 20, string $contentType = self::contentTypes['shortUrlsDomains'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomains200response';
+        $returnType = '\BSG\Api\V2\Model\ShortUrlsDomains200Response';
         $request = $this->shortUrlsDomainsRequest($from, $to, $page, $per_page, $contentType);
 
         return $this->client

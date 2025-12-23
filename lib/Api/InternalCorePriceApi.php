@@ -136,7 +136,7 @@ class InternalCorePriceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCorePricesByCountry200response
+     * @return \BSG\Api\V2\Model\InternalCorePricesByCountry200Response
      */
     public function internalCorePricesByCountry($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
     {
@@ -155,7 +155,7 @@ class InternalCorePriceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCorePricesByCountry200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\InternalCorePricesByCountry200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function internalCorePricesByCountryWithHttpInfo($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
     {
@@ -186,11 +186,11 @@ class InternalCorePriceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCorePricesByCountry200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\InternalCorePricesByCountry200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCorePricesByCountry200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\InternalCorePricesByCountry200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -208,7 +208,7 @@ class InternalCorePriceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCorePricesByCountry200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -227,7 +227,7 @@ class InternalCorePriceApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCorePricesByCountry200response';
+            $returnType = '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -260,7 +260,7 @@ class InternalCorePriceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCorePricesByCountry200response',
+                        '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class InternalCorePriceApi
      */
     public function internalCorePricesByCountryAsyncWithHttpInfo($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCorePricesByCountry200response';
+        $returnType = '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response';
         $request = $this->internalCorePricesByCountryRequest($country_code, $product, $contentType);
 
         return $this->client
@@ -474,7 +474,7 @@ class InternalCorePriceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCorePricesList200response
+     * @return \BSG\Api\V2\Model\InternalCorePricesList200Response
      */
     public function internalCorePricesList($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
     {
@@ -492,7 +492,7 @@ class InternalCorePriceApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCorePricesList200response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\InternalCorePricesList200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function internalCorePricesListWithHttpInfo($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
     {
@@ -523,11 +523,11 @@ class InternalCorePriceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCorePricesList200response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\InternalCorePricesList200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCorePricesList200response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\InternalCorePricesList200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -545,7 +545,7 @@ class InternalCorePriceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCorePricesList200response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCorePricesList200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -564,7 +564,7 @@ class InternalCorePriceApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCorePricesList200response';
+            $returnType = '\BSG\Api\V2\Model\InternalCorePricesList200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -597,7 +597,7 @@ class InternalCorePriceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCorePricesList200response',
+                        '\BSG\Api\V2\Model\InternalCorePricesList200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -641,7 +641,7 @@ class InternalCorePriceApi
      */
     public function internalCorePricesListAsyncWithHttpInfo($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCorePricesList200response';
+        $returnType = '\BSG\Api\V2\Model\InternalCorePricesList200Response';
         $request = $this->internalCorePricesListRequest($product, $contentType);
 
         return $this->client

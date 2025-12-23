@@ -35,8 +35,14 @@ $apiInstance = new BSG\Api\V2\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$send_email = json_decode('{"to":["user@test.com"],"from":"Test.email 11_22 <user@test1.email.bsg.world>","subject":"test1","htmlbody":"<html><head><title>link to Symbl.cc</title></head><body><h1>Visit site</h1>Visit site <a href=\"https://symbl.cc\">Symbl.cc</a> for additional information.</body></html>"}', true); // \BSG\Api\V2\Model\SendEmail
-
+$send_email = new \BSG\Api\V2\Model\SendEmail([
+    'to' => [
+        0 => 'user@test.com',
+    ],
+    'from' => 'Test.email 11_22 <user@test1.email.bsg.world>',
+    'subject' => 'test1',
+    'htmlbody' => '<html><head><title>link to Symbl.cc</title></head><body><h1>Visit site</h1>Visit site <a href="https://symbl.cc">Symbl.cc</a> for additional information.</body></html>',
+]);
 try {
     $result = $apiInstance->emailSend($send_email);
     print_r($result);
@@ -96,8 +102,18 @@ $apiInstance = new BSG\Api\V2\Api\EmailApi(
     new GuzzleHttp\Client(),
     $config
 );
-$send_template_email = json_decode('{"to":["user@test.com"],"from":"Test.email 11_22 <user@test1.email.bsg.world>","subject":"test1","template_id":19,"template_content":{"recipients_name":"Test User","company_name":"Company Name"}}', true); // \BSG\Api\V2\Model\SendTemplateEmail
-
+$send_template_email = new \BSG\Api\V2\Model\SendTemplateEmail([
+    'to' => [
+        0 => 'user@test.com',
+    ],
+    'from' => 'Test.email 11_22 <user@test1.email.bsg.world>',
+    'subject' => 'test1',
+    'template_id' => 19,
+    'template_content' => [
+        'recipients_name' => 'Test User',
+        'company_name' => 'Company Name',
+    ],
+]);
 try {
     $result = $apiInstance->emailTemplateSend($send_template_email);
     print_r($result);
