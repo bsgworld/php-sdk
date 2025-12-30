@@ -71,10 +71,10 @@ class InternalCorePriceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'internalCorePricesByCountry' => [
+        'getInternalCorePrices' => [
             'application/json',
         ],
-        'internalCorePricesList' => [
+        'getInternalCorePricesByCountryCode' => [
             'application/json',
         ],
     ];
@@ -126,40 +126,38 @@ class InternalCorePriceApi
     }
 
     /**
-     * Operation internalCorePricesByCountry
+     * Operation getInternalCorePrices
      *
-     * Get prices for country
+     * Get price list for each country
      *
-     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesByCountry'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePrices'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCorePricesByCountry200Response
+     * @return \BSG\Api\V2\Model\GetInternalCorePrices200Response
      */
-    public function internalCorePricesByCountry($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
+    public function getInternalCorePrices($product, string $contentType = self::contentTypes['getInternalCorePrices'][0])
     {
-        list($response) = $this->internalCorePricesByCountryWithHttpInfo($country_code, $product, $contentType);
+        list($response) = $this->getInternalCorePricesWithHttpInfo($product, $contentType);
         return $response;
     }
 
     /**
-     * Operation internalCorePricesByCountryWithHttpInfo
+     * Operation getInternalCorePricesWithHttpInfo
      *
-     * Get prices for country
+     * Get price list for each country
      *
-     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesByCountry'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePrices'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCorePricesByCountry200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\GetInternalCorePrices200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function internalCorePricesByCountryWithHttpInfo($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
+    public function getInternalCorePricesWithHttpInfo($product, string $contentType = self::contentTypes['getInternalCorePrices'][0])
     {
-        $request = $this->internalCorePricesByCountryRequest($country_code, $product, $contentType);
+        $request = $this->getInternalCorePricesRequest($product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -186,11 +184,11 @@ class InternalCorePriceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCorePricesByCountry200Response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\GetInternalCorePrices200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCorePricesByCountry200Response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\GetInternalCorePrices200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -208,7 +206,7 @@ class InternalCorePriceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\GetInternalCorePrices200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -227,7 +225,7 @@ class InternalCorePriceApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response';
+            $returnType = '\BSG\Api\V2\Model\GetInternalCorePrices200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -260,7 +258,7 @@ class InternalCorePriceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response',
+                        '\BSG\Api\V2\Model\GetInternalCorePrices200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -271,20 +269,19 @@ class InternalCorePriceApi
     }
 
     /**
-     * Operation internalCorePricesByCountryAsync
+     * Operation getInternalCorePricesAsync
      *
-     * Get prices for country
+     * Get price list for each country
      *
-     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesByCountry'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCorePricesByCountryAsync($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
+    public function getInternalCorePricesAsync($product, string $contentType = self::contentTypes['getInternalCorePrices'][0])
     {
-        return $this->internalCorePricesByCountryAsyncWithHttpInfo($country_code, $product, $contentType)
+        return $this->getInternalCorePricesAsyncWithHttpInfo($product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -293,21 +290,20 @@ class InternalCorePriceApi
     }
 
     /**
-     * Operation internalCorePricesByCountryAsyncWithHttpInfo
+     * Operation getInternalCorePricesAsyncWithHttpInfo
      *
-     * Get prices for country
+     * Get price list for each country
      *
-     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesByCountry'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCorePricesByCountryAsyncWithHttpInfo($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
+    public function getInternalCorePricesAsyncWithHttpInfo($product, string $contentType = self::contentTypes['getInternalCorePrices'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCorePricesByCountry200Response';
-        $request = $this->internalCorePricesByCountryRequest($country_code, $product, $contentType);
+        $returnType = '\BSG\Api\V2\Model\GetInternalCorePrices200Response';
+        $request = $this->getInternalCorePricesRequest($product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -346,40 +342,26 @@ class InternalCorePriceApi
     }
 
     /**
-     * Create request for operation 'internalCorePricesByCountry'
+     * Create request for operation 'getInternalCorePrices'
      *
-     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesByCountry'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePrices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function internalCorePricesByCountryRequest($country_code, $product, string $contentType = self::contentTypes['internalCorePricesByCountry'][0])
+    public function getInternalCorePricesRequest($product, string $contentType = self::contentTypes['getInternalCorePrices'][0])
     {
 
-        // verify the required parameter 'country_code' is set
-        if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $country_code when calling internalCorePricesByCountry'
-            );
-        }
-        if (strlen($country_code) > 2) {
-            throw new \InvalidArgumentException('invalid length for "$country_code" when calling InternalCorePriceApi.internalCorePricesByCountry, must be smaller than or equal to 2.');
-        }
-        if (strlen($country_code) < 2) {
-            throw new \InvalidArgumentException('invalid length for "$country_code" when calling InternalCorePriceApi.internalCorePricesByCountry, must be bigger than or equal to 2.');
-        }
-        
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling internalCorePricesByCountry'
+                'Missing the required parameter $product when calling getInternalCorePrices'
             );
         }
 
 
-        $resourcePath = '/api/internal/core/prices/{countryCode}';
+        $resourcePath = '/api/internal/core/prices';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -397,14 +379,6 @@ class InternalCorePriceApi
         ) ?? []);
 
 
-        // path params
-        if ($country_code !== null) {
-            $resourcePath = str_replace(
-                '{' . 'countryCode' . '}',
-                ObjectSerializer::toPathValue($country_code),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -465,38 +439,40 @@ class InternalCorePriceApi
     }
 
     /**
-     * Operation internalCorePricesList
+     * Operation getInternalCorePricesByCountryCode
      *
-     * Get price list for each country
+     * Get prices for country
      *
+     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePricesByCountryCode'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCorePricesList200Response
+     * @return \BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response
      */
-    public function internalCorePricesList($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
+    public function getInternalCorePricesByCountryCode($country_code, $product, string $contentType = self::contentTypes['getInternalCorePricesByCountryCode'][0])
     {
-        list($response) = $this->internalCorePricesListWithHttpInfo($product, $contentType);
+        list($response) = $this->getInternalCorePricesByCountryCodeWithHttpInfo($country_code, $product, $contentType);
         return $response;
     }
 
     /**
-     * Operation internalCorePricesListWithHttpInfo
+     * Operation getInternalCorePricesByCountryCodeWithHttpInfo
      *
-     * Get price list for each country
+     * Get prices for country
      *
+     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePricesByCountryCode'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCorePricesList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function internalCorePricesListWithHttpInfo($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
+    public function getInternalCorePricesByCountryCodeWithHttpInfo($country_code, $product, string $contentType = self::contentTypes['getInternalCorePricesByCountryCode'][0])
     {
-        $request = $this->internalCorePricesListRequest($product, $contentType);
+        $request = $this->getInternalCorePricesByCountryCodeRequest($country_code, $product, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -523,11 +499,11 @@ class InternalCorePriceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCorePricesList200Response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCorePricesList200Response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -545,7 +521,7 @@ class InternalCorePriceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCorePricesList200Response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -564,7 +540,7 @@ class InternalCorePriceApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCorePricesList200Response';
+            $returnType = '\BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -597,7 +573,7 @@ class InternalCorePriceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCorePricesList200Response',
+                        '\BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -608,19 +584,20 @@ class InternalCorePriceApi
     }
 
     /**
-     * Operation internalCorePricesListAsync
+     * Operation getInternalCorePricesByCountryCodeAsync
      *
-     * Get price list for each country
+     * Get prices for country
      *
+     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePricesByCountryCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCorePricesListAsync($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
+    public function getInternalCorePricesByCountryCodeAsync($country_code, $product, string $contentType = self::contentTypes['getInternalCorePricesByCountryCode'][0])
     {
-        return $this->internalCorePricesListAsyncWithHttpInfo($product, $contentType)
+        return $this->getInternalCorePricesByCountryCodeAsyncWithHttpInfo($country_code, $product, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -629,20 +606,21 @@ class InternalCorePriceApi
     }
 
     /**
-     * Operation internalCorePricesListAsyncWithHttpInfo
+     * Operation getInternalCorePricesByCountryCodeAsyncWithHttpInfo
      *
-     * Get price list for each country
+     * Get prices for country
      *
+     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePricesByCountryCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCorePricesListAsyncWithHttpInfo($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
+    public function getInternalCorePricesByCountryCodeAsyncWithHttpInfo($country_code, $product, string $contentType = self::contentTypes['getInternalCorePricesByCountryCode'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCorePricesList200Response';
-        $request = $this->internalCorePricesListRequest($product, $contentType);
+        $returnType = '\BSG\Api\V2\Model\GetInternalCorePricesByCountryCode200Response';
+        $request = $this->getInternalCorePricesByCountryCodeRequest($country_code, $product, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -681,26 +659,40 @@ class InternalCorePriceApi
     }
 
     /**
-     * Create request for operation 'internalCorePricesList'
+     * Create request for operation 'getInternalCorePricesByCountryCode'
      *
+     * @param  string $country_code Country ISO Code (required)
      * @param  string $product Product value (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCorePricesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCorePricesByCountryCode'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function internalCorePricesListRequest($product, string $contentType = self::contentTypes['internalCorePricesList'][0])
+    public function getInternalCorePricesByCountryCodeRequest($country_code, $product, string $contentType = self::contentTypes['getInternalCorePricesByCountryCode'][0])
     {
 
+        // verify the required parameter 'country_code' is set
+        if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $country_code when calling getInternalCorePricesByCountryCode'
+            );
+        }
+        if (strlen($country_code) > 2) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling InternalCorePriceApi.getInternalCorePricesByCountryCode, must be smaller than or equal to 2.');
+        }
+        if (strlen($country_code) < 2) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling InternalCorePriceApi.getInternalCorePricesByCountryCode, must be bigger than or equal to 2.');
+        }
+        
         // verify the required parameter 'product' is set
         if ($product === null || (is_array($product) && count($product) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product when calling internalCorePricesList'
+                'Missing the required parameter $product when calling getInternalCorePricesByCountryCode'
             );
         }
 
 
-        $resourcePath = '/api/internal/core/prices';
+        $resourcePath = '/api/internal/core/prices/{countryCode}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -718,6 +710,14 @@ class InternalCorePriceApi
         ) ?? []);
 
 
+        // path params
+        if ($country_code !== null) {
+            $resourcePath = str_replace(
+                '{' . 'countryCode' . '}',
+                ObjectSerializer::toPathValue($country_code),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(

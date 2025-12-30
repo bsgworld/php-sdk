@@ -80,7 +80,7 @@ class ContactFieldApi
         'contactFields' => [
             'application/json',
         ],
-        'contactFieldsDeleteBatch' => [
+        'postContactsFieldsDelete' => [
             'application/json',
         ],
     ];
@@ -1101,38 +1101,38 @@ class ContactFieldApi
     }
 
     /**
-     * Operation contactFieldsDeleteBatch
+     * Operation postContactsFieldsDelete
      *
      * Delete contact fields by ids
      *
      * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request post_contacts_fields_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postContactsFieldsDelete'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function contactFieldsDeleteBatch($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function postContactsFieldsDelete($post_contacts_fields_delete_request, string $contentType = self::contentTypes['postContactsFieldsDelete'][0])
     {
-        list($response) = $this->contactFieldsDeleteBatchWithHttpInfo($post_contacts_fields_delete_request, $contentType);
+        list($response) = $this->postContactsFieldsDeleteWithHttpInfo($post_contacts_fields_delete_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation contactFieldsDeleteBatchWithHttpInfo
+     * Operation postContactsFieldsDeleteWithHttpInfo
      *
      * Delete contact fields by ids
      *
      * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postContactsFieldsDelete'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function contactFieldsDeleteBatchWithHttpInfo($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function postContactsFieldsDeleteWithHttpInfo($post_contacts_fields_delete_request, string $contentType = self::contentTypes['postContactsFieldsDelete'][0])
     {
-        $request = $this->contactFieldsDeleteBatchRequest($post_contacts_fields_delete_request, $contentType);
+        $request = $this->postContactsFieldsDeleteRequest($post_contacts_fields_delete_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1244,19 +1244,19 @@ class ContactFieldApi
     }
 
     /**
-     * Operation contactFieldsDeleteBatchAsync
+     * Operation postContactsFieldsDeleteAsync
      *
      * Delete contact fields by ids
      *
      * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postContactsFieldsDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldsDeleteBatchAsync($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function postContactsFieldsDeleteAsync($post_contacts_fields_delete_request, string $contentType = self::contentTypes['postContactsFieldsDelete'][0])
     {
-        return $this->contactFieldsDeleteBatchAsyncWithHttpInfo($post_contacts_fields_delete_request, $contentType)
+        return $this->postContactsFieldsDeleteAsyncWithHttpInfo($post_contacts_fields_delete_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1265,20 +1265,20 @@ class ContactFieldApi
     }
 
     /**
-     * Operation contactFieldsDeleteBatchAsyncWithHttpInfo
+     * Operation postContactsFieldsDeleteAsyncWithHttpInfo
      *
      * Delete contact fields by ids
      *
      * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postContactsFieldsDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function contactFieldsDeleteBatchAsyncWithHttpInfo($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function postContactsFieldsDeleteAsyncWithHttpInfo($post_contacts_fields_delete_request, string $contentType = self::contentTypes['postContactsFieldsDelete'][0])
     {
         $returnType = 'object';
-        $request = $this->contactFieldsDeleteBatchRequest($post_contacts_fields_delete_request, $contentType);
+        $request = $this->postContactsFieldsDeleteRequest($post_contacts_fields_delete_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1317,21 +1317,21 @@ class ContactFieldApi
     }
 
     /**
-     * Create request for operation 'contactFieldsDeleteBatch'
+     * Create request for operation 'postContactsFieldsDelete'
      *
      * @param  \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest $post_contacts_fields_delete_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['contactFieldsDeleteBatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postContactsFieldsDelete'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function contactFieldsDeleteBatchRequest($post_contacts_fields_delete_request, string $contentType = self::contentTypes['contactFieldsDeleteBatch'][0])
+    public function postContactsFieldsDeleteRequest($post_contacts_fields_delete_request, string $contentType = self::contentTypes['postContactsFieldsDelete'][0])
     {
 
         // verify the required parameter 'post_contacts_fields_delete_request' is set
         if ($post_contacts_fields_delete_request === null || (is_array($post_contacts_fields_delete_request) && count($post_contacts_fields_delete_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $post_contacts_fields_delete_request when calling contactFieldsDeleteBatch'
+                'Missing the required parameter $post_contacts_fields_delete_request when calling postContactsFieldsDelete'
             );
         }
 

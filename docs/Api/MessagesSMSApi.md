@@ -4,13 +4,13 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**smsMessagesFind()**](MessagesSMSApi.md#smsMessagesFind) | **GET** /api/messages | Find messages |
+| [**getMessages()**](MessagesSMSApi.md#getMessages) | **GET** /api/messages | Find messages |
 
 
-## `smsMessagesFind()`
+## `getMessages()`
 
 ```php
-smsMessagesFind($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to): \BSG\Api\V2\Model\GetMessages200Response
+getMessages($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to): \BSG\Api\V2\Model\GetMessages200Response
 ```
 
 Find messages
@@ -43,10 +43,10 @@ $filter_from = '2025-03-20 00:00:00'; // string | Filter message from this date.
 $filter_to = '2025-03-31 00:00:00'; // string | Filter message up to this date. format ― Y-m-d H:i:s
 
 try {
-    $result = $apiInstance->smsMessagesFind($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to);
+    $result = $apiInstance->getMessages($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessagesSMSApi->smsMessagesFind: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessagesSMSApi->getMessages: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

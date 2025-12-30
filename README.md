@@ -74,7 +74,7 @@ All URIs are relative to *https://one-api.bsg.world*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
-| *AccountSettingsApi* | [**accountSettingsGet**](docs/Api/AccountSettingsApi.md#accountsettingsget) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
+| *AccountSettingsApi* | [**getSettingsAddressBookFieldsById**](docs/Api/AccountSettingsApi.md#getsettingsaddressbookfieldsbyid) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
 | *AuthApi* | [**login**](docs/Api/AuthApi.md#login) | **POST** /api/auth/login | Receive JWT token |
 | *AuthApi* | [**refreshToken**](docs/Api/AuthApi.md#refreshtoken) | **POST** /api/auth/refresh | Refresh JWT token |
 | *BalanceApi* | [**accountBalance**](docs/Api/BalanceApi.md#accountbalance) | **GET** /api/accounts/balance | Get balance |
@@ -90,18 +90,7 @@ All URIs are relative to *https://one-api.bsg.world*
 | *CampaignSMSApi* | [**smsSend**](docs/Api/CampaignSMSApi.md#smssend) | **POST** /api/campaigns/sms/send | Send SMS campaign |
 | *CampaignSMSApi* | [**smsSendGroups**](docs/Api/CampaignSMSApi.md#smssendgroups) | **POST** /api/campaigns/sms/send-groups | Send SMS to contact list |
 | *CampaignSMSApi* | [**smsSendIndividual**](docs/Api/CampaignSMSApi.md#smssendindividual) | **POST** /api/campaigns/sms/send-individual | Send SMS with different text |
-| *CampaignWhatsAppApi* | [**whatsappCampaignSend**](docs/Api/CampaignWhatsAppApi.md#whatsappcampaignsend) | **POST** /api/campaigns/whatsapp/send |  |
-| *CampaignWhatsAppApi* | [**whatsappSingle**](docs/Api/CampaignWhatsAppApi.md#whatsappsingle) | **POST** /api/messages/whatsapp/send | Send single WhatsApp message |
-| *Class2FAOTPApi* | [**cancelOtp**](docs/Api/Class2FAOTPApi.md#cancelotp) | **POST** /api/2fa/authentications/{id}/cancel | Cancel the authentication session |
-| *Class2FAOTPApi* | [**otpList**](docs/Api/Class2FAOTPApi.md#otplist) | **GET** /api/2fa/authentications | List of authentication sessions |
-| *Class2FAOTPApi* | [**resendOtp**](docs/Api/Class2FAOTPApi.md#resendotp) | **POST** /api/2fa/authentications/otp/{id}/resend | Resend the one-time code |
-| *Class2FAOTPApi* | [**sendOtp**](docs/Api/Class2FAOTPApi.md#sendotp) | **POST** /api/2fa/authentications/otp | Send One-time password |
-| *Class2FAOTPApi* | [**statusOtp**](docs/Api/Class2FAOTPApi.md#statusotp) | **GET** /api/2fa/authentications/{id} | Check authentication status |
-| *Class2FAOTPApi* | [**verifyOtp**](docs/Api/Class2FAOTPApi.md#verifyotp) | **POST** /api/2fa/authentications/otp/{id}/verify | Check one-time Code |
-| *Class2FATemplatesApi* | [**otpTemplate**](docs/Api/Class2FATemplatesApi.md#otptemplate) | **GET** /api/2fa/authentications/templates/{templateId} | Get message template |
-| *Class2FATemplatesApi* | [**otpTemplateCreate**](docs/Api/Class2FATemplatesApi.md#otptemplatecreate) | **POST** /api/2fa/authentications/templates | Create a message template |
-| *Class2FATemplatesApi* | [**otpTemplateDelete**](docs/Api/Class2FATemplatesApi.md#otptemplatedelete) | **DELETE** /api/2fa/authentications/templates/{templateId} | Delete a message template |
-| *Class2FATemplatesApi* | [**otpTemplateList**](docs/Api/Class2FATemplatesApi.md#otptemplatelist) | **GET** /api/2fa/authentications/templates | List of message templates |
+| *CampaignWhatsAppApi* | [**postCampaignsWhatsappSend**](docs/Api/CampaignWhatsAppApi.md#postcampaignswhatsappsend) | **POST** /api/campaigns/whatsapp/send | Send WhatsApp campaign |
 | *ContactApi* | [**contact**](docs/Api/ContactApi.md#contact) | **GET** /api/contacts/{id} | Get contact by ID |
 | *ContactApi* | [**contactCreate**](docs/Api/ContactApi.md#contactcreate) | **POST** /api/contacts | Create a contact |
 | *ContactApi* | [**contactDelete**](docs/Api/ContactApi.md#contactdelete) | **DELETE** /api/contacts/{id} | Delete contact |
@@ -112,7 +101,7 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ContactFieldApi* | [**contactFieldCreate**](docs/Api/ContactFieldApi.md#contactfieldcreate) | **POST** /api/contacts/fields | Create contact field |
 | *ContactFieldApi* | [**contactFieldUpdate**](docs/Api/ContactFieldApi.md#contactfieldupdate) | **PATCH** /api/contacts/fields/{id} | Update contact field |
 | *ContactFieldApi* | [**contactFields**](docs/Api/ContactFieldApi.md#contactfields) | **GET** /api/contacts/fields | List of contact fields |
-| *ContactFieldApi* | [**contactFieldsDeleteBatch**](docs/Api/ContactFieldApi.md#contactfieldsdeletebatch) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
+| *ContactFieldApi* | [**postContactsFieldsDelete**](docs/Api/ContactFieldApi.md#postcontactsfieldsdelete) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
 | *ContactListApi* | [**contactList**](docs/Api/ContactListApi.md#contactlist) | **GET** /api/groups/{id} | Get list by id |
 | *ContactListApi* | [**contactListAttach**](docs/Api/ContactListApi.md#contactlistattach) | **POST** /api/groups/attach | Add contacts to the list |
 | *ContactListApi* | [**contactListCreate**](docs/Api/ContactListApi.md#contactlistcreate) | **POST** /api/groups | Create list |
@@ -123,14 +112,15 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ContactListApi* | [**contactLists**](docs/Api/ContactListApi.md#contactlists) | **GET** /api/groups | List of contact lists |
 | *EmailApi* | [**emailSend**](docs/Api/EmailApi.md#emailsend) | **POST** /api/email/send-emails | Send Email |
 | *EmailApi* | [**emailTemplateSend**](docs/Api/EmailApi.md#emailtemplatesend) | **POST** /api/email/send-template-emails | Send Email template |
-| *Internal2FAApi* | [**internal2faPrice**](docs/Api/Internal2FAApi.md#internal2faprice) | **GET** /api/internal/2fa/authentications/full-price | Show 2FA authentication full price |
-| *InternalCorePriceApi* | [**internalCorePricesByCountry**](docs/Api/InternalCorePriceApi.md#internalcorepricesbycountry) | **GET** /api/internal/core/prices/{countryCode} | Get prices for country |
-| *InternalCorePriceApi* | [**internalCorePricesList**](docs/Api/InternalCorePriceApi.md#internalcorepriceslist) | **GET** /api/internal/core/prices | Get price list for each country |
-| *InternalCountryApi* | [**internalCountriesList**](docs/Api/InternalCountryApi.md#internalcountrieslist) | **GET** /api/internal/countries | Get countries list |
-| *InternalCurrencyApi* | [**internalCurrenciesList**](docs/Api/InternalCurrencyApi.md#internalcurrencieslist) | **GET** /api/internal/currencies | Get currencies list |
-| *InternalWstPriceApi* | [**internalWstPricesByCountry**](docs/Api/InternalWstPriceApi.md#internalwstpricesbycountry) | **GET** /api/internal/wst/prices/{countryCode} | Get prices for country |
-| *InternalWstPriceApi* | [**internalWstPricesList**](docs/Api/InternalWstPriceApi.md#internalwstpriceslist) | **GET** /api/internal/wst/prices | Get price list for each country |
-| *MessagesSMSApi* | [**smsMessagesFind**](docs/Api/MessagesSMSApi.md#smsmessagesfind) | **GET** /api/messages | Find messages |
+| *InternalCorePriceApi* | [**getInternalCorePrices**](docs/Api/InternalCorePriceApi.md#getinternalcoreprices) | **GET** /api/internal/core/prices | Get price list for each country |
+| *InternalCorePriceApi* | [**getInternalCorePricesByCountryCode**](docs/Api/InternalCorePriceApi.md#getinternalcorepricesbycountrycode) | **GET** /api/internal/core/prices/{countryCode} | Get prices for country |
+| *InternalCountryApi* | [**getInternalCountries**](docs/Api/InternalCountryApi.md#getinternalcountries) | **GET** /api/internal/countries | Get countries list |
+| *InternalCurrencyApi* | [**getInternalCurrencies**](docs/Api/InternalCurrencyApi.md#getinternalcurrencies) | **GET** /api/internal/currencies | Get currencies list |
+| *InternalTwoFAApi* | [**getInternal2faAuthenticationsFullPrice**](docs/Api/InternalTwoFAApi.md#getinternal2faauthenticationsfullprice) | **GET** /api/internal/2fa/authentications/full-price | Show TwoFA authentication full price |
+| *InternalWstPriceApi* | [**getInternalWstPrices**](docs/Api/InternalWstPriceApi.md#getinternalwstprices) | **GET** /api/internal/wst/prices | Get price list for each country |
+| *InternalWstPriceApi* | [**getInternalWstPricesByCountryCode**](docs/Api/InternalWstPriceApi.md#getinternalwstpricesbycountrycode) | **GET** /api/internal/wst/prices/{countryCode} | Get prices for country |
+| *MessagesSMSApi* | [**getMessages**](docs/Api/MessagesSMSApi.md#getmessages) | **GET** /api/messages | Find messages |
+| *MessagesWhatsAppApi* | [**whatsappSingle**](docs/Api/MessagesWhatsAppApi.md#whatsappsingle) | **POST** /api/messages/whatsapp/send | Send single WhatsApp message |
 | *SendersApi* | [**senderRequestLegal**](docs/Api/SendersApi.md#senderrequestlegal) | **POST** /api/senders/requests/legal | Sender registration by a legal entity |
 | *SendersApi* | [**senderRequestNatural**](docs/Api/SendersApi.md#senderrequestnatural) | **POST** /api/senders/requests/natural | Sender registration by an individual |
 | *SendersApi* | [**senderRequests**](docs/Api/SendersApi.md#senderrequests) | **GET** /api/senders/requests/sms | List of Sender Requests |
@@ -150,6 +140,16 @@ All URIs are relative to *https://one-api.bsg.world*
 | *StopListApi* | [**stoplistItems**](docs/Api/StopListApi.md#stoplistitems) | **GET** /api/stoplist | List the contacts of stop lists |
 | *StopListApi* | [**stoplistRemove**](docs/Api/StopListApi.md#stoplistremove) | **POST** /api/stoplist/detach | Remove contacts from stop list |
 | *StopListApi* | [**stoplistSearch**](docs/Api/StopListApi.md#stoplistsearch) | **GET** /api/stoplist/search | Search contacts in Stop lists |
+| *TwoFAOTPApi* | [**cancelOtp**](docs/Api/TwoFAOTPApi.md#cancelotp) | **POST** /api/2fa/authentications/{id}/cancel | Cancel the authentication session |
+| *TwoFAOTPApi* | [**otpList**](docs/Api/TwoFAOTPApi.md#otplist) | **GET** /api/2fa/authentications | List of authentication sessions |
+| *TwoFAOTPApi* | [**resendOtp**](docs/Api/TwoFAOTPApi.md#resendotp) | **POST** /api/2fa/authentications/otp/{id}/resend | Resend the one-time code |
+| *TwoFAOTPApi* | [**sendOtp**](docs/Api/TwoFAOTPApi.md#sendotp) | **POST** /api/2fa/authentications/otp | Send One-time password |
+| *TwoFAOTPApi* | [**statusOtp**](docs/Api/TwoFAOTPApi.md#statusotp) | **GET** /api/2fa/authentications/{id} | Check authentication status |
+| *TwoFAOTPApi* | [**verifyOtp**](docs/Api/TwoFAOTPApi.md#verifyotp) | **POST** /api/2fa/authentications/otp/{id}/verify | Check one-time Code |
+| *TwoFATemplatesApi* | [**otpTemplate**](docs/Api/TwoFATemplatesApi.md#otptemplate) | **GET** /api/2fa/authentications/templates/{templateId} | Get message template |
+| *TwoFATemplatesApi* | [**otpTemplateCreate**](docs/Api/TwoFATemplatesApi.md#otptemplatecreate) | **POST** /api/2fa/authentications/templates | Create a message template |
+| *TwoFATemplatesApi* | [**otpTemplateDelete**](docs/Api/TwoFATemplatesApi.md#otptemplatedelete) | **DELETE** /api/2fa/authentications/templates/{templateId} | Delete a message template |
+| *TwoFATemplatesApi* | [**otpTemplateList**](docs/Api/TwoFATemplatesApi.md#otptemplatelist) | **GET** /api/2fa/authentications/templates | List of message templates |
 
 ## Models
 
@@ -161,8 +161,8 @@ All URIs are relative to *https://one-api.bsg.world*
 - [CampaignDetails200Response](docs/Model/CampaignDetails200Response.md)
 - [CampaignPrice200Response](docs/Model/CampaignPrice200Response.md)
 - [CampaignPrice422Response](docs/Model/CampaignPrice422Response.md)
-- [CampaignPriceRecipient](docs/Model/CampaignPriceRecipient.md)
 - [CampaignPriceRequest](docs/Model/CampaignPriceRequest.md)
+- [CampaignPriceRequestMessagesItem](docs/Model/CampaignPriceRequestMessagesItem.md)
 - [CampaignSchema](docs/Model/CampaignSchema.md)
 - [CampaignStatus](docs/Model/CampaignStatus.md)
 - [CampaignStop200Response](docs/Model/CampaignStop200Response.md)
@@ -216,29 +216,29 @@ All URIs are relative to *https://one-api.bsg.world*
 - [ContactsSearch200ResponseMetaPage](docs/Model/ContactsSearch200ResponseMetaPage.md)
 - [ContactsSearch200ResponseMetaSearch](docs/Model/ContactsSearch200ResponseMetaSearch.md)
 - [CorePriceSchema](docs/Model/CorePriceSchema.md)
-- [CountryItem](docs/Model/CountryItem.md)
-- [CurrencyItem](docs/Model/CurrencyItem.md)
 - [CurrencyObj](docs/Model/CurrencyObj.md)
 - [DateTimeParameter](docs/Model/DateTimeParameter.md)
 - [DetailCampaignSchema](docs/Model/DetailCampaignSchema.md)
 - [DetailCampaignSchemaAlternativeChannels](docs/Model/DetailCampaignSchemaAlternativeChannels.md)
 - [DetailCampaignSchemaAlternativeChannelsOneOf0Sms](docs/Model/DetailCampaignSchemaAlternativeChannelsOneOf0Sms.md)
-- [DetailCampaignSchemaAlternativeChannelsOneof0](docs/Model/DetailCampaignSchemaAlternativeChannelsOneof0.md)
+- [DetailCampaignSchemaAlternativeChannelsOption1](docs/Model/DetailCampaignSchemaAlternativeChannelsOption1.md)
 - [DomainStoreRequest](docs/Model/DomainStoreRequest.md)
 - [DomainUpdateRequest](docs/Model/DomainUpdateRequest.md)
 - [EmailResponse](docs/Model/EmailResponse.md)
+- [GetInternal2faAuthenticationsFullPrice200Response](docs/Model/GetInternal2faAuthenticationsFullPrice200Response.md)
+- [GetInternalCorePrices200Response](docs/Model/GetInternalCorePrices200Response.md)
+- [GetInternalCorePricesByCountryCode200Response](docs/Model/GetInternalCorePricesByCountryCode200Response.md)
+- [GetInternalCountries200Response](docs/Model/GetInternalCountries200Response.md)
+- [GetInternalCountries200ResponseDataItem](docs/Model/GetInternalCountries200ResponseDataItem.md)
+- [GetInternalCurrencies200Response](docs/Model/GetInternalCurrencies200Response.md)
+- [GetInternalCurrencies200ResponseDataItem](docs/Model/GetInternalCurrencies200ResponseDataItem.md)
+- [GetInternalWstPrices200Response](docs/Model/GetInternalWstPrices200Response.md)
+- [GetInternalWstPricesByCountryCode200Response](docs/Model/GetInternalWstPricesByCountryCode200Response.md)
 - [GetMessages200Response](docs/Model/GetMessages200Response.md)
 - [GetMessages200ResponseMeta](docs/Model/GetMessages200ResponseMeta.md)
 - [GetMessages200ResponseMetaPage](docs/Model/GetMessages200ResponseMetaPage.md)
 - [IndividualMessageData](docs/Model/IndividualMessageData.md)
 - [Inline](docs/Model/Inline.md)
-- [Internal2faPrice200Response](docs/Model/Internal2faPrice200Response.md)
-- [InternalCorePricesByCountry200Response](docs/Model/InternalCorePricesByCountry200Response.md)
-- [InternalCorePricesList200Response](docs/Model/InternalCorePricesList200Response.md)
-- [InternalCountriesList200Response](docs/Model/InternalCountriesList200Response.md)
-- [InternalCurrenciesList200Response](docs/Model/InternalCurrenciesList200Response.md)
-- [InternalWstPricesByCountry200Response](docs/Model/InternalWstPricesByCountry200Response.md)
-- [InternalWstPricesList200Response](docs/Model/InternalWstPricesList200Response.md)
 - [Language](docs/Model/Language.md)
 - [LinkStoreRequest](docs/Model/LinkStoreRequest.md)
 - [LinkUpdateRequest](docs/Model/LinkUpdateRequest.md)
@@ -249,8 +249,8 @@ All URIs are relative to *https://one-api.bsg.world*
 - [MessageApiSchemaAlternativeChannels](docs/Model/MessageApiSchemaAlternativeChannels.md)
 - [MessageApiSchemaAlternativeChannelsOneOf0Sms](docs/Model/MessageApiSchemaAlternativeChannelsOneOf0Sms.md)
 - [MessageApiSchemaAlternativeChannelsOneOf1Viber](docs/Model/MessageApiSchemaAlternativeChannelsOneOf1Viber.md)
-- [MessageApiSchemaAlternativeChannelsOneof0](docs/Model/MessageApiSchemaAlternativeChannelsOneof0.md)
-- [MessageApiSchemaAlternativeChannelsOneof1](docs/Model/MessageApiSchemaAlternativeChannelsOneof1.md)
+- [MessageApiSchemaAlternativeChannelsOption1](docs/Model/MessageApiSchemaAlternativeChannelsOption1.md)
+- [MessageApiSchemaAlternativeChannelsOption2](docs/Model/MessageApiSchemaAlternativeChannelsOption2.md)
 - [MessageInfo](docs/Model/MessageInfo.md)
 - [MessagePriceObject](docs/Model/MessagePriceObject.md)
 - [MessageSource](docs/Model/MessageSource.md)
@@ -270,8 +270,8 @@ All URIs are relative to *https://one-api.bsg.world*
 - [OtpTemplateCreateRequest](docs/Model/OtpTemplateCreateRequest.md)
 - [OtpTemplateDelete200Response](docs/Model/OtpTemplateDelete200Response.md)
 - [OtpTemplateDelete200ResponseData](docs/Model/OtpTemplateDelete200ResponseData.md)
-- [OtpTemplateDelete404response](docs/Model/OtpTemplateDelete404response.md)
-- [OtpTemplateDelete422response](docs/Model/OtpTemplateDelete422response.md)
+- [OtpTemplateDelete404Response](docs/Model/OtpTemplateDelete404Response.md)
+- [OtpTemplateDelete422Response](docs/Model/OtpTemplateDelete422Response.md)
 - [OtpTemplateList200Response](docs/Model/OtpTemplateList200Response.md)
 - [OtpTemplateList200ResponseData](docs/Model/OtpTemplateList200ResponseData.md)
 - [OtpTemplateStatus](docs/Model/OtpTemplateStatus.md)
@@ -314,7 +314,6 @@ All URIs are relative to *https://one-api.bsg.world*
 - [SenderRequests200ResponseMeta](docs/Model/SenderRequests200ResponseMeta.md)
 - [SenderRequests200ResponseMetaPage](docs/Model/SenderRequests200ResponseMetaPage.md)
 - [SenderSchema](docs/Model/SenderSchema.md)
-- [SenderSchemaCountry](docs/Model/SenderSchemaCountry.md)
 - [Senders200Response](docs/Model/Senders200Response.md)
 - [ShortDomainNotFound](docs/Model/ShortDomainNotFound.md)
 - [ShortDomainSlugType](docs/Model/ShortDomainSlugType.md)

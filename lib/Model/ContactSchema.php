@@ -393,7 +393,7 @@ class ContactSchema implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets phone
      *
-     * @param int|null $phone Contact's phone number
+     * @param int|null $phone Contact’s phone number
      *
      * @return self
      */

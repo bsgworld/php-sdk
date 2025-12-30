@@ -7,7 +7,7 @@
 | **phones** | [**\BSG\Api\V2\Model\Phone[]**](Phone.md) | $phones | |
 | **sender** | **string** | The name of the agent used to send the whatsapp message | |
 | **type** | **string** | Type of Whatsapp message, only \&quot;template\&quot; now is supported | |
-| **template** | [**\BSG\Api\V2\Model\Template**](Template.md) |  | [optional] |
+| **template** | [**\BSG\Api\V2\Model\Template**](\BSG\Api\V2\Model\Template.md) | Required for type \&quot;template\&quot; | [optional] |
 | **alternative_channel** | [**\BSG\Api\V2\Model\SendWhatsAppCampaignAlternativeChannel**](SendWhatsAppCampaignAlternativeChannel.md) |  | [optional] |
 | **start_at** | **\DateTime** | Start sending the messages at | [optional] |
 | **add_to_contact_book** | **bool** | Specifies whether to add the specified phone number of the message recipient to the contact book | [optional] [default to true] |

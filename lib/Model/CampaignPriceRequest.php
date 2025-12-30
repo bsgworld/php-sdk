@@ -61,7 +61,7 @@ class CampaignPriceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'text' => 'string',
         'tariff_code' => 'int',
         'groups' => 'int[]',
-        'messages' => '\BSG\Api\V2\Model\CampaignPriceRecipient[]'
+        'messages' => '\BSG\Api\V2\Model\CampaignPriceRequestMessagesItem[]'
     ];
 
     /**
@@ -436,7 +436,7 @@ class CampaignPriceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets messages
      *
-     * @return \BSG\Api\V2\Model\CampaignPriceRecipient[]|null
+     * @return \BSG\Api\V2\Model\CampaignPriceRequestMessagesItem[]|null
      */
     public function getMessages()
     {
@@ -446,7 +446,7 @@ class CampaignPriceRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets messages
      *
-     * @param \BSG\Api\V2\Model\CampaignPriceRecipient[]|null $messages messages
+     * @param \BSG\Api\V2\Model\CampaignPriceRequestMessagesItem[]|null $messages messages
      *
      * @return self
      */

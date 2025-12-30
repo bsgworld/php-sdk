@@ -1,6 +1,6 @@
 <?php
 /**
- * OtpTemplateDelete422response
+ * OtpTemplateDelete422Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \BSG\Api\V2\ObjectSerializer;
 
 /**
- * OtpTemplateDelete422response Class Doc Comment
+ * OtpTemplateDelete422Response Class Doc Comment
  *
  * @category Class
  * @package  BSG\Api\V2
@@ -40,7 +40,7 @@ use \BSG\Api\V2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OtpTemplateDelete422response implements ModelInterface, ArrayAccess, \JsonSerializable
+class OtpTemplateDelete422Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OtpTemplateDelete422response implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OtpTemplateDelete422response';
+    protected static $openAPIModelName = 'OtpTemplateDelete422Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

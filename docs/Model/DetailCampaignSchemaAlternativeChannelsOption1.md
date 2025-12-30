@@ -1,0 +1,9 @@
+# # DetailCampaignSchemaAlternativeChannelsOption1
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **sms** | [**\BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsOneOf0Sms**](DetailCampaignSchemaAlternativeChannelsOneOf0Sms.md) |  | [optional] |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

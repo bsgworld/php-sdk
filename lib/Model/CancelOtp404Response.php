@@ -309,7 +309,7 @@ class CancelOtp404Response implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets message
      *
-     * @param string|null $message 2FA Service error.
+     * @param string|null $message TwoFA Service error.
      *
      * @return self
      */

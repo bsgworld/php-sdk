@@ -71,7 +71,7 @@ class InternalCountryApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'internalCountriesList' => [
+        'getInternalCountries' => [
             'application/json',
         ],
     ];
@@ -123,38 +123,38 @@ class InternalCountryApi
     }
 
     /**
-     * Operation internalCountriesList
+     * Operation getInternalCountries
      *
      * Get countries list
      *
      * @param  string|null $service service (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCountriesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCountries'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCountriesList200Response
+     * @return \BSG\Api\V2\Model\GetInternalCountries200Response
      */
-    public function internalCountriesList($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
+    public function getInternalCountries($service = null, string $contentType = self::contentTypes['getInternalCountries'][0])
     {
-        list($response) = $this->internalCountriesListWithHttpInfo($service, $contentType);
+        list($response) = $this->getInternalCountriesWithHttpInfo($service, $contentType);
         return $response;
     }
 
     /**
-     * Operation internalCountriesListWithHttpInfo
+     * Operation getInternalCountriesWithHttpInfo
      *
      * Get countries list
      *
      * @param  string|null $service (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCountriesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCountries'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCountriesList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\GetInternalCountries200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function internalCountriesListWithHttpInfo($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
+    public function getInternalCountriesWithHttpInfo($service = null, string $contentType = self::contentTypes['getInternalCountries'][0])
     {
-        $request = $this->internalCountriesListRequest($service, $contentType);
+        $request = $this->getInternalCountriesRequest($service, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -181,11 +181,11 @@ class InternalCountryApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCountriesList200Response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\GetInternalCountries200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCountriesList200Response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\GetInternalCountries200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -203,7 +203,7 @@ class InternalCountryApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCountriesList200Response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\GetInternalCountries200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -222,7 +222,7 @@ class InternalCountryApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCountriesList200Response';
+            $returnType = '\BSG\Api\V2\Model\GetInternalCountries200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -255,7 +255,7 @@ class InternalCountryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCountriesList200Response',
+                        '\BSG\Api\V2\Model\GetInternalCountries200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -266,19 +266,19 @@ class InternalCountryApi
     }
 
     /**
-     * Operation internalCountriesListAsync
+     * Operation getInternalCountriesAsync
      *
      * Get countries list
      *
      * @param  string|null $service (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCountriesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCountriesListAsync($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
+    public function getInternalCountriesAsync($service = null, string $contentType = self::contentTypes['getInternalCountries'][0])
     {
-        return $this->internalCountriesListAsyncWithHttpInfo($service, $contentType)
+        return $this->getInternalCountriesAsyncWithHttpInfo($service, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -287,20 +287,20 @@ class InternalCountryApi
     }
 
     /**
-     * Operation internalCountriesListAsyncWithHttpInfo
+     * Operation getInternalCountriesAsyncWithHttpInfo
      *
      * Get countries list
      *
      * @param  string|null $service (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCountriesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCountriesListAsyncWithHttpInfo($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
+    public function getInternalCountriesAsyncWithHttpInfo($service = null, string $contentType = self::contentTypes['getInternalCountries'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCountriesList200Response';
-        $request = $this->internalCountriesListRequest($service, $contentType);
+        $returnType = '\BSG\Api\V2\Model\GetInternalCountries200Response';
+        $request = $this->getInternalCountriesRequest($service, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -339,15 +339,15 @@ class InternalCountryApi
     }
 
     /**
-     * Create request for operation 'internalCountriesList'
+     * Create request for operation 'getInternalCountries'
      *
      * @param  string|null $service (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCountriesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function internalCountriesListRequest($service = null, string $contentType = self::contentTypes['internalCountriesList'][0])
+    public function getInternalCountriesRequest($service = null, string $contentType = self::contentTypes['getInternalCountries'][0])
     {
 
 

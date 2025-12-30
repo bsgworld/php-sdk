@@ -241,11 +241,6 @@ class Parameter implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const TYPE_TEXT = 'text';
-    public const TYPE_CURRENCY = 'currency';
-    public const TYPE_DATE_TIME = 'date_time';
-    public const TYPE_IMAGE = 'image';
-    public const TYPE_DOCUMENT = 'document';
-    public const TYPE_VIDEO = 'video';
     public const TYPE_PAYLOAD = 'payload';
 
     /**
@@ -257,11 +252,6 @@ class Parameter implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::TYPE_TEXT,
-            self::TYPE_CURRENCY,
-            self::TYPE_DATE_TIME,
-            self::TYPE_IMAGE,
-            self::TYPE_DOCUMENT,
-            self::TYPE_VIDEO,
             self::TYPE_PAYLOAD,
         ];
     }

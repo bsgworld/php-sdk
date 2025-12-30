@@ -71,7 +71,7 @@ class InternalCurrencyApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'internalCurrenciesList' => [
+        'getInternalCurrencies' => [
             'application/json',
         ],
     ];
@@ -123,38 +123,38 @@ class InternalCurrencyApi
     }
 
     /**
-     * Operation internalCurrenciesList
+     * Operation getInternalCurrencies
      *
      * Get currencies list
      *
      * @param  string|null $currency_code Product value (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCurrenciesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCurrencies'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\InternalCurrenciesList200Response
+     * @return \BSG\Api\V2\Model\GetInternalCurrencies200Response
      */
-    public function internalCurrenciesList($currency_code = null, string $contentType = self::contentTypes['internalCurrenciesList'][0])
+    public function getInternalCurrencies($currency_code = null, string $contentType = self::contentTypes['getInternalCurrencies'][0])
     {
-        list($response) = $this->internalCurrenciesListWithHttpInfo($currency_code, $contentType);
+        list($response) = $this->getInternalCurrenciesWithHttpInfo($currency_code, $contentType);
         return $response;
     }
 
     /**
-     * Operation internalCurrenciesListWithHttpInfo
+     * Operation getInternalCurrenciesWithHttpInfo
      *
      * Get currencies list
      *
      * @param  string|null $currency_code Product value (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCurrenciesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCurrencies'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\InternalCurrenciesList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\GetInternalCurrencies200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function internalCurrenciesListWithHttpInfo($currency_code = null, string $contentType = self::contentTypes['internalCurrenciesList'][0])
+    public function getInternalCurrenciesWithHttpInfo($currency_code = null, string $contentType = self::contentTypes['getInternalCurrencies'][0])
     {
-        $request = $this->internalCurrenciesListRequest($currency_code, $contentType);
+        $request = $this->getInternalCurrenciesRequest($currency_code, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -181,11 +181,11 @@ class InternalCurrencyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\InternalCurrenciesList200Response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\GetInternalCurrencies200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\InternalCurrenciesList200Response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\GetInternalCurrencies200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -203,7 +203,7 @@ class InternalCurrencyApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\InternalCurrenciesList200Response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\GetInternalCurrencies200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -222,7 +222,7 @@ class InternalCurrencyApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\InternalCurrenciesList200Response';
+            $returnType = '\BSG\Api\V2\Model\GetInternalCurrencies200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -255,7 +255,7 @@ class InternalCurrencyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\InternalCurrenciesList200Response',
+                        '\BSG\Api\V2\Model\GetInternalCurrencies200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -266,19 +266,19 @@ class InternalCurrencyApi
     }
 
     /**
-     * Operation internalCurrenciesListAsync
+     * Operation getInternalCurrenciesAsync
      *
      * Get currencies list
      *
      * @param  string|null $currency_code Product value (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCurrenciesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCurrencies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCurrenciesListAsync($currency_code = null, string $contentType = self::contentTypes['internalCurrenciesList'][0])
+    public function getInternalCurrenciesAsync($currency_code = null, string $contentType = self::contentTypes['getInternalCurrencies'][0])
     {
-        return $this->internalCurrenciesListAsyncWithHttpInfo($currency_code, $contentType)
+        return $this->getInternalCurrenciesAsyncWithHttpInfo($currency_code, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -287,20 +287,20 @@ class InternalCurrencyApi
     }
 
     /**
-     * Operation internalCurrenciesListAsyncWithHttpInfo
+     * Operation getInternalCurrenciesAsyncWithHttpInfo
      *
      * Get currencies list
      *
      * @param  string|null $currency_code Product value (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCurrenciesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCurrencies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function internalCurrenciesListAsyncWithHttpInfo($currency_code = null, string $contentType = self::contentTypes['internalCurrenciesList'][0])
+    public function getInternalCurrenciesAsyncWithHttpInfo($currency_code = null, string $contentType = self::contentTypes['getInternalCurrencies'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\InternalCurrenciesList200Response';
-        $request = $this->internalCurrenciesListRequest($currency_code, $contentType);
+        $returnType = '\BSG\Api\V2\Model\GetInternalCurrencies200Response';
+        $request = $this->getInternalCurrenciesRequest($currency_code, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -339,22 +339,22 @@ class InternalCurrencyApi
     }
 
     /**
-     * Create request for operation 'internalCurrenciesList'
+     * Create request for operation 'getInternalCurrencies'
      *
      * @param  string|null $currency_code Product value (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['internalCurrenciesList'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInternalCurrencies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function internalCurrenciesListRequest($currency_code = null, string $contentType = self::contentTypes['internalCurrenciesList'][0])
+    public function getInternalCurrenciesRequest($currency_code = null, string $contentType = self::contentTypes['getInternalCurrencies'][0])
     {
 
         if ($currency_code !== null && strlen($currency_code) > 3) {
-            throw new \InvalidArgumentException('invalid length for "$currency_code" when calling InternalCurrencyApi.internalCurrenciesList, must be smaller than or equal to 3.');
+            throw new \InvalidArgumentException('invalid length for "$currency_code" when calling InternalCurrencyApi.getInternalCurrencies, must be smaller than or equal to 3.');
         }
         if ($currency_code !== null && strlen($currency_code) < 3) {
-            throw new \InvalidArgumentException('invalid length for "$currency_code" when calling InternalCurrencyApi.internalCurrenciesList, must be bigger than or equal to 3.');
+            throw new \InvalidArgumentException('invalid length for "$currency_code" when calling InternalCurrencyApi.getInternalCurrencies, must be bigger than or equal to 3.');
         }
         
 

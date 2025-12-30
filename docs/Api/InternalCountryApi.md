@@ -4,13 +4,13 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**internalCountriesList()**](InternalCountryApi.md#internalCountriesList) | **GET** /api/internal/countries | Get countries list |
+| [**getInternalCountries()**](InternalCountryApi.md#getInternalCountries) | **GET** /api/internal/countries | Get countries list |
 
 
-## `internalCountriesList()`
+## `getInternalCountries()`
 
 ```php
-internalCountriesList($service): \BSG\Api\V2\Model\InternalCountriesList200Response
+getInternalCountries($service): \BSG\Api\V2\Model\GetInternalCountries200Response
 ```
 
 Get countries list
@@ -35,10 +35,10 @@ $apiInstance = new BSG\Api\V2\Api\InternalCountryApi(
 $service = 'service_example'; // string
 
 try {
-    $result = $apiInstance->internalCountriesList($service);
+    $result = $apiInstance->getInternalCountries($service);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InternalCountryApi->internalCountriesList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InternalCountryApi->getInternalCountries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -51,7 +51,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\InternalCountriesList200Response**](../Model/InternalCountriesList200Response.md)
+[**\BSG\Api\V2\Model\GetInternalCountries200Response**](../Model/GetInternalCountries200Response.md)
 
 ### Authorization
 

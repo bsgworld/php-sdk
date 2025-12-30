@@ -1,6 +1,6 @@
 <?php
 /**
- * OtpTemplateDelete404response
+ * OtpTemplateDelete404Response
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \BSG\Api\V2\ObjectSerializer;
 
 /**
- * OtpTemplateDelete404response Class Doc Comment
+ * OtpTemplateDelete404Response Class Doc Comment
  *
  * @category Class
  * @package  BSG\Api\V2
@@ -40,7 +40,7 @@ use \BSG\Api\V2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OtpTemplateDelete404response implements ModelInterface, ArrayAccess, \JsonSerializable
+class OtpTemplateDelete404Response implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OtpTemplateDelete404response implements ModelInterface, ArrayAccess, \Json
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OtpTemplateDelete404response';
+    protected static $openAPIModelName = 'OtpTemplateDelete404Response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -309,7 +309,7 @@ class OtpTemplateDelete404response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets message
      *
-     * @param string|null $message 2FA Service error.
+     * @param string|null $message TwoFA Service error.
      *
      * @return self
      */

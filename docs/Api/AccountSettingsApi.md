@@ -4,13 +4,13 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**accountSettingsGet()**](AccountSettingsApi.md#accountSettingsGet) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
+| [**getSettingsAddressBookFieldsById()**](AccountSettingsApi.md#getSettingsAddressBookFieldsById) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
 
 
-## `accountSettingsGet()`
+## `getSettingsAddressBookFieldsById()`
 
 ```php
-accountSettingsGet($id): object
+getSettingsAddressBookFieldsById($id): object
 ```
 
 Get settings value
@@ -35,10 +35,10 @@ $apiInstance = new BSG\Api\V2\Api\AccountSettingsApi(
 $id = 1; // int | Address Book ID
 
 try {
-    $result = $apiInstance->accountSettingsGet($id);
+    $result = $apiInstance->getSettingsAddressBookFieldsById($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountSettingsApi->accountSettingsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountSettingsApi->getSettingsAddressBookFieldsById: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -71,7 +71,7 @@ class MessagesSMSApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'smsMessagesFind' => [
+        'getMessages' => [
             'application/json',
         ],
     ];
@@ -123,7 +123,7 @@ class MessagesSMSApi
     }
 
     /**
-     * Operation smsMessagesFind
+     * Operation getMessages
      *
      * Find messages
      *
@@ -136,20 +136,20 @@ class MessagesSMSApi
      * @param  string|null $filter_reference_id Filter by reference passed when [send message](#operation/sms_send) (optional)
      * @param  \DateTime|null $filter_from Filter message from this date. format ― Y-m-d H:i:s (optional)
      * @param  \DateTime|null $filter_to Filter message up to this date. format ― Y-m-d H:i:s (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsMessagesFind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessages'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \BSG\Api\V2\Model\GetMessages200Response
      */
-    public function smsMessagesFind($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
+    public function getMessages($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['getMessages'][0])
     {
-        list($response) = $this->smsMessagesFindWithHttpInfo($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
+        list($response) = $this->getMessagesWithHttpInfo($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
         return $response;
     }
 
     /**
-     * Operation smsMessagesFindWithHttpInfo
+     * Operation getMessagesWithHttpInfo
      *
      * Find messages
      *
@@ -162,15 +162,15 @@ class MessagesSMSApi
      * @param  string|null $filter_reference_id Filter by reference passed when [send message](#operation/sms_send) (optional)
      * @param  \DateTime|null $filter_from Filter message from this date. format ― Y-m-d H:i:s (optional)
      * @param  \DateTime|null $filter_to Filter message up to this date. format ― Y-m-d H:i:s (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsMessagesFind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessages'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \BSG\Api\V2\Model\GetMessages200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function smsMessagesFindWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
+    public function getMessagesWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['getMessages'][0])
     {
-        $request = $this->smsMessagesFindRequest($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
+        $request = $this->getMessagesRequest($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -282,7 +282,7 @@ class MessagesSMSApi
     }
 
     /**
-     * Operation smsMessagesFindAsync
+     * Operation getMessagesAsync
      *
      * Find messages
      *
@@ -295,14 +295,14 @@ class MessagesSMSApi
      * @param  string|null $filter_reference_id Filter by reference passed when [send message](#operation/sms_send) (optional)
      * @param  \DateTime|null $filter_from Filter message from this date. format ― Y-m-d H:i:s (optional)
      * @param  \DateTime|null $filter_to Filter message up to this date. format ― Y-m-d H:i:s (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsMessagesFind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsMessagesFindAsync($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
+    public function getMessagesAsync($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['getMessages'][0])
     {
-        return $this->smsMessagesFindAsyncWithHttpInfo($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType)
+        return $this->getMessagesAsyncWithHttpInfo($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -311,7 +311,7 @@ class MessagesSMSApi
     }
 
     /**
-     * Operation smsMessagesFindAsyncWithHttpInfo
+     * Operation getMessagesAsyncWithHttpInfo
      *
      * Find messages
      *
@@ -324,15 +324,15 @@ class MessagesSMSApi
      * @param  string|null $filter_reference_id Filter by reference passed when [send message](#operation/sms_send) (optional)
      * @param  \DateTime|null $filter_from Filter message from this date. format ― Y-m-d H:i:s (optional)
      * @param  \DateTime|null $filter_to Filter message up to this date. format ― Y-m-d H:i:s (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsMessagesFind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function smsMessagesFindAsyncWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
+    public function getMessagesAsyncWithHttpInfo($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['getMessages'][0])
     {
         $returnType = '\BSG\Api\V2\Model\GetMessages200Response';
-        $request = $this->smsMessagesFindRequest($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
+        $request = $this->getMessagesRequest($page_offset, $page_limit, $sort, $way, $filter_id, $filter_campaign_id, $filter_reference_id, $filter_from, $filter_to, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -371,7 +371,7 @@ class MessagesSMSApi
     }
 
     /**
-     * Create request for operation 'smsMessagesFind'
+     * Create request for operation 'getMessages'
      *
      * @param  int|null $page_offset (optional, default to 0)
      * @param  int|null $page_limit The number of items in the response (optional, default to 50)
@@ -382,29 +382,29 @@ class MessagesSMSApi
      * @param  string|null $filter_reference_id Filter by reference passed when [send message](#operation/sms_send) (optional)
      * @param  \DateTime|null $filter_from Filter message from this date. format ― Y-m-d H:i:s (optional)
      * @param  \DateTime|null $filter_to Filter message up to this date. format ― Y-m-d H:i:s (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['smsMessagesFind'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMessages'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function smsMessagesFindRequest($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['smsMessagesFind'][0])
+    public function getMessagesRequest($page_offset = 0, $page_limit = 50, $sort = 'id', $way = null, $filter_id = null, $filter_campaign_id = null, $filter_reference_id = null, $filter_from = null, $filter_to = null, string $contentType = self::contentTypes['getMessages'][0])
     {
 
         if ($page_offset !== null && $page_offset < 0) {
-            throw new \InvalidArgumentException('invalid value for "$page_offset" when calling MessagesSMSApi.smsMessagesFind, must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for "$page_offset" when calling MessagesSMSApi.getMessages, must be bigger than or equal to 0.');
         }
         
         if ($page_limit !== null && $page_limit > 500) {
-            throw new \InvalidArgumentException('invalid value for "$page_limit" when calling MessagesSMSApi.smsMessagesFind, must be smaller than or equal to 500.');
+            throw new \InvalidArgumentException('invalid value for "$page_limit" when calling MessagesSMSApi.getMessages, must be smaller than or equal to 500.');
         }
         if ($page_limit !== null && $page_limit < 15) {
-            throw new \InvalidArgumentException('invalid value for "$page_limit" when calling MessagesSMSApi.smsMessagesFind, must be bigger than or equal to 15.');
+            throw new \InvalidArgumentException('invalid value for "$page_limit" when calling MessagesSMSApi.getMessages, must be bigger than or equal to 15.');
         }
         
 
 
         if ($filter_id !== null && $filter_id < 1) {
-            throw new \InvalidArgumentException('invalid value for "$filter_id" when calling MessagesSMSApi.smsMessagesFind, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$filter_id" when calling MessagesSMSApi.getMessages, must be bigger than or equal to 1.');
         }
         
 

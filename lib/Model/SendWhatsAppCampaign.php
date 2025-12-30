@@ -94,7 +94,7 @@ class SendWhatsAppCampaign implements ModelInterface, ArrayAccess, \JsonSerializ
         'phones' => false,
         'sender' => false,
         'type' => false,
-        'template' => false,
+        'template' => true,
         'alternative_channel' => true,
         'start_at' => false,
         'add_to_contact_book' => false,
@@ -503,14 +503,21 @@ class SendWhatsAppCampaign implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets template
      *
-     * @param \BSG\Api\V2\Model\Template|null $template template
+     * @param \BSG\Api\V2\Model\Template|null $template Required for type \"template\"
      *
      * @return self
      */
     public function setTemplate($template)
     {
         if (is_null($template)) {
-            throw new \InvalidArgumentException('non-nullable template cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'template');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('template', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['template'] = $template;
 

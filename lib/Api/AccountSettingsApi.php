@@ -71,7 +71,7 @@ class AccountSettingsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'accountSettingsGet' => [
+        'getSettingsAddressBookFieldsById' => [
             'application/json',
         ],
     ];
@@ -123,38 +123,38 @@ class AccountSettingsApi
     }
 
     /**
-     * Operation accountSettingsGet
+     * Operation getSettingsAddressBookFieldsById
      *
      * Get settings value
      *
      * @param  int $id Address Book ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSettingsAddressBookFieldsById'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function accountSettingsGet($id, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    public function getSettingsAddressBookFieldsById($id, string $contentType = self::contentTypes['getSettingsAddressBookFieldsById'][0])
     {
-        list($response) = $this->accountSettingsGetWithHttpInfo($id, $contentType);
+        list($response) = $this->getSettingsAddressBookFieldsByIdWithHttpInfo($id, $contentType);
         return $response;
     }
 
     /**
-     * Operation accountSettingsGetWithHttpInfo
+     * Operation getSettingsAddressBookFieldsByIdWithHttpInfo
      *
      * Get settings value
      *
      * @param  int $id Address Book ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSettingsAddressBookFieldsById'] to see the possible values for this operation
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountSettingsGetWithHttpInfo($id, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    public function getSettingsAddressBookFieldsByIdWithHttpInfo($id, string $contentType = self::contentTypes['getSettingsAddressBookFieldsById'][0])
     {
-        $request = $this->accountSettingsGetRequest($id, $contentType);
+        $request = $this->getSettingsAddressBookFieldsByIdRequest($id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -266,19 +266,19 @@ class AccountSettingsApi
     }
 
     /**
-     * Operation accountSettingsGetAsync
+     * Operation getSettingsAddressBookFieldsByIdAsync
      *
      * Get settings value
      *
      * @param  int $id Address Book ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSettingsAddressBookFieldsById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSettingsGetAsync($id, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    public function getSettingsAddressBookFieldsByIdAsync($id, string $contentType = self::contentTypes['getSettingsAddressBookFieldsById'][0])
     {
-        return $this->accountSettingsGetAsyncWithHttpInfo($id, $contentType)
+        return $this->getSettingsAddressBookFieldsByIdAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -287,20 +287,20 @@ class AccountSettingsApi
     }
 
     /**
-     * Operation accountSettingsGetAsyncWithHttpInfo
+     * Operation getSettingsAddressBookFieldsByIdAsyncWithHttpInfo
      *
      * Get settings value
      *
      * @param  int $id Address Book ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSettingsAddressBookFieldsById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountSettingsGetAsyncWithHttpInfo($id, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    public function getSettingsAddressBookFieldsByIdAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getSettingsAddressBookFieldsById'][0])
     {
         $returnType = 'object';
-        $request = $this->accountSettingsGetRequest($id, $contentType);
+        $request = $this->getSettingsAddressBookFieldsByIdRequest($id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -339,25 +339,25 @@ class AccountSettingsApi
     }
 
     /**
-     * Create request for operation 'accountSettingsGet'
+     * Create request for operation 'getSettingsAddressBookFieldsById'
      *
      * @param  int $id Address Book ID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountSettingsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSettingsAddressBookFieldsById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountSettingsGetRequest($id, string $contentType = self::contentTypes['accountSettingsGet'][0])
+    public function getSettingsAddressBookFieldsByIdRequest($id, string $contentType = self::contentTypes['getSettingsAddressBookFieldsById'][0])
     {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling accountSettingsGet'
+                'Missing the required parameter $id when calling getSettingsAddressBookFieldsById'
             );
         }
         if ($id < 1) {
-            throw new \InvalidArgumentException('invalid value for "$id" when calling AccountSettingsApi.accountSettingsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$id" when calling AccountSettingsApi.getSettingsAddressBookFieldsById, must be bigger than or equal to 1.');
         }
         
 

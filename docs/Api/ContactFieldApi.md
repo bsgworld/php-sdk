@@ -7,7 +7,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 | [**contactFieldCreate()**](ContactFieldApi.md#contactFieldCreate) | **POST** /api/contacts/fields | Create contact field |
 | [**contactFieldUpdate()**](ContactFieldApi.md#contactFieldUpdate) | **PATCH** /api/contacts/fields/{id} | Update contact field |
 | [**contactFields()**](ContactFieldApi.md#contactFields) | **GET** /api/contacts/fields | List of contact fields |
-| [**contactFieldsDeleteBatch()**](ContactFieldApi.md#contactFieldsDeleteBatch) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
+| [**postContactsFieldsDelete()**](ContactFieldApi.md#postContactsFieldsDelete) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
 
 
 ## `contactFieldCreate()`
@@ -191,10 +191,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `contactFieldsDeleteBatch()`
+## `postContactsFieldsDelete()`
 
 ```php
-contactFieldsDeleteBatch($post_contacts_fields_delete_request): object
+postContactsFieldsDelete($post_contacts_fields_delete_request): object
 ```
 
 Delete contact fields by ids
@@ -221,10 +221,10 @@ $apiInstance = new BSG\Api\V2\Api\ContactFieldApi(
 $post_contacts_fields_delete_request = new \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest(); // \BSG\Api\V2\Model\PostContactsFieldsDeleteRequest
 
 try {
-    $result = $apiInstance->contactFieldsDeleteBatch($post_contacts_fields_delete_request);
+    $result = $apiInstance->postContactsFieldsDelete($post_contacts_fields_delete_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ContactFieldApi->contactFieldsDeleteBatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ContactFieldApi->postContactsFieldsDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

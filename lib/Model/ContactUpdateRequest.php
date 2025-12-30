@@ -331,7 +331,7 @@ class ContactUpdateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets phone
      *
-     * @param int $phone Contact's phone number
+     * @param int $phone Contact’s phone number
      *
      * @return self
      */

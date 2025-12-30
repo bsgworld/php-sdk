@@ -1,4 +1,4 @@
-# # OtpTemplateDelete422response
+# # OtpTemplateDelete422Response
 
 ## Properties
 
