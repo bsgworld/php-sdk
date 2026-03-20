@@ -57,7 +57,7 @@ class OtpList200Response implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\BSG\Api\V2\Model\OtpList200ResponseData'
+        'data' => '\BSG\Api\V2\Model\OtpListResponseData'
     ];
 
     /**
@@ -295,7 +295,7 @@ class OtpList200Response implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \BSG\Api\V2\Model\OtpList200ResponseData
+     * @return \BSG\Api\V2\Model\OtpListResponseData
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class OtpList200Response implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \BSG\Api\V2\Model\OtpList200ResponseData $data data
+     * @param \BSG\Api\V2\Model\OtpListResponseData $data data
      *
      * @return self
      */

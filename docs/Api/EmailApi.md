@@ -41,7 +41,7 @@ $send_email = new \BSG\Api\V2\Model\SendEmail([
     ],
     'from' => 'Test.email 11_22 <user@test1.email.bsg.world>',
     'subject' => 'test1',
-    'htmlbody' => '<html><head><title>link to Symbl.cc</title></head><body><h1>Visit site</h1>Visit site <a href="https://symbl.cc">Symbl.cc</a> for additional information.</body></html>',
+    'htmlbody' => '<html lang="en"><head><title>link to Symbl.cc</title></head><body><h1>Visit site</h1>Visit site <a href="https://symbl.cc">Symbl.cc</a> for additional information.</body></html>',
 ]);
 try {
     $result = $apiInstance->emailSend($send_email);

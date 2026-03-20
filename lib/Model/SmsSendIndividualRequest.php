@@ -60,7 +60,8 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'messages' => '\BSG\Api\V2\Model\IndividualMessageData[]',
         'tariff_code' => 'int',
         'validity' => 'int',
-        'start_at' => 'int'
+        'start_at' => 'int',
+        'callback_url' => 'mixed'
     ];
 
     /**
@@ -74,7 +75,8 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'messages' => null,
         'tariff_code' => null,
         'validity' => null,
-        'start_at' => null
+        'start_at' => null,
+        'callback_url' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'messages' => false,
         'tariff_code' => false,
         'validity' => false,
-        'start_at' => false
+        'start_at' => false,
+        'callback_url' => true
     ];
 
     /**
@@ -178,7 +181,8 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'messages' => 'messages',
         'tariff_code' => 'tariff_code',
         'validity' => 'validity',
-        'start_at' => 'start_at'
+        'start_at' => 'start_at',
+        'callback_url' => 'callback_url'
     ];
 
     /**
@@ -190,7 +194,8 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'messages' => 'setMessages',
         'tariff_code' => 'setTariffCode',
         'validity' => 'setValidity',
-        'start_at' => 'setStartAt'
+        'start_at' => 'setStartAt',
+        'callback_url' => 'setCallbackUrl'
     ];
 
     /**
@@ -202,7 +207,8 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         'messages' => 'getMessages',
         'tariff_code' => 'getTariffCode',
         'validity' => 'getValidity',
-        'start_at' => 'getStartAt'
+        'start_at' => 'getStartAt',
+        'callback_url' => 'getCallbackUrl'
     ];
 
     /**
@@ -266,6 +272,7 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('tariff_code', $data ?? [], null);
         $this->setIfExists('validity', $data ?? [], 72);
         $this->setIfExists('start_at', $data ?? [], 72);
+        $this->setIfExists('callback_url', $data ?? [], null);
     }
 
     /**
@@ -316,6 +323,10 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
         if (!is_null($this->container['start_at']) && ($this->container['start_at'] < 1)) {
             $invalidProperties[] = "invalid value for 'start_at', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['callback_url']) && (mb_strlen($this->container['callback_url']) > 100)) {
+            $invalidProperties[] = "invalid value for 'callback_url', the character length must be smaller than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -458,6 +469,44 @@ class SmsSendIndividualRequest implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         $this->container['start_at'] = $start_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_url
+     *
+     * @return mixed|null
+     */
+    public function getCallbackUrl()
+    {
+        return $this->container['callback_url'];
+    }
+
+    /**
+     * Sets callback_url
+     *
+     * @param mixed|null $callback_url Link to get the delivery status of messages. If this parameter is specified in the method, it will take precedence over the value specified in the “Callback URL” field in the Personal Area.
+     *
+     * @return self
+     */
+    public function setCallbackUrl($callback_url)
+    {
+        if (is_null($callback_url)) {
+            array_push($this->openAPINullablesSetToNull, 'callback_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('callback_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($callback_url) && (mb_strlen($callback_url) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $callback_url when calling SmsSendIndividualRequest., must be smaller than or equal to 100.');
+        }
+
+        $this->container['callback_url'] = $callback_url;
 
         return $this;
     }

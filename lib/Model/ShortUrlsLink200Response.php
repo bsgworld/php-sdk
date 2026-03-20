@@ -57,7 +57,7 @@ class ShortUrlsLink200Response implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\BSG\Api\V2\Model\ShortUrlsLink200ResponseData'
+        'data' => '\BSG\Api\V2\Model\ShortUrlsLinkStatisticData'
     ];
 
     /**
@@ -292,7 +292,7 @@ class ShortUrlsLink200Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data
      *
-     * @return \BSG\Api\V2\Model\ShortUrlsLink200ResponseData|null
+     * @return \BSG\Api\V2\Model\ShortUrlsLinkStatisticData|null
      */
     public function getData()
     {
@@ -302,7 +302,7 @@ class ShortUrlsLink200Response implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data
      *
-     * @param \BSG\Api\V2\Model\ShortUrlsLink200ResponseData|null $data data
+     * @param \BSG\Api\V2\Model\ShortUrlsLinkStatisticData|null $data data
      *
      * @return self
      */

@@ -57,12 +57,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text' => 'string',
         'sender' => 'string',
-        'validity_seconds' => 'int',
-        'validity' => 'int',
-        'options' => '\BSG\Api\V2\Model\ViberOptions',
-        'check_stop_list' => 'bool'
+        'text' => 'string',
+        'image_url' => 'string',
+        'button_caption' => 'string',
+        'link_url' => 'string'
     ];
 
     /**
@@ -73,12 +72,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'text' => null,
         'sender' => null,
-        'validity_seconds' => null,
-        'validity' => null,
-        'options' => null,
-        'check_stop_list' => null
+        'text' => null,
+        'image_url' => null,
+        'button_caption' => null,
+        'link_url' => 'url'
     ];
 
     /**
@@ -87,12 +85,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'text' => false,
-        'sender' => false,
-        'validity_seconds' => false,
-        'validity' => false,
-        'options' => false,
-        'check_stop_list' => false
+        'sender' => true,
+        'text' => true,
+        'image_url' => false,
+        'button_caption' => false,
+        'link_url' => false
     ];
 
     /**
@@ -181,12 +178,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'text',
         'sender' => 'sender',
-        'validity_seconds' => 'validity_seconds',
-        'validity' => 'validity',
-        'options' => 'options',
-        'check_stop_list' => 'check_stop_list'
+        'text' => 'text',
+        'image_url' => 'image_url',
+        'button_caption' => 'button_caption',
+        'link_url' => 'link_url'
     ];
 
     /**
@@ -195,12 +191,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText',
         'sender' => 'setSender',
-        'validity_seconds' => 'setValiditySeconds',
-        'validity' => 'setValidity',
-        'options' => 'setOptions',
-        'check_stop_list' => 'setCheckStopList'
+        'text' => 'setText',
+        'image_url' => 'setImageUrl',
+        'button_caption' => 'setButtonCaption',
+        'link_url' => 'setLinkUrl'
     ];
 
     /**
@@ -209,12 +204,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText',
         'sender' => 'getSender',
-        'validity_seconds' => 'getValiditySeconds',
-        'validity' => 'getValidity',
-        'options' => 'getOptions',
-        'check_stop_list' => 'getCheckStopList'
+        'text' => 'getText',
+        'image_url' => 'getImageUrl',
+        'button_caption' => 'getButtonCaption',
+        'link_url' => 'getLinkUrl'
     ];
 
     /**
@@ -274,12 +268,11 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('sender', $data ?? [], null);
-        $this->setIfExists('validity_seconds', $data ?? [], null);
-        $this->setIfExists('validity', $data ?? [], 72);
-        $this->setIfExists('options', $data ?? [], null);
-        $this->setIfExists('check_stop_list', $data ?? [], true);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('image_url', $data ?? [], null);
+        $this->setIfExists('button_caption', $data ?? [], null);
+        $this->setIfExists('link_url', $data ?? [], null);
     }
 
     /**
@@ -309,6 +302,17 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['sender'] === null) {
+            $invalidProperties[] = "'sender' can't be null";
+        }
+        if ((mb_strlen($this->container['sender']) > 40)) {
+            $invalidProperties[] = "invalid value for 'sender', the character length must be smaller than or equal to 40.";
+        }
+
+        if ((mb_strlen($this->container['sender']) < 1)) {
+            $invalidProperties[] = "invalid value for 'sender', the character length must be bigger than or equal to 1.";
+        }
+
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
         }
@@ -320,27 +324,24 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'text', the character length must be bigger than or equal to 1.";
         }
 
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
-        }
-        if (!preg_match("/^(\\d{1,15}|\\+?\\d{1,14}|[\\x21-\\x7E][\\x20-\\x7E]{0,10})$/D", $this->container['sender'])) {
-            $invalidProperties[] = "invalid value for 'sender', must be conform to the pattern /^(\\d{1,15}|\\+?\\d{1,14}|[\\x21-\\x7E][\\x20-\\x7E]{0,10})$/D.";
+        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) > 255)) {
+            $invalidProperties[] = "invalid value for 'image_url', the character length must be smaller than or equal to 255.";
         }
 
-        if (!is_null($this->container['validity_seconds']) && ($this->container['validity_seconds'] > 86400)) {
-            $invalidProperties[] = "invalid value for 'validity_seconds', must be smaller than or equal to 86400.";
+        if (!is_null($this->container['image_url']) && !preg_match("/^(http|https)://([A-Z0-9][A-Z0-9_-]*)(\\.[A-Z0-9][A-Z0-9_-]*)+(:(\\d+))?([-_/A-Z0-9?=&]*)?(\\.jpg|\\.png|\\.tiff|\\.jpeg|\\.gif|\\.bmp){1}$/iD", $this->container['image_url'])) {
+            $invalidProperties[] = "invalid value for 'image_url', must be conform to the pattern /^(http|https)://([A-Z0-9][A-Z0-9_-]*)(\\.[A-Z0-9][A-Z0-9_-]*)+(:(\\d+))?([-_/A-Z0-9?=&]*)?(\\.jpg|\\.png|\\.tiff|\\.jpeg|\\.gif|\\.bmp){1}$/iD.";
         }
 
-        if (!is_null($this->container['validity_seconds']) && ($this->container['validity_seconds'] < 30)) {
-            $invalidProperties[] = "invalid value for 'validity_seconds', must be bigger than or equal to 30.";
+        if (!is_null($this->container['button_caption']) && (mb_strlen($this->container['button_caption']) > 20)) {
+            $invalidProperties[] = "invalid value for 'button_caption', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['validity']) && ($this->container['validity'] > 72)) {
-            $invalidProperties[] = "invalid value for 'validity', must be smaller than or equal to 72.";
+        if (!is_null($this->container['link_url']) && (mb_strlen($this->container['link_url']) > 255)) {
+            $invalidProperties[] = "invalid value for 'link_url', the character length must be smaller than or equal to 255.";
         }
 
-        if (!is_null($this->container['validity']) && ($this->container['validity'] < 1)) {
-            $invalidProperties[] = "invalid value for 'validity', must be bigger than or equal to 1.";
+        if (!is_null($this->container['link_url']) && !preg_match("/^(https?://)?([\\p{L}\\d\\.-]+)\\.([\\p{L}\\.]{2,50})([/\\w \\.-]*)*_/?/iu", $this->container['link_url'])) {
+            $invalidProperties[] = "invalid value for 'link_url', must be conform to the pattern /^(https?://)?([\\p{L}\\d\\.-]+)\\.([\\p{L}\\.]{2,50})([/\\w \\.-]*)*_/?/iu.";
         }
 
         return $invalidProperties;
@@ -357,40 +358,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets text
-     *
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string $text text
-     *
-     * @return self
-     */
-    public function setText($text)
-    {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
-        }
-        if ((mb_strlen($text) > 1000)) {
-            throw new \InvalidArgumentException('invalid length for $text when calling Viber., must be smaller than or equal to 1000.');
-        }
-        if ((mb_strlen($text) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $text when calling Viber., must be bigger than or equal to 1.');
-        }
-
-        $this->container['text'] = $text;
-
-        return $this;
-    }
 
     /**
      * Gets sender
@@ -412,11 +379,20 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setSender($sender)
     {
         if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-
-        if ((!preg_match("/^(\\d{1,15}|\\+?\\d{1,14}|[\\x21-\\x7E][\\x20-\\x7E]{0,10})$/D", ObjectSerializer::toString($sender)))) {
-            throw new \InvalidArgumentException("invalid value for \$sender when calling Viber., must conform to the pattern /^(\\d{1,15}|\\+?\\d{1,14}|[\\x21-\\x7E][\\x20-\\x7E]{0,10})$/D.");
+        if (!is_null($sender) && (mb_strlen($sender) > 40)) {
+            throw new \InvalidArgumentException('invalid length for $sender when calling Viber., must be smaller than or equal to 40.');
+        }
+        if (!is_null($sender) && (mb_strlen($sender) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $sender when calling Viber., must be bigger than or equal to 1.');
         }
 
         $this->container['sender'] = $sender;
@@ -425,125 +401,141 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets validity_seconds
+     * Gets text
      *
-     * @return int|null
+     * @return string
      */
-    public function getValiditySeconds()
+    public function getText()
     {
-        return $this->container['validity_seconds'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets validity_seconds
+     * Sets text
      *
-     * @param int|null $validity_seconds Validity period in seconds. If not set, validity field is used
+     * @param string $text text
      *
      * @return self
      */
-    public function setValiditySeconds($validity_seconds)
+    public function setText($text)
     {
-        if (is_null($validity_seconds)) {
-            throw new \InvalidArgumentException('non-nullable validity_seconds cannot be null');
+        if (is_null($text)) {
+            array_push($this->openAPINullablesSetToNull, 'text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($text) && (mb_strlen($text) > 1000)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling Viber., must be smaller than or equal to 1000.');
+        }
+        if (!is_null($text) && (mb_strlen($text) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling Viber., must be bigger than or equal to 1.');
         }
 
-        if (($validity_seconds > 86400)) {
-            throw new \InvalidArgumentException('invalid value for $validity_seconds when calling Viber., must be smaller than or equal to 86400.');
-        }
-        if (($validity_seconds < 30)) {
-            throw new \InvalidArgumentException('invalid value for $validity_seconds when calling Viber., must be bigger than or equal to 30.');
-        }
-
-        $this->container['validity_seconds'] = $validity_seconds;
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets validity
+     * Gets image_url
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getValidity()
+    public function getImageUrl()
     {
-        return $this->container['validity'];
+        return $this->container['image_url'];
     }
 
     /**
-     * Sets validity
+     * Sets image_url
      *
-     * @param int|null $validity Validity period in hours
+     * @param string|null $image_url image_url
      *
      * @return self
      */
-    public function setValidity($validity)
+    public function setImageUrl($image_url)
     {
-        if (is_null($validity)) {
-            throw new \InvalidArgumentException('non-nullable validity cannot be null');
+        if (is_null($image_url)) {
+            throw new \InvalidArgumentException('non-nullable image_url cannot be null');
+        }
+        if ((mb_strlen($image_url) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $image_url when calling Viber., must be smaller than or equal to 255.');
+        }
+        if ((!preg_match("/^(http|https)://([A-Z0-9][A-Z0-9_-]*)(\\.[A-Z0-9][A-Z0-9_-]*)+(:(\\d+))?([-_/A-Z0-9?=&]*)?(\\.jpg|\\.png|\\.tiff|\\.jpeg|\\.gif|\\.bmp){1}$/iD", ObjectSerializer::toString($image_url)))) {
+            throw new \InvalidArgumentException("invalid value for \$image_url when calling Viber., must conform to the pattern /^(http|https)://([A-Z0-9][A-Z0-9_-]*)(\\.[A-Z0-9][A-Z0-9_-]*)+(:(\\d+))?([-_/A-Z0-9?=&]*)?(\\.jpg|\\.png|\\.tiff|\\.jpeg|\\.gif|\\.bmp){1}$/iD.");
         }
 
-        if (($validity > 72)) {
-            throw new \InvalidArgumentException('invalid value for $validity when calling Viber., must be smaller than or equal to 72.');
-        }
-        if (($validity < 1)) {
-            throw new \InvalidArgumentException('invalid value for $validity when calling Viber., must be bigger than or equal to 1.');
-        }
-
-        $this->container['validity'] = $validity;
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }
 
     /**
-     * Gets options
+     * Gets button_caption
      *
-     * @return \BSG\Api\V2\Model\ViberOptions|null
+     * @return string|null
      */
-    public function getOptions()
+    public function getButtonCaption()
     {
-        return $this->container['options'];
+        return $this->container['button_caption'];
     }
 
     /**
-     * Sets options
+     * Sets button_caption
      *
-     * @param \BSG\Api\V2\Model\ViberOptions|null $options options
+     * @param string|null $button_caption button_caption
      *
      * @return self
      */
-    public function setOptions($options)
+    public function setButtonCaption($button_caption)
     {
-        if (is_null($options)) {
-            throw new \InvalidArgumentException('non-nullable options cannot be null');
+        if (is_null($button_caption)) {
+            throw new \InvalidArgumentException('non-nullable button_caption cannot be null');
         }
-        $this->container['options'] = $options;
+        if ((mb_strlen($button_caption) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $button_caption when calling Viber., must be smaller than or equal to 20.');
+        }
+
+        $this->container['button_caption'] = $button_caption;
 
         return $this;
     }
 
     /**
-     * Gets check_stop_list
+     * Gets link_url
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getCheckStopList()
+    public function getLinkUrl()
     {
-        return $this->container['check_stop_list'];
+        return $this->container['link_url'];
     }
 
     /**
-     * Sets check_stop_list
+     * Sets link_url
      *
-     * @param bool|null $check_stop_list check_stop_list
+     * @param string|null $link_url Required if button_caption is set
      *
      * @return self
      */
-    public function setCheckStopList($check_stop_list)
+    public function setLinkUrl($link_url)
     {
-        if (is_null($check_stop_list)) {
-            throw new \InvalidArgumentException('non-nullable check_stop_list cannot be null');
+        if (is_null($link_url)) {
+            throw new \InvalidArgumentException('non-nullable link_url cannot be null');
         }
-        $this->container['check_stop_list'] = $check_stop_list;
+        if ((mb_strlen($link_url) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $link_url when calling Viber., must be smaller than or equal to 255.');
+        }
+        if ((!preg_match("/^(https?://)?([\\p{L}\\d\\.-]+)\\.([\\p{L}\\.]{2,50})([/\\w \\.-]*)*_/?/iu", ObjectSerializer::toString($link_url)))) {
+            throw new \InvalidArgumentException("invalid value for \$link_url when calling Viber., must conform to the pattern /^(https?://)?([\\p{L}\\d\\.-]+)\\.([\\p{L}\\.]{2,50})([/\\w \\.-]*)*_/?/iu.");
+        }
+
+        $this->container['link_url'] = $link_url;
 
         return $this;
     }

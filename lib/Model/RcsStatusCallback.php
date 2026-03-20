@@ -471,7 +471,7 @@ class RcsStatusCallback implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets msisdn
      *
-     * @param string|null $msisdn Phone number without leading plus, just digits
+     * @param string|null $msisdn Phone number
      *
      * @return self
      */

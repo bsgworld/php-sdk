@@ -57,7 +57,7 @@ class GetInternalCurrencies200Response implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\BSG\Api\V2\Model\GetInternalCurrencies200ResponseDataItem[]'
+        'data' => '\BSG\Api\V2\Model\CurrencyItem[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class GetInternalCurrencies200Response implements ModelInterface, ArrayAccess, \
     /**
      * Gets data
      *
-     * @return \BSG\Api\V2\Model\GetInternalCurrencies200ResponseDataItem[]
+     * @return \BSG\Api\V2\Model\CurrencyItem[]
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class GetInternalCurrencies200Response implements ModelInterface, ArrayAccess, \
     /**
      * Sets data
      *
-     * @param \BSG\Api\V2\Model\GetInternalCurrencies200ResponseDataItem[] $data data
+     * @param \BSG\Api\V2\Model\CurrencyItem[] $data data
      *
      * @return self
      */

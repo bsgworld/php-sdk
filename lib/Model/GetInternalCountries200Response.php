@@ -57,7 +57,7 @@ class GetInternalCountries200Response implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\BSG\Api\V2\Model\GetInternalCountries200ResponseDataItem[]'
+        'data' => '\BSG\Api\V2\Model\CountryItem[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class GetInternalCountries200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Gets data
      *
-     * @return \BSG\Api\V2\Model\GetInternalCountries200ResponseDataItem[]
+     * @return \BSG\Api\V2\Model\CountryItem[]
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class GetInternalCountries200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Sets data
      *
-     * @param \BSG\Api\V2\Model\GetInternalCountries200ResponseDataItem[] $data data
+     * @param \BSG\Api\V2\Model\CountryItem[] $data data
      *
      * @return self
      */

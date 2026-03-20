@@ -95,7 +95,7 @@ class ShortUrlDomainSchema implements ModelInterface, ArrayAccess, \JsonSerializ
         'can_restore' => null,
         'record_type' => null,
         'hostname' => null,
-        'cname' => 'url',
+        'cname' => null,
         'count_short_links' => null
     ];
 

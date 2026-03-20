@@ -58,7 +58,7 @@ class SenderRequests200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'data' => '\BSG\Api\V2\Model\SenderRequestSchema[]',
-        'meta' => '\BSG\Api\V2\Model\SenderRequests200ResponseMeta'
+        'meta' => '\BSG\Api\V2\Model\Meta'
     ];
 
     /**
@@ -326,7 +326,7 @@ class SenderRequests200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meta
      *
-     * @return \BSG\Api\V2\Model\SenderRequests200ResponseMeta|null
+     * @return \BSG\Api\V2\Model\Meta|null
      */
     public function getMeta()
     {
@@ -336,7 +336,7 @@ class SenderRequests200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meta
      *
-     * @param \BSG\Api\V2\Model\SenderRequests200ResponseMeta|null $meta meta
+     * @param \BSG\Api\V2\Model\Meta|null $meta meta
      *
      * @return self
      */

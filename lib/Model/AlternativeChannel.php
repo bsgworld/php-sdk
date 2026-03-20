@@ -58,7 +58,7 @@ class AlternativeChannel implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sms' => '\BSG\Api\V2\Model\Sms'
+        'sms' => '\BSG\Api\V2\Model\SmsAltChannel'
     ];
 
     /**
@@ -293,7 +293,7 @@ class AlternativeChannel implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets sms
      *
-     * @return \BSG\Api\V2\Model\Sms|null
+     * @return \BSG\Api\V2\Model\SmsAltChannel|null
      */
     public function getSms()
     {
@@ -303,7 +303,7 @@ class AlternativeChannel implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets sms
      *
-     * @param \BSG\Api\V2\Model\Sms|null $sms sms
+     * @param \BSG\Api\V2\Model\SmsAltChannel|null $sms sms
      *
      * @return self
      */

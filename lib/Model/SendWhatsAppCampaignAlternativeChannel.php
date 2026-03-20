@@ -57,7 +57,7 @@ class SendWhatsAppCampaignAlternativeChannel implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sms' => '\BSG\Api\V2\Model\Sms'
+        'sms' => '\BSG\Api\V2\Model\SmsAltChannel'
     ];
 
     /**
@@ -292,7 +292,7 @@ class SendWhatsAppCampaignAlternativeChannel implements ModelInterface, ArrayAcc
     /**
      * Gets sms
      *
-     * @return \BSG\Api\V2\Model\Sms|null
+     * @return \BSG\Api\V2\Model\SmsAltChannel|null
      */
     public function getSms()
     {
@@ -302,7 +302,7 @@ class SendWhatsAppCampaignAlternativeChannel implements ModelInterface, ArrayAcc
     /**
      * Sets sms
      *
-     * @param \BSG\Api\V2\Model\Sms|null $sms sms
+     * @param \BSG\Api\V2\Model\SmsAltChannel|null $sms sms
      *
      * @return self
      */

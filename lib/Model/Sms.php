@@ -35,7 +35,6 @@ use \BSG\Api\V2\ObjectSerializer;
  * Sms Class Doc Comment
  *
  * @category Class
- * @description The object contains information about the message for alternative delivery via SMS
  * @package  BSG\Api\V2
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,11 +57,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text' => 'string',
         'sender' => 'string',
-        'validity_seconds' => 'int',
-        'validity' => 'int',
-        'check_stop_list' => 'bool'
+        'text' => 'string',
+        'unsubscribe_caption' => 'string',
+        'transliterate' => 'bool',
+        'short_links' => '\BSG\Api\V2\Model\ShortLink[]'
     ];
 
     /**
@@ -73,11 +72,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'text' => null,
         'sender' => null,
-        'validity_seconds' => null,
-        'validity' => null,
-        'check_stop_list' => null
+        'text' => null,
+        'unsubscribe_caption' => null,
+        'transliterate' => null,
+        'short_links' => null
     ];
 
     /**
@@ -86,11 +85,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'text' => false,
         'sender' => false,
-        'validity_seconds' => true,
-        'validity' => false,
-        'check_stop_list' => false
+        'text' => false,
+        'unsubscribe_caption' => false,
+        'transliterate' => false,
+        'short_links' => false
     ];
 
     /**
@@ -179,11 +178,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'text',
         'sender' => 'sender',
-        'validity_seconds' => 'validity_seconds',
-        'validity' => 'validity',
-        'check_stop_list' => 'check_stop_list'
+        'text' => 'text',
+        'unsubscribe_caption' => 'unsubscribe_caption',
+        'transliterate' => 'transliterate',
+        'short_links' => 'short_links'
     ];
 
     /**
@@ -192,11 +191,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText',
         'sender' => 'setSender',
-        'validity_seconds' => 'setValiditySeconds',
-        'validity' => 'setValidity',
-        'check_stop_list' => 'setCheckStopList'
+        'text' => 'setText',
+        'unsubscribe_caption' => 'setUnsubscribeCaption',
+        'transliterate' => 'setTransliterate',
+        'short_links' => 'setShortLinks'
     ];
 
     /**
@@ -205,11 +204,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText',
         'sender' => 'getSender',
-        'validity_seconds' => 'getValiditySeconds',
-        'validity' => 'getValidity',
-        'check_stop_list' => 'getCheckStopList'
+        'text' => 'getText',
+        'unsubscribe_caption' => 'getUnsubscribeCaption',
+        'transliterate' => 'getTransliterate',
+        'short_links' => 'getShortLinks'
     ];
 
     /**
@@ -269,11 +268,11 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('sender', $data ?? [], null);
-        $this->setIfExists('validity_seconds', $data ?? [], null);
-        $this->setIfExists('validity', $data ?? [], 72);
-        $this->setIfExists('check_stop_list', $data ?? [], true);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('unsubscribe_caption', $data ?? [], null);
+        $this->setIfExists('transliterate', $data ?? [], false);
+        $this->setIfExists('short_links', $data ?? [], null);
     }
 
     /**
@@ -303,6 +302,9 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['sender'] === null) {
+            $invalidProperties[] = "'sender' can't be null";
+        }
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
         }
@@ -310,23 +312,8 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 765.";
         }
 
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
-        }
-        if (!is_null($this->container['validity_seconds']) && ($this->container['validity_seconds'] > 86400)) {
-            $invalidProperties[] = "invalid value for 'validity_seconds', must be smaller than or equal to 86400.";
-        }
-
-        if (!is_null($this->container['validity_seconds']) && ($this->container['validity_seconds'] < 30)) {
-            $invalidProperties[] = "invalid value for 'validity_seconds', must be bigger than or equal to 30.";
-        }
-
-        if (!is_null($this->container['validity']) && ($this->container['validity'] > 72)) {
-            $invalidProperties[] = "invalid value for 'validity', must be smaller than or equal to 72.";
-        }
-
-        if (!is_null($this->container['validity']) && ($this->container['validity'] < 1)) {
-            $invalidProperties[] = "invalid value for 'validity', must be bigger than or equal to 1.";
+        if (!is_null($this->container['unsubscribe_caption']) && (mb_strlen($this->container['unsubscribe_caption']) > 50)) {
+            $invalidProperties[] = "invalid value for 'unsubscribe_caption', the character length must be smaller than or equal to 50.";
         }
 
         return $invalidProperties;
@@ -343,6 +330,33 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets sender
+     *
+     * @return string
+     */
+    public function getSender()
+    {
+        return $this->container['sender'];
+    }
+
+    /**
+     * Sets sender
+     *
+     * @param string $sender Sender’s name: from 3 to 11 characters for the sender’s alphanumeric name (Latin letters, symbols, numbers, spaces); 3 to 15 characters for the sender’s numeric name. To setup senders visit the [account](https://app.bsg.world/sms/senders)
+     *
+     * @return self
+     */
+    public function setSender($sender)
+    {
+        if (is_null($sender)) {
+            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        }
+        $this->container['sender'] = $sender;
+
+        return $this;
+    }
 
     /**
      * Gets text
@@ -376,132 +390,86 @@ class Sms implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets sender
+     * Gets unsubscribe_caption
      *
-     * @return string
+     * @return string|null
      */
-    public function getSender()
+    public function getUnsubscribeCaption()
     {
-        return $this->container['sender'];
+        return $this->container['unsubscribe_caption'];
     }
 
     /**
-     * Sets sender
+     * Sets unsubscribe_caption
      *
-     * @param string $sender Sender name.   Up to 11 Latin letters or digits, up to 15 – only digits. To setup senders visit the [account](https://app.bsg.world/sms/senders) or use [sender api](#tag/Senders)
+     * @param string|null $unsubscribe_caption Caption before unsubscribe link. Space between caption and link is required.
      *
      * @return self
      */
-    public function setSender($sender)
+    public function setUnsubscribeCaption($unsubscribe_caption)
     {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (is_null($unsubscribe_caption)) {
+            throw new \InvalidArgumentException('non-nullable unsubscribe_caption cannot be null');
         }
-        $this->container['sender'] = $sender;
+        if ((mb_strlen($unsubscribe_caption) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $unsubscribe_caption when calling Sms., must be smaller than or equal to 50.');
+        }
+
+        $this->container['unsubscribe_caption'] = $unsubscribe_caption;
 
         return $this;
     }
 
     /**
-     * Gets validity_seconds
-     *
-     * @return int|null
-     */
-    public function getValiditySeconds()
-    {
-        return $this->container['validity_seconds'];
-    }
-
-    /**
-     * Sets validity_seconds
-     *
-     * @param int|null $validity_seconds Validity period in seconds. If not set, validity field is used
-     *
-     * @return self
-     */
-    public function setValiditySeconds($validity_seconds)
-    {
-        if (is_null($validity_seconds)) {
-            array_push($this->openAPINullablesSetToNull, 'validity_seconds');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('validity_seconds', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        if (!is_null($validity_seconds) && ($validity_seconds > 86400)) {
-            throw new \InvalidArgumentException('invalid value for $validity_seconds when calling Sms., must be smaller than or equal to 86400.');
-        }
-        if (!is_null($validity_seconds) && ($validity_seconds < 30)) {
-            throw new \InvalidArgumentException('invalid value for $validity_seconds when calling Sms., must be bigger than or equal to 30.');
-        }
-
-        $this->container['validity_seconds'] = $validity_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets validity
-     *
-     * @return int|null
-     */
-    public function getValidity()
-    {
-        return $this->container['validity'];
-    }
-
-    /**
-     * Sets validity
-     *
-     * @param int|null $validity validity time in hours. The default is 72 hours. Integer from 1 to 72
-     *
-     * @return self
-     */
-    public function setValidity($validity)
-    {
-        if (is_null($validity)) {
-            throw new \InvalidArgumentException('non-nullable validity cannot be null');
-        }
-
-        if (($validity > 72)) {
-            throw new \InvalidArgumentException('invalid value for $validity when calling Sms., must be smaller than or equal to 72.');
-        }
-        if (($validity < 1)) {
-            throw new \InvalidArgumentException('invalid value for $validity when calling Sms., must be bigger than or equal to 1.');
-        }
-
-        $this->container['validity'] = $validity;
-
-        return $this;
-    }
-
-    /**
-     * Gets check_stop_list
+     * Gets transliterate
      *
      * @return bool|null
      */
-    public function getCheckStopList()
+    public function getTransliterate()
     {
-        return $this->container['check_stop_list'];
+        return $this->container['transliterate'];
     }
 
     /**
-     * Sets check_stop_list
+     * Sets transliterate
      *
-     * @param bool|null $check_stop_list check_stop_list
+     * @param bool|null $transliterate apply transliteration to sms text if it necessary
      *
      * @return self
      */
-    public function setCheckStopList($check_stop_list)
+    public function setTransliterate($transliterate)
     {
-        if (is_null($check_stop_list)) {
-            throw new \InvalidArgumentException('non-nullable check_stop_list cannot be null');
+        if (is_null($transliterate)) {
+            throw new \InvalidArgumentException('non-nullable transliterate cannot be null');
         }
-        $this->container['check_stop_list'] = $check_stop_list;
+        $this->container['transliterate'] = $transliterate;
+
+        return $this;
+    }
+
+    /**
+     * Gets short_links
+     *
+     * @return \BSG\Api\V2\Model\ShortLink[]|null
+     */
+    public function getShortLinks()
+    {
+        return $this->container['short_links'];
+    }
+
+    /**
+     * Sets short_links
+     *
+     * @param \BSG\Api\V2\Model\ShortLink[]|null $short_links $shortLinks
+     *
+     * @return self
+     */
+    public function setShortLinks($short_links)
+    {
+        if (is_null($short_links)) {
+            throw new \InvalidArgumentException('non-nullable short_links cannot be null');
+        }
+        $this->container['short_links'] = $short_links;
 
         return $this;
     }

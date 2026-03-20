@@ -74,7 +74,9 @@ All URIs are relative to *https://one-api.bsg.world*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
+| *AccountBalanceApi* | [**accountBalance**](docs/Api/AccountBalanceApi.md#accountbalance) | **GET** /api/accounts/balance | Get balance |
 | *AccountSettingsApi* | [**getSettingsAddressBookFieldsById**](docs/Api/AccountSettingsApi.md#getsettingsaddressbookfieldsbyid) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
+| *AccountTariffsApi* | [**accountTariffs**](docs/Api/AccountTariffsApi.md#accounttariffs) | **GET** /api/accounts/tariff | Get tariffs |
 | *AuthApi* | [**login**](docs/Api/AuthApi.md#login) | **POST** /api/auth/login | Receive JWT token |
 | *AuthApi* | [**refreshToken**](docs/Api/AuthApi.md#refreshtoken) | **POST** /api/auth/refresh | Refresh JWT token |
 | *BalanceApi* | [**accountBalance**](docs/Api/BalanceApi.md#accountbalance) | **GET** /api/accounts/balance | Get balance |
@@ -82,15 +84,22 @@ All URIs are relative to *https://one-api.bsg.world*
 | *CampaignApi* | [**campaign**](docs/Api/CampaignApi.md#campaign) | **GET** /api/campaigns/{id} | Get campaign info |
 | *CampaignApi* | [**campaignDetails**](docs/Api/CampaignApi.md#campaigndetails) | **GET** /api/campaigns/{id}/detail | Get campaign details |
 | *CampaignApi* | [**campaignPrice**](docs/Api/CampaignApi.md#campaignprice) | **POST** /api/campaigns/price | Calculate campaign price |
+| *CampaignApi* | [**campaignSend**](docs/Api/CampaignApi.md#campaignsend) | **POST** /api/campaigns/send | Send campaign |
 | *CampaignApi* | [**campaignStop**](docs/Api/CampaignApi.md#campaignstop) | **PATCH** /api/campaigns/{id}/stop | Cancel campaign |
 | *CampaignApi* | [**campaigns**](docs/Api/CampaignApi.md#campaigns) | **GET** /api/campaigns | List of campaigns |
+| *CampaignDetailsApi* | [**campaignDetails**](docs/Api/CampaignDetailsApi.md#campaigndetails) | **GET** /api/campaigns/{id}/detail | Get campaign details |
+| *CampaignPriceApi* | [**campaignPrice**](docs/Api/CampaignPriceApi.md#campaignprice) | **POST** /api/campaigns/price | Calculate campaign price |
 | *CampaignRCSApi* | [**rcsSend**](docs/Api/CampaignRCSApi.md#rcssend) | **POST** /api/campaigns/rcs/send | Send RCS message |
 | *CampaignRCSApi* | [**rcsSendGroups**](docs/Api/CampaignRCSApi.md#rcssendgroups) | **POST** /api/campaigns/rcs/send-groups | Send RCS message to contact list |
-| *CampaignRCSApi* | [**rcsSingle**](docs/Api/CampaignRCSApi.md#rcssingle) | **POST** /api/messages/rcs/send | Send single RCS message |
 | *CampaignSMSApi* | [**smsSend**](docs/Api/CampaignSMSApi.md#smssend) | **POST** /api/campaigns/sms/send | Send SMS campaign |
 | *CampaignSMSApi* | [**smsSendGroups**](docs/Api/CampaignSMSApi.md#smssendgroups) | **POST** /api/campaigns/sms/send-groups | Send SMS to contact list |
 | *CampaignSMSApi* | [**smsSendIndividual**](docs/Api/CampaignSMSApi.md#smssendindividual) | **POST** /api/campaigns/sms/send-individual | Send SMS with different text |
+| *CampaignStopApi* | [**campaignStop**](docs/Api/CampaignStopApi.md#campaignstop) | **PATCH** /api/campaigns/{id}/stop | Cancel campaign |
+| *CampaignTagApi* | [**campaign**](docs/Api/CampaignTagApi.md#campaign) | **GET** /api/campaigns/{id} | Get campaign info |
+| *CampaignViberApi* | [**viberSend**](docs/Api/CampaignViberApi.md#vibersend) | **POST** /api/campaigns/viber/send | Send Viber campaign |
 | *CampaignWhatsAppApi* | [**postCampaignsWhatsappSend**](docs/Api/CampaignWhatsAppApi.md#postcampaignswhatsappsend) | **POST** /api/campaigns/whatsapp/send | Send WhatsApp campaign |
+| *CampaignsApi* | [**campaigns**](docs/Api/CampaignsApi.md#campaigns) | **GET** /api/campaigns | List of campaigns |
+| *CancelOtpApi* | [**cancelOtp**](docs/Api/CancelOtpApi.md#cancelotp) | **POST** /api/2fa/authentications/{id}/cancel | Cancel the authentication session |
 | *ContactApi* | [**contact**](docs/Api/ContactApi.md#contact) | **GET** /api/contacts/{id} | Get contact by ID |
 | *ContactApi* | [**contactCreate**](docs/Api/ContactApi.md#contactcreate) | **POST** /api/contacts | Create a contact |
 | *ContactApi* | [**contactDelete**](docs/Api/ContactApi.md#contactdelete) | **DELETE** /api/contacts/{id} | Delete contact |
@@ -98,10 +107,15 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ContactApi* | [**contacts**](docs/Api/ContactApi.md#contacts) | **GET** /api/contacts | List of contacts |
 | *ContactApi* | [**contactsDelete**](docs/Api/ContactApi.md#contactsdelete) | **POST** /api/contacts/delete | Delete multiple contacts |
 | *ContactApi* | [**contactsSearch**](docs/Api/ContactApi.md#contactssearch) | **GET** /api/contacts/search | Search contacts |
+| *ContactCreateApi* | [**contactCreate**](docs/Api/ContactCreateApi.md#contactcreate) | **POST** /api/contacts | Create a contact |
+| *ContactDeleteApi* | [**contactDelete**](docs/Api/ContactDeleteApi.md#contactdelete) | **DELETE** /api/contacts/{id} | Delete contact |
 | *ContactFieldApi* | [**contactFieldCreate**](docs/Api/ContactFieldApi.md#contactfieldcreate) | **POST** /api/contacts/fields | Create contact field |
 | *ContactFieldApi* | [**contactFieldUpdate**](docs/Api/ContactFieldApi.md#contactfieldupdate) | **PATCH** /api/contacts/fields/{id} | Update contact field |
 | *ContactFieldApi* | [**contactFields**](docs/Api/ContactFieldApi.md#contactfields) | **GET** /api/contacts/fields | List of contact fields |
 | *ContactFieldApi* | [**postContactsFieldsDelete**](docs/Api/ContactFieldApi.md#postcontactsfieldsdelete) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
+| *ContactFieldCreateApi* | [**contactFieldCreate**](docs/Api/ContactFieldCreateApi.md#contactfieldcreate) | **POST** /api/contacts/fields | Create contact field |
+| *ContactFieldUpdateApi* | [**contactFieldUpdate**](docs/Api/ContactFieldUpdateApi.md#contactfieldupdate) | **PATCH** /api/contacts/fields/{id} | Update contact field |
+| *ContactFieldsApi* | [**contactFields**](docs/Api/ContactFieldsApi.md#contactfields) | **GET** /api/contacts/fields | List of contact fields |
 | *ContactListApi* | [**contactList**](docs/Api/ContactListApi.md#contactlist) | **GET** /api/groups/{id} | Get list by id |
 | *ContactListApi* | [**contactListAttach**](docs/Api/ContactListApi.md#contactlistattach) | **POST** /api/groups/attach | Add contacts to the list |
 | *ContactListApi* | [**contactListCreate**](docs/Api/ContactListApi.md#contactlistcreate) | **POST** /api/groups | Create list |
@@ -110,21 +124,50 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ContactListApi* | [**contactListSearch**](docs/Api/ContactListApi.md#contactlistsearch) | **GET** /api/groups/search | Search list |
 | *ContactListApi* | [**contactListUpdate**](docs/Api/ContactListApi.md#contactlistupdate) | **PUT** /api/groups/{id} | Update list |
 | *ContactListApi* | [**contactLists**](docs/Api/ContactListApi.md#contactlists) | **GET** /api/groups | List of contact lists |
+| *ContactListAttachApi* | [**contactListAttach**](docs/Api/ContactListAttachApi.md#contactlistattach) | **POST** /api/groups/attach | Add contacts to the list |
+| *ContactListCreateApi* | [**contactListCreate**](docs/Api/ContactListCreateApi.md#contactlistcreate) | **POST** /api/groups | Create list |
+| *ContactListDeleteApi* | [**contactListDelete**](docs/Api/ContactListDeleteApi.md#contactlistdelete) | **DELETE** /api/groups/{id} | Delete list |
+| *ContactListDetachApi* | [**contactListDetach**](docs/Api/ContactListDetachApi.md#contactlistdetach) | **POST** /api/groups/detach | Remove contacts from the list |
+| *ContactListSearchApi* | [**contactListSearch**](docs/Api/ContactListSearchApi.md#contactlistsearch) | **GET** /api/groups/search | Search list |
+| *ContactListTagApi* | [**contactList**](docs/Api/ContactListTagApi.md#contactlist) | **GET** /api/groups/{id} | Get list by id |
+| *ContactListUpdateApi* | [**contactListUpdate**](docs/Api/ContactListUpdateApi.md#contactlistupdate) | **PUT** /api/groups/{id} | Update list |
+| *ContactListsApi* | [**contactLists**](docs/Api/ContactListsApi.md#contactlists) | **GET** /api/groups | List of contact lists |
+| *ContactTagApi* | [**contact**](docs/Api/ContactTagApi.md#contact) | **GET** /api/contacts/{id} | Get contact by ID |
+| *ContactUpdateApi* | [**contactUpdate**](docs/Api/ContactUpdateApi.md#contactupdate) | **PUT** /api/contacts/{id} | Update contact |
+| *ContactsApi* | [**contacts**](docs/Api/ContactsApi.md#contacts) | **GET** /api/contacts | List of contacts |
+| *ContactsDeleteApi* | [**contactsDelete**](docs/Api/ContactsDeleteApi.md#contactsdelete) | **POST** /api/contacts/delete | Delete multiple contacts |
+| *ContactsSearchApi* | [**contactsSearch**](docs/Api/ContactsSearchApi.md#contactssearch) | **GET** /api/contacts/search | Search contacts |
 | *EmailApi* | [**emailSend**](docs/Api/EmailApi.md#emailsend) | **POST** /api/email/send-emails | Send Email |
 | *EmailApi* | [**emailTemplateSend**](docs/Api/EmailApi.md#emailtemplatesend) | **POST** /api/email/send-template-emails | Send Email template |
-| *InternalCorePriceApi* | [**getInternalCorePrices**](docs/Api/InternalCorePriceApi.md#getinternalcoreprices) | **GET** /api/internal/core/prices | Get price list for each country |
-| *InternalCorePriceApi* | [**getInternalCorePricesByCountryCode**](docs/Api/InternalCorePriceApi.md#getinternalcorepricesbycountrycode) | **GET** /api/internal/core/prices/{countryCode} | Get prices for country |
-| *InternalCountryApi* | [**getInternalCountries**](docs/Api/InternalCountryApi.md#getinternalcountries) | **GET** /api/internal/countries | Get countries list |
-| *InternalCurrencyApi* | [**getInternalCurrencies**](docs/Api/InternalCurrencyApi.md#getinternalcurrencies) | **GET** /api/internal/currencies | Get currencies list |
-| *InternalTwoFAApi* | [**getInternal2faAuthenticationsFullPrice**](docs/Api/InternalTwoFAApi.md#getinternal2faauthenticationsfullprice) | **GET** /api/internal/2fa/authentications/full-price | Show TwoFA authentication full price |
-| *InternalWstPriceApi* | [**getInternalWstPrices**](docs/Api/InternalWstPriceApi.md#getinternalwstprices) | **GET** /api/internal/wst/prices | Get price list for each country |
-| *InternalWstPriceApi* | [**getInternalWstPricesByCountryCode**](docs/Api/InternalWstPriceApi.md#getinternalwstpricesbycountrycode) | **GET** /api/internal/wst/prices/{countryCode} | Get prices for country |
+| *EmailSendApi* | [**emailSend**](docs/Api/EmailSendApi.md#emailsend) | **POST** /api/email/send-emails | Send Email |
+| *EmailTemplateSendApi* | [**emailTemplateSend**](docs/Api/EmailTemplateSendApi.md#emailtemplatesend) | **POST** /api/email/send-template-emails | Send Email template |
+| *GetMessagesApi* | [**getMessages**](docs/Api/GetMessagesApi.md#getmessages) | **GET** /api/messages | Find messages |
+| *GetSettingsAddressBookFieldsByIdApi* | [**getSettingsAddressBookFieldsById**](docs/Api/GetSettingsAddressBookFieldsByIdApi.md#getsettingsaddressbookfieldsbyid) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
+| *LoginApi* | [**login**](docs/Api/LoginApi.md#login) | **POST** /api/auth/login | Receive JWT token |
+| *MessageRCSApi* | [**rcsSingle**](docs/Api/MessageRCSApi.md#rcssingle) | **POST** /api/messages/rcs/send | Send single RCS message |
+| *MessagesApi* | [**sendMessage**](docs/Api/MessagesApi.md#sendmessage) | **POST** /api/messages/send | Send single message |
 | *MessagesSMSApi* | [**getMessages**](docs/Api/MessagesSMSApi.md#getmessages) | **GET** /api/messages | Find messages |
 | *MessagesWhatsAppApi* | [**whatsappSingle**](docs/Api/MessagesWhatsAppApi.md#whatsappsingle) | **POST** /api/messages/whatsapp/send | Send single WhatsApp message |
+| *OtpListApi* | [**otpList**](docs/Api/OtpListApi.md#otplist) | **GET** /api/2fa/authentications | List of authentication sessions |
+| *OtpTemplateApi* | [**otpTemplate**](docs/Api/OtpTemplateApi.md#otptemplate) | **GET** /api/2fa/authentications/templates/{templateId} | Get message template |
+| *OtpTemplateCreateApi* | [**otpTemplateCreate**](docs/Api/OtpTemplateCreateApi.md#otptemplatecreate) | **POST** /api/2fa/authentications/templates | Create a message template |
+| *OtpTemplateDeleteApi* | [**otpTemplateDelete**](docs/Api/OtpTemplateDeleteApi.md#otptemplatedelete) | **DELETE** /api/2fa/authentications/templates/{templateId} | Delete a message template |
+| *OtpTemplateListApi* | [**otpTemplateList**](docs/Api/OtpTemplateListApi.md#otptemplatelist) | **GET** /api/2fa/authentications/templates | List of message templates |
+| *PostCampaignsWhatsappSendApi* | [**postCampaignsWhatsappSend**](docs/Api/PostCampaignsWhatsappSendApi.md#postcampaignswhatsappsend) | **POST** /api/campaigns/whatsapp/send | Send WhatsApp campaign |
+| *PostContactsFieldsDeleteApi* | [**postContactsFieldsDelete**](docs/Api/PostContactsFieldsDeleteApi.md#postcontactsfieldsdelete) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
+| *RcsSendGroupsApi* | [**rcsSend**](docs/Api/RcsSendGroupsApi.md#rcssend) | **POST** /api/campaigns/rcs/send | Send RCS message |
+| *RcsSingleApi* | [**rcsSingle**](docs/Api/RcsSingleApi.md#rcssingle) | **POST** /api/messages/rcs/send | Send single RCS message |
+| *RefreshTokenApi* | [**refreshToken**](docs/Api/RefreshTokenApi.md#refreshtoken) | **POST** /api/auth/refresh | Refresh JWT token |
+| *ResendOtpApi* | [**resendOtp**](docs/Api/ResendOtpApi.md#resendotp) | **POST** /api/2fa/authentications/otp/{id}/resend | Resend the one-time code |
+| *SendOtpApi* | [**sendOtp**](docs/Api/SendOtpApi.md#sendotp) | **POST** /api/2fa/authentications/otp | Send One-time password |
+| *SenderRequestLegalApi* | [**senderRequestLegal**](docs/Api/SenderRequestLegalApi.md#senderrequestlegal) | **POST** /api/senders/requests/legal | Sender registration by a legal entity |
+| *SenderRequestNaturalApi* | [**senderRequestNatural**](docs/Api/SenderRequestNaturalApi.md#senderrequestnatural) | **POST** /api/senders/requests/natural | Sender registration by an individual |
+| *SenderRequestsApi* | [**senderRequests**](docs/Api/SenderRequestsApi.md#senderrequests) | **GET** /api/senders/requests/sms | List of Sender Requests |
 | *SendersApi* | [**senderRequestLegal**](docs/Api/SendersApi.md#senderrequestlegal) | **POST** /api/senders/requests/legal | Sender registration by a legal entity |
 | *SendersApi* | [**senderRequestNatural**](docs/Api/SendersApi.md#senderrequestnatural) | **POST** /api/senders/requests/natural | Sender registration by an individual |
 | *SendersApi* | [**senderRequests**](docs/Api/SendersApi.md#senderrequests) | **GET** /api/senders/requests/sms | List of Sender Requests |
 | *SendersApi* | [**senders**](docs/Api/SendersApi.md#senders) | **GET** /api/senders | List of Senders |
+| *SendersTagApi* | [**senders**](docs/Api/SendersTagApi.md#senders) | **GET** /api/senders | List of Senders |
 | *ShortDomainsApi* | [**shortUrlsDomain**](docs/Api/ShortDomainsApi.md#shorturlsdomain) | **GET** /api/short-url/domains/{uuid} | Get domain by uuid |
 | *ShortDomainsApi* | [**shortUrlsDomainCreate**](docs/Api/ShortDomainsApi.md#shorturlsdomaincreate) | **POST** /api/short-url/domains | Add domain |
 | *ShortDomainsApi* | [**shortUrlsDomainRemove**](docs/Api/ShortDomainsApi.md#shorturlsdomainremove) | **DELETE** /api/short-url/domains/{uuid} | Remove domain |
@@ -136,10 +179,33 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ShortLinksApi* | [**shortUrlsLinkDelete**](docs/Api/ShortLinksApi.md#shorturlslinkdelete) | **DELETE** /api/short-url/links/{uuid} | Remove short link |
 | *ShortLinksApi* | [**shortUrlsLinkUpdate**](docs/Api/ShortLinksApi.md#shorturlslinkupdate) | **PUT** /api/short-url/links/{uuid} | Update short link |
 | *ShortLinksApi* | [**shortUrlsLinks**](docs/Api/ShortLinksApi.md#shorturlslinks) | **GET** /api/short-url/links | List of short links |
+| *ShortUrlsClicksApi* | [**shortUrlsClicks**](docs/Api/ShortUrlsClicksApi.md#shorturlsclicks) | **GET** /api/short-url/clicks | List of clicks |
+| *ShortUrlsDomainApi* | [**shortUrlsDomain**](docs/Api/ShortUrlsDomainApi.md#shorturlsdomain) | **GET** /api/short-url/domains/{uuid} | Get domain by uuid |
+| *ShortUrlsDomainCreateApi* | [**shortUrlsDomainCreate**](docs/Api/ShortUrlsDomainCreateApi.md#shorturlsdomaincreate) | **POST** /api/short-url/domains | Add domain |
+| *ShortUrlsDomainRemoveApi* | [**shortUrlsDomainRemove**](docs/Api/ShortUrlsDomainRemoveApi.md#shorturlsdomainremove) | **DELETE** /api/short-url/domains/{uuid} | Remove domain |
+| *ShortUrlsDomainUpdateApi* | [**shortUrlsDomainUpdate**](docs/Api/ShortUrlsDomainUpdateApi.md#shorturlsdomainupdate) | **PUT** /api/short-url/domains/{uuid} | Update domain |
+| *ShortUrlsDomainsApi* | [**shortUrlsDomains**](docs/Api/ShortUrlsDomainsApi.md#shorturlsdomains) | **GET** /api/short-url/domains | List of domains |
+| *ShortUrlsLinkApi* | [**shortUrlsLink**](docs/Api/ShortUrlsLinkApi.md#shorturlslink) | **GET** /api/short-url/links/{uuid}/statistics | Get short link statistic |
+| *ShortUrlsLinkCreateApi* | [**shortUrlsLinkCreate**](docs/Api/ShortUrlsLinkCreateApi.md#shorturlslinkcreate) | **POST** /api/short-url/links | Create short link |
+| *ShortUrlsLinkDeleteApi* | [**shortUrlsLinkDelete**](docs/Api/ShortUrlsLinkDeleteApi.md#shorturlslinkdelete) | **DELETE** /api/short-url/links/{uuid} | Remove short link |
+| *ShortUrlsLinkUpdateApi* | [**shortUrlsLinkUpdate**](docs/Api/ShortUrlsLinkUpdateApi.md#shorturlslinkupdate) | **PUT** /api/short-url/links/{uuid} | Update short link |
+| *ShortUrlsLinksApi* | [**shortUrlsLinks**](docs/Api/ShortUrlsLinksApi.md#shorturlslinks) | **GET** /api/short-url/links | List of short links |
+| *SmsSendApi* | [**smsSend**](docs/Api/SmsSendApi.md#smssend) | **POST** /api/campaigns/sms/send | Send SMS campaign |
+| *SmsSendGroupsApi* | [**smsSendGroups**](docs/Api/SmsSendGroupsApi.md#smssendgroups) | **POST** /api/campaigns/sms/send-groups | Send SMS to contact list |
+| *SmsSendIndividualApi* | [**smsSendIndividual**](docs/Api/SmsSendIndividualApi.md#smssendindividual) | **POST** /api/campaigns/sms/send-individual | Send SMS with different text |
+| *StatisticApi* | [**statJobsCreate**](docs/Api/StatisticApi.md#statjobscreate) | **POST** /api/stat/jobs | Create new job |
+| *StatisticApi* | [**statJobsDelete**](docs/Api/StatisticApi.md#statjobsdelete) | **DELETE** /api/stat/jobs/{id} | Delete job result |
+| *StatisticApi* | [**statJobsList**](docs/Api/StatisticApi.md#statjobslist) | **GET** /api/stat/jobs | List statistic jobs |
+| *StatisticApi* | [**statJobsShow**](docs/Api/StatisticApi.md#statjobsshow) | **GET** /api/stat/jobs/{id} | Load job result |
+| *StatusOtpApi* | [**statusOtp**](docs/Api/StatusOtpApi.md#statusotp) | **GET** /api/2fa/authentications/{id} | Check authentication status |
 | *StopListApi* | [**stoplistAdd**](docs/Api/StopListApi.md#stoplistadd) | **POST** /api/stoplist/attach | Add contacts to stop list |
 | *StopListApi* | [**stoplistItems**](docs/Api/StopListApi.md#stoplistitems) | **GET** /api/stoplist | List the contacts of stop lists |
 | *StopListApi* | [**stoplistRemove**](docs/Api/StopListApi.md#stoplistremove) | **POST** /api/stoplist/detach | Remove contacts from stop list |
 | *StopListApi* | [**stoplistSearch**](docs/Api/StopListApi.md#stoplistsearch) | **GET** /api/stoplist/search | Search contacts in Stop lists |
+| *StoplistAddApi* | [**stoplistAdd**](docs/Api/StoplistAddApi.md#stoplistadd) | **POST** /api/stoplist/attach | Add contacts to stop list |
+| *StoplistItemsApi* | [**stoplistItems**](docs/Api/StoplistItemsApi.md#stoplistitems) | **GET** /api/stoplist | List the contacts of stop lists |
+| *StoplistRemoveApi* | [**stoplistRemove**](docs/Api/StoplistRemoveApi.md#stoplistremove) | **POST** /api/stoplist/detach | Remove contacts from stop list |
+| *StoplistSearchApi* | [**stoplistSearch**](docs/Api/StoplistSearchApi.md#stoplistsearch) | **GET** /api/stoplist/search | Search contacts in Stop lists |
 | *TwoFAOTPApi* | [**cancelOtp**](docs/Api/TwoFAOTPApi.md#cancelotp) | **POST** /api/2fa/authentications/{id}/cancel | Cancel the authentication session |
 | *TwoFAOTPApi* | [**otpList**](docs/Api/TwoFAOTPApi.md#otplist) | **GET** /api/2fa/authentications | List of authentication sessions |
 | *TwoFAOTPApi* | [**resendOtp**](docs/Api/TwoFAOTPApi.md#resendotp) | **POST** /api/2fa/authentications/otp/{id}/resend | Resend the one-time code |
@@ -150,6 +216,7 @@ All URIs are relative to *https://one-api.bsg.world*
 | *TwoFATemplatesApi* | [**otpTemplateCreate**](docs/Api/TwoFATemplatesApi.md#otptemplatecreate) | **POST** /api/2fa/authentications/templates | Create a message template |
 | *TwoFATemplatesApi* | [**otpTemplateDelete**](docs/Api/TwoFATemplatesApi.md#otptemplatedelete) | **DELETE** /api/2fa/authentications/templates/{templateId} | Delete a message template |
 | *TwoFATemplatesApi* | [**otpTemplateList**](docs/Api/TwoFATemplatesApi.md#otptemplatelist) | **GET** /api/2fa/authentications/templates | List of message templates |
+| *VerifyOtpApi* | [**verifyOtp**](docs/Api/VerifyOtpApi.md#verifyotp) | **POST** /api/2fa/authentications/otp/{id}/verify | Check one-time Code |
 
 ## Models
 
@@ -157,12 +224,13 @@ All URIs are relative to *https://one-api.bsg.world*
 - [AccountTariffs200Response](docs/Model/AccountTariffs200Response.md)
 - [AlternativeChannel](docs/Model/AlternativeChannel.md)
 - [BalanceSchema](docs/Model/BalanceSchema.md)
-- [Campaign200Response](docs/Model/Campaign200Response.md)
+- [Campaign](docs/Model/Campaign.md)
 - [CampaignDetails200Response](docs/Model/CampaignDetails200Response.md)
 - [CampaignPrice200Response](docs/Model/CampaignPrice200Response.md)
 - [CampaignPrice422Response](docs/Model/CampaignPrice422Response.md)
 - [CampaignPriceRequest](docs/Model/CampaignPriceRequest.md)
 - [CampaignPriceRequestMessagesItem](docs/Model/CampaignPriceRequestMessagesItem.md)
+- [CampaignResponse](docs/Model/CampaignResponse.md)
 - [CampaignSchema](docs/Model/CampaignSchema.md)
 - [CampaignStatus](docs/Model/CampaignStatus.md)
 - [CampaignStop200Response](docs/Model/CampaignStop200Response.md)
@@ -185,9 +253,9 @@ All URIs are relative to *https://one-api.bsg.world*
 - [ContactFieldType](docs/Model/ContactFieldType.md)
 - [ContactFieldUpdate200Response](docs/Model/ContactFieldUpdate200Response.md)
 - [ContactFieldUpdateRequest](docs/Model/ContactFieldUpdateRequest.md)
-- [ContactFieldUpdateRequestOption1](docs/Model/ContactFieldUpdateRequestOption1.md)
-- [ContactFieldUpdateRequestOption2](docs/Model/ContactFieldUpdateRequestOption2.md)
-- [ContactFieldUpdateRequestOption3](docs/Model/ContactFieldUpdateRequestOption3.md)
+- [ContactFieldUpdateRequestOptionDescription](docs/Model/ContactFieldUpdateRequestOptionDescription.md)
+- [ContactFieldUpdateRequestOptionIsVisible](docs/Model/ContactFieldUpdateRequestOptionIsVisible.md)
+- [ContactFieldUpdateRequestOptionName](docs/Model/ContactFieldUpdateRequestOptionName.md)
 - [ContactFieldValuePair](docs/Model/ContactFieldValuePair.md)
 - [ContactGroupSchema](docs/Model/ContactGroupSchema.md)
 - [ContactGroupSearchField](docs/Model/ContactGroupSearchField.md)
@@ -199,9 +267,8 @@ All URIs are relative to *https://one-api.bsg.world*
 - [ContactListCreateRequest](docs/Model/ContactListCreateRequest.md)
 - [ContactListDetachRequest](docs/Model/ContactListDetachRequest.md)
 - [ContactListSearch200Response](docs/Model/ContactListSearch200Response.md)
-- [ContactListSearch200ResponseMeta](docs/Model/ContactListSearch200ResponseMeta.md)
-- [ContactListSearch200ResponseMetaPage](docs/Model/ContactListSearch200ResponseMetaPage.md)
-- [ContactListSearch200ResponseMetaSearch](docs/Model/ContactListSearch200ResponseMetaSearch.md)
+- [ContactListSearchCriteria](docs/Model/ContactListSearchCriteria.md)
+- [ContactListSearchMeta](docs/Model/ContactListSearchMeta.md)
 - [ContactListUpdate200Response](docs/Model/ContactListUpdate200Response.md)
 - [ContactListUpdate422Response](docs/Model/ContactListUpdate422Response.md)
 - [ContactListUpdateRequest](docs/Model/ContactListUpdateRequest.md)
@@ -212,16 +279,17 @@ All URIs are relative to *https://one-api.bsg.world*
 - [ContactUpdateRequest](docs/Model/ContactUpdateRequest.md)
 - [Contacts200Response](docs/Model/Contacts200Response.md)
 - [ContactsSearch200Response](docs/Model/ContactsSearch200Response.md)
-- [ContactsSearch200ResponseMeta](docs/Model/ContactsSearch200ResponseMeta.md)
-- [ContactsSearch200ResponseMetaPage](docs/Model/ContactsSearch200ResponseMetaPage.md)
-- [ContactsSearch200ResponseMetaSearch](docs/Model/ContactsSearch200ResponseMetaSearch.md)
+- [ContactsSearchCriteria](docs/Model/ContactsSearchCriteria.md)
+- [ContactsSearchMeta](docs/Model/ContactsSearchMeta.md)
 - [CorePriceSchema](docs/Model/CorePriceSchema.md)
-- [CurrencyObj](docs/Model/CurrencyObj.md)
-- [DateTimeParameter](docs/Model/DateTimeParameter.md)
+- [CountryItem](docs/Model/CountryItem.md)
+- [CreateJobMessage](docs/Model/CreateJobMessage.md)
+- [CreateJobParams](docs/Model/CreateJobParams.md)
+- [CurrencyItem](docs/Model/CurrencyItem.md)
 - [DetailCampaignSchema](docs/Model/DetailCampaignSchema.md)
 - [DetailCampaignSchemaAlternativeChannels](docs/Model/DetailCampaignSchemaAlternativeChannels.md)
-- [DetailCampaignSchemaAlternativeChannelsOneOf0Sms](docs/Model/DetailCampaignSchemaAlternativeChannelsOneOf0Sms.md)
-- [DetailCampaignSchemaAlternativeChannelsOption1](docs/Model/DetailCampaignSchemaAlternativeChannelsOption1.md)
+- [DetailCampaignSchemaAlternativeChannelsSms](docs/Model/DetailCampaignSchemaAlternativeChannelsSms.md)
+- [DetailCampaignSchemaAlternativeChannelsStatistics](docs/Model/DetailCampaignSchemaAlternativeChannelsStatistics.md)
 - [DomainStoreRequest](docs/Model/DomainStoreRequest.md)
 - [DomainUpdateRequest](docs/Model/DomainUpdateRequest.md)
 - [EmailResponse](docs/Model/EmailResponse.md)
@@ -229,14 +297,11 @@ All URIs are relative to *https://one-api.bsg.world*
 - [GetInternalCorePrices200Response](docs/Model/GetInternalCorePrices200Response.md)
 - [GetInternalCorePricesByCountryCode200Response](docs/Model/GetInternalCorePricesByCountryCode200Response.md)
 - [GetInternalCountries200Response](docs/Model/GetInternalCountries200Response.md)
-- [GetInternalCountries200ResponseDataItem](docs/Model/GetInternalCountries200ResponseDataItem.md)
 - [GetInternalCurrencies200Response](docs/Model/GetInternalCurrencies200Response.md)
-- [GetInternalCurrencies200ResponseDataItem](docs/Model/GetInternalCurrencies200ResponseDataItem.md)
 - [GetInternalWstPrices200Response](docs/Model/GetInternalWstPrices200Response.md)
 - [GetInternalWstPricesByCountryCode200Response](docs/Model/GetInternalWstPricesByCountryCode200Response.md)
 - [GetMessages200Response](docs/Model/GetMessages200Response.md)
-- [GetMessages200ResponseMeta](docs/Model/GetMessages200ResponseMeta.md)
-- [GetMessages200ResponseMetaPage](docs/Model/GetMessages200ResponseMetaPage.md)
+- [GroupsTrait](docs/Model/GroupsTrait.md)
 - [IndividualMessageData](docs/Model/IndividualMessageData.md)
 - [Inline](docs/Model/Inline.md)
 - [Language](docs/Model/Language.md)
@@ -244,23 +309,26 @@ All URIs are relative to *https://one-api.bsg.world*
 - [LinkUpdateRequest](docs/Model/LinkUpdateRequest.md)
 - [LoginRequest](docs/Model/LoginRequest.md)
 - [Media](docs/Model/Media.md)
-- [MediaObject](docs/Model/MediaObject.md)
 - [MessageApiSchema](docs/Model/MessageApiSchema.md)
 - [MessageApiSchemaAlternativeChannels](docs/Model/MessageApiSchemaAlternativeChannels.md)
-- [MessageApiSchemaAlternativeChannelsOneOf0Sms](docs/Model/MessageApiSchemaAlternativeChannelsOneOf0Sms.md)
-- [MessageApiSchemaAlternativeChannelsOneOf1Viber](docs/Model/MessageApiSchemaAlternativeChannelsOneOf1Viber.md)
-- [MessageApiSchemaAlternativeChannelsOption1](docs/Model/MessageApiSchemaAlternativeChannelsOption1.md)
-- [MessageApiSchemaAlternativeChannelsOption2](docs/Model/MessageApiSchemaAlternativeChannelsOption2.md)
+- [MessageApiSchemaAlternativeChannelsSms](docs/Model/MessageApiSchemaAlternativeChannelsSms.md)
+- [MessageApiSchemaAlternativeChannelsSmsDetails](docs/Model/MessageApiSchemaAlternativeChannelsSmsDetails.md)
+- [MessageApiSchemaAlternativeChannelsViber](docs/Model/MessageApiSchemaAlternativeChannelsViber.md)
+- [MessageApiSchemaAlternativeChannelsViberDetails](docs/Model/MessageApiSchemaAlternativeChannelsViberDetails.md)
 - [MessageInfo](docs/Model/MessageInfo.md)
 - [MessagePriceObject](docs/Model/MessagePriceObject.md)
+- [MessageResponse](docs/Model/MessageResponse.md)
 - [MessageSource](docs/Model/MessageSource.md)
 - [MessageStatus](docs/Model/MessageStatus.md)
 - [MessageType](docs/Model/MessageType.md)
+- [MessageUniversal](docs/Model/MessageUniversal.md)
+- [Meta](docs/Model/Meta.md)
+- [MetaPage](docs/Model/MetaPage.md)
 - [OperatorSchema](docs/Model/OperatorSchema.md)
 - [Options](docs/Model/Options.md)
 - [OtpChannel](docs/Model/OtpChannel.md)
 - [OtpList200Response](docs/Model/OtpList200Response.md)
-- [OtpList200ResponseData](docs/Model/OtpList200ResponseData.md)
+- [OtpListResponseData](docs/Model/OtpListResponseData.md)
 - [OtpMessageStatus](docs/Model/OtpMessageStatus.md)
 - [OtpStatus](docs/Model/OtpStatus.md)
 - [OtpTemplate200Response](docs/Model/OtpTemplate200Response.md)
@@ -269,27 +337,27 @@ All URIs are relative to *https://one-api.bsg.world*
 - [OtpTemplateCreate422Response](docs/Model/OtpTemplateCreate422Response.md)
 - [OtpTemplateCreateRequest](docs/Model/OtpTemplateCreateRequest.md)
 - [OtpTemplateDelete200Response](docs/Model/OtpTemplateDelete200Response.md)
-- [OtpTemplateDelete200ResponseData](docs/Model/OtpTemplateDelete200ResponseData.md)
 - [OtpTemplateDelete404Response](docs/Model/OtpTemplateDelete404Response.md)
 - [OtpTemplateDelete422Response](docs/Model/OtpTemplateDelete422Response.md)
+- [OtpTemplateDeleteResponseData](docs/Model/OtpTemplateDeleteResponseData.md)
 - [OtpTemplateList200Response](docs/Model/OtpTemplateList200Response.md)
-- [OtpTemplateList200ResponseData](docs/Model/OtpTemplateList200ResponseData.md)
+- [OtpTemplateListResponseData](docs/Model/OtpTemplateListResponseData.md)
 - [OtpTemplateStatus](docs/Model/OtpTemplateStatus.md)
 - [Parameter](docs/Model/Parameter.md)
 - [Phone](docs/Model/Phone.md)
+- [PhonesTrait](docs/Model/PhonesTrait.md)
 - [PostContactsFieldsDeleteRequest](docs/Model/PostContactsFieldsDeleteRequest.md)
+- [Rcs](docs/Model/Rcs.md)
 - [RcsClickCallback](docs/Model/RcsClickCallback.md)
 - [RcsMessage](docs/Model/RcsMessage.md)
 - [RcsSend200Response](docs/Model/RcsSend200Response.md)
 - [RcsSendGroups200Response](docs/Model/RcsSendGroups200Response.md)
-- [RcsSingle200Response](docs/Model/RcsSingle200Response.md)
 - [RcsStatusCallback](docs/Model/RcsStatusCallback.md)
+- [Recipients](docs/Model/Recipients.md)
 - [ResendOtp200Response](docs/Model/ResendOtp200Response.md)
 - [ResendOtp404Response](docs/Model/ResendOtp404Response.md)
 - [ResendOtp422Response](docs/Model/ResendOtp422Response.md)
 - [SearchCampaignResource](docs/Model/SearchCampaignResource.md)
-- [SearchCampaignResourceMeta](docs/Model/SearchCampaignResourceMeta.md)
-- [SearchCampaignResourceMetaPage](docs/Model/SearchCampaignResourceMetaPage.md)
 - [SearchOperator](docs/Model/SearchOperator.md)
 - [SendEmail](docs/Model/SendEmail.md)
 - [SendOtp201Response](docs/Model/SendOtp201Response.md)
@@ -299,6 +367,7 @@ All URIs are relative to *https://one-api.bsg.world*
 - [SendRcsCampaignGroups](docs/Model/SendRcsCampaignGroups.md)
 - [SendRcsCampaignGroupsAlternativeChannel](docs/Model/SendRcsCampaignGroupsAlternativeChannel.md)
 - [SendTemplateEmail](docs/Model/SendTemplateEmail.md)
+- [SendViberCampaign](docs/Model/SendViberCampaign.md)
 - [SendWhatsAppCampaign](docs/Model/SendWhatsAppCampaign.md)
 - [SendWhatsAppCampaignAlternativeChannel](docs/Model/SendWhatsAppCampaignAlternativeChannel.md)
 - [SenderRequestLegal201Response](docs/Model/SenderRequestLegal201Response.md)
@@ -311,8 +380,6 @@ All URIs are relative to *https://one-api.bsg.world*
 - [SenderRequestStatus](docs/Model/SenderRequestStatus.md)
 - [SenderRequestType](docs/Model/SenderRequestType.md)
 - [SenderRequests200Response](docs/Model/SenderRequests200Response.md)
-- [SenderRequests200ResponseMeta](docs/Model/SenderRequests200ResponseMeta.md)
-- [SenderRequests200ResponseMetaPage](docs/Model/SenderRequests200ResponseMetaPage.md)
 - [SenderSchema](docs/Model/SenderSchema.md)
 - [Senders200Response](docs/Model/Senders200Response.md)
 - [ShortDomainNotFound](docs/Model/ShortDomainNotFound.md)
@@ -329,20 +396,24 @@ All URIs are relative to *https://one-api.bsg.world*
 - [ShortUrlsDomainUpdate200Response](docs/Model/ShortUrlsDomainUpdate200Response.md)
 - [ShortUrlsDomains200Response](docs/Model/ShortUrlsDomains200Response.md)
 - [ShortUrlsLink200Response](docs/Model/ShortUrlsLink200Response.md)
-- [ShortUrlsLink200ResponseData](docs/Model/ShortUrlsLink200ResponseData.md)
 - [ShortUrlsLink404Response](docs/Model/ShortUrlsLink404Response.md)
 - [ShortUrlsLinkCreate201Response](docs/Model/ShortUrlsLinkCreate201Response.md)
 - [ShortUrlsLinkDelete422Response](docs/Model/ShortUrlsLinkDelete422Response.md)
+- [ShortUrlsLinkStatisticData](docs/Model/ShortUrlsLinkStatisticData.md)
 - [ShortUrlsLinkUpdate200Response](docs/Model/ShortUrlsLinkUpdate200Response.md)
 - [ShortUrlsLinkUpdate422Response](docs/Model/ShortUrlsLinkUpdate422Response.md)
 - [ShortUrlsLinks200Response](docs/Model/ShortUrlsLinks200Response.md)
 - [Sms](docs/Model/Sms.md)
+- [SmsAltChannel](docs/Model/SmsAltChannel.md)
 - [SmsCampaignResponse](docs/Model/SmsCampaignResponse.md)
 - [SmsSendGroupsRequest](docs/Model/SmsSendGroupsRequest.md)
 - [SmsSendIndividualRequest](docs/Model/SmsSendIndividualRequest.md)
 - [SmsSendRequest](docs/Model/SmsSendRequest.md)
 - [SmsSendRequestPhonesItem](docs/Model/SmsSendRequestPhonesItem.md)
 - [SortWay](docs/Model/SortWay.md)
+- [StatJobsCreate200Response](docs/Model/StatJobsCreate200Response.md)
+- [StatJobsCreateRequest](docs/Model/StatJobsCreateRequest.md)
+- [StatJobsDelete200Response](docs/Model/StatJobsDelete200Response.md)
 - [StatisticsData](docs/Model/StatisticsData.md)
 - [StatisticsShort](docs/Model/StatisticsShort.md)
 - [StatusOtp200Response](docs/Model/StatusOtp200Response.md)
@@ -354,15 +425,15 @@ All URIs are relative to *https://one-api.bsg.world*
 - [StoplistItems200Response](docs/Model/StoplistItems200Response.md)
 - [StoplistRemoveRequest](docs/Model/StoplistRemoveRequest.md)
 - [StoplistSearch200Response](docs/Model/StoplistSearch200Response.md)
-- [StoplistSearch200ResponseMeta](docs/Model/StoplistSearch200ResponseMeta.md)
-- [StoplistSearch200ResponseMetaPage](docs/Model/StoplistSearch200ResponseMetaPage.md)
-- [StoplistSearch200ResponseMetaSearch](docs/Model/StoplistSearch200ResponseMetaSearch.md)
+- [StoplistSearchCriteria](docs/Model/StoplistSearchCriteria.md)
 - [StoplistSearchField](docs/Model/StoplistSearchField.md)
+- [StoplistSearchMeta](docs/Model/StoplistSearchMeta.md)
 - [StoreContact](docs/Model/StoreContact.md)
 - [Suggestion](docs/Model/Suggestion.md)
 - [SuggestionCall](docs/Model/SuggestionCall.md)
 - [SuggestionLink](docs/Model/SuggestionLink.md)
 - [TariffSchema](docs/Model/TariffSchema.md)
+- [Telegram](docs/Model/Telegram.md)
 - [Template](docs/Model/Template.md)
 - [Text](docs/Model/Text.md)
 - [TokenSchema](docs/Model/TokenSchema.md)
@@ -376,11 +447,11 @@ All URIs are relative to *https://one-api.bsg.world*
 - [VerifyOtp422Response](docs/Model/VerifyOtp422Response.md)
 - [VerifyOtpRequest](docs/Model/VerifyOtpRequest.md)
 - [Viber](docs/Model/Viber.md)
-- [ViberOptions](docs/Model/ViberOptions.md)
+- [ViberCampaignResponse](docs/Model/ViberCampaignResponse.md)
+- [Voice](docs/Model/Voice.md)
 - [WhatsAppMessage](docs/Model/WhatsAppMessage.md)
 - [WhatsAppMessageAlternativeChannel](docs/Model/WhatsAppMessageAlternativeChannel.md)
 - [WhatsAppMessageTemplate](docs/Model/WhatsAppMessageTemplate.md)
-- [WhatsappSingle200Response](docs/Model/WhatsappSingle200Response.md)
 - [WstPriceSchema](docs/Model/WstPriceSchema.md)
 
 ## Authorization

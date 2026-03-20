@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **sms** | [**\BSG\Api\V2\Model\MessageApiSchemaAlternativeChannelsOneOf0Sms**](MessageApiSchemaAlternativeChannelsOneOf0Sms.md) |  | [optional] |
-| **viber** | [**\BSG\Api\V2\Model\MessageApiSchemaAlternativeChannelsOneOf1Viber**](MessageApiSchemaAlternativeChannelsOneOf1Viber.md) |  | [optional] |
+| **sms** | [**\BSG\Api\V2\Model\MessageApiSchemaAlternativeChannelsSmsDetails**](MessageApiSchemaAlternativeChannelsSmsDetails.md) |  | [optional] |
+| **viber** | [**\BSG\Api\V2\Model\MessageApiSchemaAlternativeChannelsViberDetails**](MessageApiSchemaAlternativeChannelsViberDetails.md) |  | [optional] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

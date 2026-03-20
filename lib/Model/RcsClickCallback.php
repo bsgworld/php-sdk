@@ -409,7 +409,7 @@ class RcsClickCallback implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets msisdn
      *
-     * @param string|null $msisdn Phone number without leading plus, just digits
+     * @param string|null $msisdn Phone number
      *
      * @return self
      */

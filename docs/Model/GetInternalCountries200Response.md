@@ -4,6 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **data** | [**\BSG\Api\V2\Model\GetInternalCountries200ResponseDataItem[]**](GetInternalCountries200ResponseDataItem.md) |  | |
+| **data** | [**\BSG\Api\V2\Model\CountryItem[]**](CountryItem.md) |  | |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

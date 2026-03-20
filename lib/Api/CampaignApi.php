@@ -80,6 +80,9 @@ class CampaignApi
         'campaignPrice' => [
             'application/json',
         ],
+        'campaignSend' => [
+            'application/json',
+        ],
         'campaignStop' => [
             'application/json',
         ],
@@ -144,7 +147,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \BSG\Api\V2\Model\Campaign200Response
+     * @return \BSG\Api\V2\Model\CampaignResponse
      */
     public function campaign($id, string $contentType = self::contentTypes['campaign'][0])
     {
@@ -162,7 +165,7 @@ class CampaignApi
      *
      * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \BSG\Api\V2\Model\Campaign200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BSG\Api\V2\Model\CampaignResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function campaignWithHttpInfo($id, string $contentType = self::contentTypes['campaign'][0])
     {
@@ -193,11 +196,11 @@ class CampaignApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\BSG\Api\V2\Model\Campaign200Response' === '\SplFileObject') {
+                    if ('\BSG\Api\V2\Model\CampaignResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\BSG\Api\V2\Model\Campaign200Response' !== 'string') {
+                        if ('\BSG\Api\V2\Model\CampaignResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -215,7 +218,7 @@ class CampaignApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\Campaign200Response', []),
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -234,7 +237,7 @@ class CampaignApi
                 );
             }
 
-            $returnType = '\BSG\Api\V2\Model\Campaign200Response';
+            $returnType = '\BSG\Api\V2\Model\CampaignResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -267,7 +270,7 @@ class CampaignApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\BSG\Api\V2\Model\Campaign200Response',
+                        '\BSG\Api\V2\Model\CampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -311,7 +314,7 @@ class CampaignApi
      */
     public function campaignAsyncWithHttpInfo($id, string $contentType = self::contentTypes['campaign'][0])
     {
-        $returnType = '\BSG\Api\V2\Model\Campaign200Response';
+        $returnType = '\BSG\Api\V2\Model\CampaignResponse';
         $request = $this->campaignRequest($id, $contentType);
 
         return $this->client
@@ -1088,6 +1091,352 @@ class CampaignApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($campaign_price_request));
             } else {
                 $httpBody = $campaign_price_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation campaignSend
+     *
+     * Send campaign
+     *
+     * @param  \BSG\Api\V2\Model\Campaign $campaign campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignSend'] to see the possible values for this operation
+     *
+     * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \BSG\Api\V2\Model\CampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse
+     */
+    public function campaignSend($campaign, string $contentType = self::contentTypes['campaignSend'][0])
+    {
+        list($response) = $this->campaignSendWithHttpInfo($campaign, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation campaignSendWithHttpInfo
+     *
+     * Send campaign
+     *
+     * @param  \BSG\Api\V2\Model\Campaign $campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignSend'] to see the possible values for this operation
+     *
+     * @throws \BSG\Api\V2\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \BSG\Api\V2\Model\CampaignResponse|\BSG\Api\V2\Model\TooManyRequestsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function campaignSendWithHttpInfo($campaign, string $contentType = self::contentTypes['campaignSend'][0])
+    {
+        $request = $this->campaignSendRequest($campaign, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\BSG\Api\V2\Model\CampaignResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\BSG\Api\V2\Model\CampaignResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\CampaignResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\BSG\Api\V2\Model\TooManyRequestsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\BSG\Api\V2\Model\TooManyRequestsResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\BSG\Api\V2\Model\TooManyRequestsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\BSG\Api\V2\Model\CampaignResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\BSG\Api\V2\Model\CampaignResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\BSG\Api\V2\Model\TooManyRequestsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation campaignSendAsync
+     *
+     * Send campaign
+     *
+     * @param  \BSG\Api\V2\Model\Campaign $campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignSend'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function campaignSendAsync($campaign, string $contentType = self::contentTypes['campaignSend'][0])
+    {
+        return $this->campaignSendAsyncWithHttpInfo($campaign, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation campaignSendAsyncWithHttpInfo
+     *
+     * Send campaign
+     *
+     * @param  \BSG\Api\V2\Model\Campaign $campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignSend'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function campaignSendAsyncWithHttpInfo($campaign, string $contentType = self::contentTypes['campaignSend'][0])
+    {
+        $returnType = '\BSG\Api\V2\Model\CampaignResponse';
+        $request = $this->campaignSendRequest($campaign, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'campaignSend'
+     *
+     * @param  \BSG\Api\V2\Model\Campaign $campaign (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['campaignSend'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function campaignSendRequest($campaign, string $contentType = self::contentTypes['campaignSend'][0])
+    {
+
+        // verify the required parameter 'campaign' is set
+        if ($campaign === null || (is_array($campaign) && count($campaign) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $campaign when calling campaignSend'
+            );
+        }
+
+
+        $resourcePath = '/api/campaigns/send';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($campaign)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($campaign));
+            } else {
+                $httpBody = $campaign;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -58,7 +58,7 @@ class SearchCampaignResource implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'data' => '\BSG\Api\V2\Model\CampaignSchema[]',
-        'meta' => '\BSG\Api\V2\Model\SearchCampaignResourceMeta'
+        'meta' => '\BSG\Api\V2\Model\Meta'
     ];
 
     /**
@@ -326,7 +326,7 @@ class SearchCampaignResource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets meta
      *
-     * @return \BSG\Api\V2\Model\SearchCampaignResourceMeta|null
+     * @return \BSG\Api\V2\Model\Meta|null
      */
     public function getMeta()
     {
@@ -336,7 +336,7 @@ class SearchCampaignResource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets meta
      *
-     * @param \BSG\Api\V2\Model\SearchCampaignResourceMeta|null $meta meta
+     * @param \BSG\Api\V2\Model\Meta|null $meta meta
      *
      * @return self
      */

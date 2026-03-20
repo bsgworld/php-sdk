@@ -320,7 +320,7 @@ class Phone implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets number
      *
-     * @param string $number Phone number without leading plus, just digits
+     * @param string $number Phone number
      *
      * @return self
      */

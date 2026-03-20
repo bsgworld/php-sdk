@@ -10,7 +10,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `whatsappSingle()`
 
 ```php
-whatsappSingle($whats_app_message): \BSG\Api\V2\Model\WhatsappSingle200Response
+whatsappSingle($whats_app_message): \BSG\Api\V2\Model\MessageResponse
 ```
 
 Send single WhatsApp message
@@ -74,7 +74,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\WhatsappSingle200Response**](../Model/WhatsappSingle200Response.md)
+[**\BSG\Api\V2\Model\MessageResponse**](../Model/MessageResponse.md)
 
 ### Authorization
 

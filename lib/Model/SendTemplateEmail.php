@@ -61,7 +61,7 @@ class SendTemplateEmail implements ModelInterface, ArrayAccess, \JsonSerializabl
         'from' => 'string',
         'template_id' => 'int',
         'subject' => 'string',
-        'template_content' => 'array<string,mixed>[]',
+        'template_content' => 'array<string,string>',
         'inlines' => '\BSG\Api\V2\Model\Inline[]'
     ];
 
@@ -334,10 +334,6 @@ class SendTemplateEmail implements ModelInterface, ArrayAccess, \JsonSerializabl
             $invalidProperties[] = "invalid value for 'subject', the character length must be bigger than or equal to 1.";
         }
 
-        if (!is_null($this->container['template_content']) && (count($this->container['template_content']) > 100)) {
-            $invalidProperties[] = "invalid value for 'template_content', number of items must be less than or equal to 100.";
-        }
-
         if (!is_null($this->container['inlines']) && (count($this->container['inlines']) > 100)) {
             $invalidProperties[] = "invalid value for 'inlines', number of items must be less than or equal to 100.";
         }
@@ -482,7 +478,7 @@ class SendTemplateEmail implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets template_content
      *
-     * @return array<string,mixed>[]|null
+     * @return array<string,string>|null
      */
     public function getTemplateContent()
     {
@@ -492,7 +488,7 @@ class SendTemplateEmail implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets template_content
      *
-     * @param array<string,mixed>[]|null $template_content JSON object with key-value pairs for dynamic content in the email template
+     * @param array<string,string>|null $template_content JSON object with key-value pairs for dynamic content in the email template
      *
      * @return self
      */
@@ -500,10 +496,6 @@ class SendTemplateEmail implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($template_content)) {
             throw new \InvalidArgumentException('non-nullable template_content cannot be null');
-        }
-
-        if ((count($template_content) > 100)) {
-            throw new \InvalidArgumentException('invalid value for $template_content when calling SendTemplateEmail., number of items must be less than or equal to 100.');
         }
         $this->container['template_content'] = $template_content;
 

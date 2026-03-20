@@ -58,7 +58,7 @@ class GetMessages200Response implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'data' => '\BSG\Api\V2\Model\MessageApiSchema[]',
-        'meta' => '\BSG\Api\V2\Model\GetMessages200ResponseMeta'
+        'meta' => '\BSG\Api\V2\Model\Meta'
     ];
 
     /**
@@ -326,7 +326,7 @@ class GetMessages200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets meta
      *
-     * @return \BSG\Api\V2\Model\GetMessages200ResponseMeta|null
+     * @return \BSG\Api\V2\Model\Meta|null
      */
     public function getMeta()
     {
@@ -336,7 +336,7 @@ class GetMessages200Response implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets meta
      *
-     * @param \BSG\Api\V2\Model\GetMessages200ResponseMeta|null $meta meta
+     * @param \BSG\Api\V2\Model\Meta|null $meta meta
      *
      * @return self
      */

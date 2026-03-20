@@ -64,7 +64,8 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'validity' => 'int',
         'start_at' => '\DateTime',
         'short_links' => '\BSG\Api\V2\Model\ShortLink[]',
-        'transliterate' => 'bool'
+        'transliterate' => 'bool',
+        'callback_url' => 'mixed'
     ];
 
     /**
@@ -82,7 +83,8 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'validity' => null,
         'start_at' => 'date-time',
         'short_links' => null,
-        'transliterate' => null
+        'transliterate' => null,
+        'callback_url' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'validity' => false,
         'start_at' => false,
         'short_links' => false,
-        'transliterate' => false
+        'transliterate' => false,
+        'callback_url' => true
     ];
 
     /**
@@ -194,7 +197,8 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'validity' => 'validity',
         'start_at' => 'start_at',
         'short_links' => 'short_links',
-        'transliterate' => 'transliterate'
+        'transliterate' => 'transliterate',
+        'callback_url' => 'callback_url'
     ];
 
     /**
@@ -210,7 +214,8 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'validity' => 'setValidity',
         'start_at' => 'setStartAt',
         'short_links' => 'setShortLinks',
-        'transliterate' => 'setTransliterate'
+        'transliterate' => 'setTransliterate',
+        'callback_url' => 'setCallbackUrl'
     ];
 
     /**
@@ -226,7 +231,8 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'validity' => 'getValidity',
         'start_at' => 'getStartAt',
         'short_links' => 'getShortLinks',
-        'transliterate' => 'getTransliterate'
+        'transliterate' => 'getTransliterate',
+        'callback_url' => 'getCallbackUrl'
     ];
 
     /**
@@ -294,6 +300,7 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('start_at', $data ?? [], null);
         $this->setIfExists('short_links', $data ?? [], null);
         $this->setIfExists('transliterate', $data ?? [], false);
+        $this->setIfExists('callback_url', $data ?? [], null);
     }
 
     /**
@@ -343,6 +350,10 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
         if (!is_null($this->container['validity']) && ($this->container['validity'] < 1)) {
             $invalidProperties[] = "invalid value for 'validity', must be bigger than or equal to 1.";
+        }
+
+        if (!is_null($this->container['callback_url']) && (mb_strlen($this->container['callback_url']) > 100)) {
+            $invalidProperties[] = "invalid value for 'callback_url', the character length must be smaller than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -589,6 +600,44 @@ class SmsSendGroupsRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable transliterate cannot be null');
         }
         $this->container['transliterate'] = $transliterate;
+
+        return $this;
+    }
+
+    /**
+     * Gets callback_url
+     *
+     * @return mixed|null
+     */
+    public function getCallbackUrl()
+    {
+        return $this->container['callback_url'];
+    }
+
+    /**
+     * Sets callback_url
+     *
+     * @param mixed|null $callback_url Link to get the delivery status of messages. If this parameter is specified in the method, it will take precedence over the value specified in the “Callback URL” field in the Personal Area.
+     *
+     * @return self
+     */
+    public function setCallbackUrl($callback_url)
+    {
+        if (is_null($callback_url)) {
+            array_push($this->openAPINullablesSetToNull, 'callback_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('callback_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($callback_url) && (mb_strlen($callback_url) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $callback_url when calling SmsSendGroupsRequest., must be smaller than or equal to 100.');
+        }
+
+        $this->container['callback_url'] = $callback_url;
 
         return $this;
     }

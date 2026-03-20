@@ -582,7 +582,7 @@ class SendRcsCampaign implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets validity_seconds
      *
-     * @param int|null $validity_seconds Message validity period in seconds. After this period expires, the message will be in **EXPIRED** status or will be redirected to the SMS channel if it was specified in the request
+     * @param int|null $validity_seconds Message validity period in seconds. After this period expires, the message will be in **EXPIRED** status or will be redirected to the SMS channel if it was specified in the request. Incompatible with **validity**
      *
      * @return self
      */

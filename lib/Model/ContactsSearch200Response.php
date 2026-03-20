@@ -58,7 +58,7 @@ class ContactsSearch200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'data' => '\BSG\Api\V2\Model\ContactSchema[]',
-        'meta' => '\BSG\Api\V2\Model\ContactsSearch200ResponseMeta'
+        'meta' => '\BSG\Api\V2\Model\ContactsSearchMeta'
     ];
 
     /**
@@ -326,7 +326,7 @@ class ContactsSearch200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meta
      *
-     * @return \BSG\Api\V2\Model\ContactsSearch200ResponseMeta|null
+     * @return \BSG\Api\V2\Model\ContactsSearchMeta|null
      */
     public function getMeta()
     {
@@ -336,7 +336,7 @@ class ContactsSearch200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meta
      *
-     * @param \BSG\Api\V2\Model\ContactsSearch200ResponseMeta|null $meta meta
+     * @param \BSG\Api\V2\Model\ContactsSearchMeta|null $meta meta
      *
      * @return self
      */

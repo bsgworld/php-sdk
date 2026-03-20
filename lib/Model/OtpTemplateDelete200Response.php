@@ -57,7 +57,7 @@ class OtpTemplateDelete200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\BSG\Api\V2\Model\OtpTemplateDelete200ResponseData'
+        'data' => '\BSG\Api\V2\Model\OtpTemplateDeleteResponseData'
     ];
 
     /**
@@ -295,7 +295,7 @@ class OtpTemplateDelete200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \BSG\Api\V2\Model\OtpTemplateDelete200ResponseData
+     * @return \BSG\Api\V2\Model\OtpTemplateDeleteResponseData
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class OtpTemplateDelete200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \BSG\Api\V2\Model\OtpTemplateDelete200ResponseData $data data
+     * @param \BSG\Api\V2\Model\OtpTemplateDeleteResponseData $data data
      *
      * @return self
      */

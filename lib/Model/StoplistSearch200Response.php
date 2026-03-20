@@ -58,7 +58,7 @@ class StoplistSearch200Response implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'data' => '\BSG\Api\V2\Model\StopListCollection[]',
-        'meta' => '\BSG\Api\V2\Model\StoplistSearch200ResponseMeta'
+        'meta' => '\BSG\Api\V2\Model\StoplistSearchMeta'
     ];
 
     /**
@@ -326,7 +326,7 @@ class StoplistSearch200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meta
      *
-     * @return \BSG\Api\V2\Model\StoplistSearch200ResponseMeta|null
+     * @return \BSG\Api\V2\Model\StoplistSearchMeta|null
      */
     public function getMeta()
     {
@@ -336,7 +336,7 @@ class StoplistSearch200Response implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meta
      *
-     * @param \BSG\Api\V2\Model\StoplistSearch200ResponseMeta|null $meta meta
+     * @param \BSG\Api\V2\Model\StoplistSearchMeta|null $meta meta
      *
      * @return self
      */

@@ -7,6 +7,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 | [**campaign()**](CampaignApi.md#campaign) | **GET** /api/campaigns/{id} | Get campaign info |
 | [**campaignDetails()**](CampaignApi.md#campaignDetails) | **GET** /api/campaigns/{id}/detail | Get campaign details |
 | [**campaignPrice()**](CampaignApi.md#campaignPrice) | **POST** /api/campaigns/price | Calculate campaign price |
+| [**campaignSend()**](CampaignApi.md#campaignSend) | **POST** /api/campaigns/send | Send campaign |
 | [**campaignStop()**](CampaignApi.md#campaignStop) | **PATCH** /api/campaigns/{id}/stop | Cancel campaign |
 | [**campaigns()**](CampaignApi.md#campaigns) | **GET** /api/campaigns | List of campaigns |
 
@@ -14,7 +15,7 @@ All URIs are relative to https://one-api.bsg.world, except if the operation defi
 ## `campaign()`
 
 ```php
-campaign($id): \BSG\Api\V2\Model\Campaign200Response
+campaign($id): \BSG\Api\V2\Model\CampaignResponse
 ```
 
 Get campaign info
@@ -57,7 +58,7 @@ try {
 
 ### Return type
 
-[**\BSG\Api\V2\Model\Campaign200Response**](../Model/Campaign200Response.md)
+[**\BSG\Api\V2\Model\CampaignResponse**](../Model/CampaignResponse.md)
 
 ### Authorization
 
@@ -187,6 +188,81 @@ try {
 ### Return type
 
 [**\BSG\Api\V2\Model\CampaignPrice200Response**](../Model/CampaignPrice200Response.md)
+
+### Authorization
+
+[ExternalAuth](../../README.md#ExternalAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `campaignSend()`
+
+```php
+campaignSend($campaign): \BSG\Api\V2\Model\CampaignResponse
+```
+
+Send campaign
+
+The method allows sending a campaign of any type: sms, rcs, whatsapp. The same text to list of phones will sent as single campaign
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: ExternalAuth
+$config = BSG\Api\V2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new BSG\Api\V2\Api\CampaignApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$campaign = new \BSG\Api\V2\Model\Campaign([
+    'channels' => [
+        0 => 'sms',
+    ],
+    'recipients' => [
+        'phones' => [
+            0 => [
+                'number' => 380661231231,
+            ],
+        ],
+    ],
+    'sms' => [
+        'sender' => 'Best Seller',
+        'text' => 'test',
+    ],
+]);
+try {
+    $result = $apiInstance->campaignSend($campaign);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CampaignApi->campaignSend: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **campaign** | [**\BSG\Api\V2\Model\Campaign**](../Model/Campaign.md) |  | |
+
+### Return type
+
+[**\BSG\Api\V2\Model\CampaignResponse**](../Model/CampaignResponse.md)
 
 ### Authorization
 

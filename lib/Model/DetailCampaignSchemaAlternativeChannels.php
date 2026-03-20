@@ -57,7 +57,7 @@ class DetailCampaignSchemaAlternativeChannels implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sms' => '\BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsOneOf0Sms'
+        'sms' => '\BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsStatistics'
     ];
 
     /**
@@ -292,7 +292,7 @@ class DetailCampaignSchemaAlternativeChannels implements ModelInterface, ArrayAc
     /**
      * Gets sms
      *
-     * @return \BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsOneOf0Sms|null
+     * @return \BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsStatistics|null
      */
     public function getSms()
     {
@@ -302,7 +302,7 @@ class DetailCampaignSchemaAlternativeChannels implements ModelInterface, ArrayAc
     /**
      * Sets sms
      *
-     * @param \BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsOneOf0Sms|null $sms sms
+     * @param \BSG\Api\V2\Model\DetailCampaignSchemaAlternativeChannelsStatistics|null $sms sms
      *
      * @return self
      */

@@ -57,7 +57,7 @@ class OtpTemplateList200Response implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\BSG\Api\V2\Model\OtpTemplateList200ResponseData'
+        'data' => '\BSG\Api\V2\Model\OtpTemplateListResponseData'
     ];
 
     /**
@@ -295,7 +295,7 @@ class OtpTemplateList200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data
      *
-     * @return \BSG\Api\V2\Model\OtpTemplateList200ResponseData
+     * @return \BSG\Api\V2\Model\OtpTemplateListResponseData
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class OtpTemplateList200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data
      *
-     * @param \BSG\Api\V2\Model\OtpTemplateList200ResponseData $data data
+     * @param \BSG\Api\V2\Model\OtpTemplateListResponseData $data data
      *
      * @return self
      */

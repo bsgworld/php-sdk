@@ -35,7 +35,7 @@ use \BSG\Api\V2\ObjectSerializer;
  * Options Class Doc Comment
  *
  * @category Class
- * @description The object contains information about the message content.      Either cards or text must be provided
+ * @description The object contains information about the message content.  Either cards or text must be provided
  * @package  BSG\Api\V2
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

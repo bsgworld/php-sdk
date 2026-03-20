@@ -12,5 +12,6 @@
 | **start_at** | **\DateTime** | Start sending the messages at | [optional] |
 | **short_links** | [**\BSG\Api\V2\Model\ShortLink[]**](ShortLink.md) |  | [optional] |
 | **transliterate** | **bool** | apply transliteration to sms text if it necessary | [optional] [default to false] |
+| **callback_url** | **mixed** | Link to get the delivery status of messages. If this parameter is specified in the method, it will take precedence over the value specified in the “Callback URL” field in the Personal Area. | [optional] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

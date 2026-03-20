@@ -43,7 +43,7 @@ use \BSG\Api\V2\ObjectSerializer;
  */
 class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    public const DISCRIMINATOR = 'type';
 
     /**
       * The original name of the model.
@@ -58,6 +58,7 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'type' => 'string',
         'text' => 'string',
         'url' => 'string',
         'postback_data' => 'string',
@@ -72,6 +73,7 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'type' => null,
         'text' => null,
         'url' => 'url',
         'postback_data' => null,
@@ -84,6 +86,7 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'type' => false,
         'text' => false,
         'url' => false,
         'postback_data' => false,
@@ -176,6 +179,7 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
         'text' => 'text',
         'url' => 'url',
         'postback_data' => 'postback_data',
@@ -188,6 +192,7 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
         'text' => 'setText',
         'url' => 'setUrl',
         'postback_data' => 'setPostbackData',
@@ -200,6 +205,7 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
         'text' => 'getText',
         'url' => 'getUrl',
         'postback_data' => 'getPostbackData',
@@ -247,6 +253,21 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_LINK = 'link';
+    public const TYPE_CALL = 'call';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_LINK,
+            self::TYPE_CALL,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -263,10 +284,14 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
         $this->setIfExists('postback_data', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
+
+        // Initialize discriminator property with the model name.
+        $this->container['type'] = static::$openAPIModelName;
     }
 
     /**
@@ -295,6 +320,18 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
@@ -331,6 +368,43 @@ class Suggestion implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Suggestion type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
 
     /**
      * Gets text

@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **sender** | **string** | Sender’s name: from 3 to 11 characters for the sender’s alphanumeric name (Latin letters, symbols, numbers, spaces); 3 to 15 characters for the sender’s numeric name. To setup senders visit the [account](https://app.bsg.world/sms/senders) | |
 | **text** | **string** | SMS text, max length is 765 chars for GSM 7-bit encoding (Latin), and 355 for UCS-2 | |
-| **sender** | **string** | Sender name.   Up to 11 Latin letters or digits, up to 15 – only digits. To setup senders visit the [account](https://app.bsg.world/sms/senders) or use [sender api](#tag/Senders) | |
-| **validity_seconds** | **int** | Validity period in seconds. If not set, validity field is used | [optional] |
-| **validity** | **int** | validity time in hours. The default is 72 hours. Integer from 1 to 72 | [optional] [default to 72] |
-| **check_stop_list** | **bool** |  | [optional] [default to true] |
+| **unsubscribe_caption** | **string** | Caption before unsubscribe link. Space between caption and link is required. | [optional] |
+| **transliterate** | **bool** | apply transliteration to sms text if it necessary | [optional] [default to false] |
+| **short_links** | [**\BSG\Api\V2\Model\ShortLink[]**](ShortLink.md) | $shortLinks | [optional] |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
