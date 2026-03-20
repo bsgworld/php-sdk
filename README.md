@@ -74,9 +74,7 @@ All URIs are relative to *https://one-api.bsg.world*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
-| *AccountBalanceApi* | [**accountBalance**](docs/Api/AccountBalanceApi.md#accountbalance) | **GET** /api/accounts/balance | Get balance |
 | *AccountSettingsApi* | [**getSettingsAddressBookFieldsById**](docs/Api/AccountSettingsApi.md#getsettingsaddressbookfieldsbyid) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
-| *AccountTariffsApi* | [**accountTariffs**](docs/Api/AccountTariffsApi.md#accounttariffs) | **GET** /api/accounts/tariff | Get tariffs |
 | *AuthApi* | [**login**](docs/Api/AuthApi.md#login) | **POST** /api/auth/login | Receive JWT token |
 | *AuthApi* | [**refreshToken**](docs/Api/AuthApi.md#refreshtoken) | **POST** /api/auth/refresh | Refresh JWT token |
 | *BalanceApi* | [**accountBalance**](docs/Api/BalanceApi.md#accountbalance) | **GET** /api/accounts/balance | Get balance |
@@ -87,19 +85,13 @@ All URIs are relative to *https://one-api.bsg.world*
 | *CampaignApi* | [**campaignSend**](docs/Api/CampaignApi.md#campaignsend) | **POST** /api/campaigns/send | Send campaign |
 | *CampaignApi* | [**campaignStop**](docs/Api/CampaignApi.md#campaignstop) | **PATCH** /api/campaigns/{id}/stop | Cancel campaign |
 | *CampaignApi* | [**campaigns**](docs/Api/CampaignApi.md#campaigns) | **GET** /api/campaigns | List of campaigns |
-| *CampaignDetailsApi* | [**campaignDetails**](docs/Api/CampaignDetailsApi.md#campaigndetails) | **GET** /api/campaigns/{id}/detail | Get campaign details |
-| *CampaignPriceApi* | [**campaignPrice**](docs/Api/CampaignPriceApi.md#campaignprice) | **POST** /api/campaigns/price | Calculate campaign price |
 | *CampaignRCSApi* | [**rcsSend**](docs/Api/CampaignRCSApi.md#rcssend) | **POST** /api/campaigns/rcs/send | Send RCS message |
 | *CampaignRCSApi* | [**rcsSendGroups**](docs/Api/CampaignRCSApi.md#rcssendgroups) | **POST** /api/campaigns/rcs/send-groups | Send RCS message to contact list |
 | *CampaignSMSApi* | [**smsSend**](docs/Api/CampaignSMSApi.md#smssend) | **POST** /api/campaigns/sms/send | Send SMS campaign |
 | *CampaignSMSApi* | [**smsSendGroups**](docs/Api/CampaignSMSApi.md#smssendgroups) | **POST** /api/campaigns/sms/send-groups | Send SMS to contact list |
 | *CampaignSMSApi* | [**smsSendIndividual**](docs/Api/CampaignSMSApi.md#smssendindividual) | **POST** /api/campaigns/sms/send-individual | Send SMS with different text |
-| *CampaignStopApi* | [**campaignStop**](docs/Api/CampaignStopApi.md#campaignstop) | **PATCH** /api/campaigns/{id}/stop | Cancel campaign |
-| *CampaignTagApi* | [**campaign**](docs/Api/CampaignTagApi.md#campaign) | **GET** /api/campaigns/{id} | Get campaign info |
 | *CampaignViberApi* | [**viberSend**](docs/Api/CampaignViberApi.md#vibersend) | **POST** /api/campaigns/viber/send | Send Viber campaign |
 | *CampaignWhatsAppApi* | [**postCampaignsWhatsappSend**](docs/Api/CampaignWhatsAppApi.md#postcampaignswhatsappsend) | **POST** /api/campaigns/whatsapp/send | Send WhatsApp campaign |
-| *CampaignsApi* | [**campaigns**](docs/Api/CampaignsApi.md#campaigns) | **GET** /api/campaigns | List of campaigns |
-| *CancelOtpApi* | [**cancelOtp**](docs/Api/CancelOtpApi.md#cancelotp) | **POST** /api/2fa/authentications/{id}/cancel | Cancel the authentication session |
 | *ContactApi* | [**contact**](docs/Api/ContactApi.md#contact) | **GET** /api/contacts/{id} | Get contact by ID |
 | *ContactApi* | [**contactCreate**](docs/Api/ContactApi.md#contactcreate) | **POST** /api/contacts | Create a contact |
 | *ContactApi* | [**contactDelete**](docs/Api/ContactApi.md#contactdelete) | **DELETE** /api/contacts/{id} | Delete contact |
@@ -107,15 +99,10 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ContactApi* | [**contacts**](docs/Api/ContactApi.md#contacts) | **GET** /api/contacts | List of contacts |
 | *ContactApi* | [**contactsDelete**](docs/Api/ContactApi.md#contactsdelete) | **POST** /api/contacts/delete | Delete multiple contacts |
 | *ContactApi* | [**contactsSearch**](docs/Api/ContactApi.md#contactssearch) | **GET** /api/contacts/search | Search contacts |
-| *ContactCreateApi* | [**contactCreate**](docs/Api/ContactCreateApi.md#contactcreate) | **POST** /api/contacts | Create a contact |
-| *ContactDeleteApi* | [**contactDelete**](docs/Api/ContactDeleteApi.md#contactdelete) | **DELETE** /api/contacts/{id} | Delete contact |
 | *ContactFieldApi* | [**contactFieldCreate**](docs/Api/ContactFieldApi.md#contactfieldcreate) | **POST** /api/contacts/fields | Create contact field |
 | *ContactFieldApi* | [**contactFieldUpdate**](docs/Api/ContactFieldApi.md#contactfieldupdate) | **PATCH** /api/contacts/fields/{id} | Update contact field |
 | *ContactFieldApi* | [**contactFields**](docs/Api/ContactFieldApi.md#contactfields) | **GET** /api/contacts/fields | List of contact fields |
 | *ContactFieldApi* | [**postContactsFieldsDelete**](docs/Api/ContactFieldApi.md#postcontactsfieldsdelete) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
-| *ContactFieldCreateApi* | [**contactFieldCreate**](docs/Api/ContactFieldCreateApi.md#contactfieldcreate) | **POST** /api/contacts/fields | Create contact field |
-| *ContactFieldUpdateApi* | [**contactFieldUpdate**](docs/Api/ContactFieldUpdateApi.md#contactfieldupdate) | **PATCH** /api/contacts/fields/{id} | Update contact field |
-| *ContactFieldsApi* | [**contactFields**](docs/Api/ContactFieldsApi.md#contactfields) | **GET** /api/contacts/fields | List of contact fields |
 | *ContactListApi* | [**contactList**](docs/Api/ContactListApi.md#contactlist) | **GET** /api/groups/{id} | Get list by id |
 | *ContactListApi* | [**contactListAttach**](docs/Api/ContactListApi.md#contactlistattach) | **POST** /api/groups/attach | Add contacts to the list |
 | *ContactListApi* | [**contactListCreate**](docs/Api/ContactListApi.md#contactlistcreate) | **POST** /api/groups | Create list |
@@ -124,50 +111,16 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ContactListApi* | [**contactListSearch**](docs/Api/ContactListApi.md#contactlistsearch) | **GET** /api/groups/search | Search list |
 | *ContactListApi* | [**contactListUpdate**](docs/Api/ContactListApi.md#contactlistupdate) | **PUT** /api/groups/{id} | Update list |
 | *ContactListApi* | [**contactLists**](docs/Api/ContactListApi.md#contactlists) | **GET** /api/groups | List of contact lists |
-| *ContactListAttachApi* | [**contactListAttach**](docs/Api/ContactListAttachApi.md#contactlistattach) | **POST** /api/groups/attach | Add contacts to the list |
-| *ContactListCreateApi* | [**contactListCreate**](docs/Api/ContactListCreateApi.md#contactlistcreate) | **POST** /api/groups | Create list |
-| *ContactListDeleteApi* | [**contactListDelete**](docs/Api/ContactListDeleteApi.md#contactlistdelete) | **DELETE** /api/groups/{id} | Delete list |
-| *ContactListDetachApi* | [**contactListDetach**](docs/Api/ContactListDetachApi.md#contactlistdetach) | **POST** /api/groups/detach | Remove contacts from the list |
-| *ContactListSearchApi* | [**contactListSearch**](docs/Api/ContactListSearchApi.md#contactlistsearch) | **GET** /api/groups/search | Search list |
-| *ContactListTagApi* | [**contactList**](docs/Api/ContactListTagApi.md#contactlist) | **GET** /api/groups/{id} | Get list by id |
-| *ContactListUpdateApi* | [**contactListUpdate**](docs/Api/ContactListUpdateApi.md#contactlistupdate) | **PUT** /api/groups/{id} | Update list |
-| *ContactListsApi* | [**contactLists**](docs/Api/ContactListsApi.md#contactlists) | **GET** /api/groups | List of contact lists |
-| *ContactTagApi* | [**contact**](docs/Api/ContactTagApi.md#contact) | **GET** /api/contacts/{id} | Get contact by ID |
-| *ContactUpdateApi* | [**contactUpdate**](docs/Api/ContactUpdateApi.md#contactupdate) | **PUT** /api/contacts/{id} | Update contact |
-| *ContactsApi* | [**contacts**](docs/Api/ContactsApi.md#contacts) | **GET** /api/contacts | List of contacts |
-| *ContactsDeleteApi* | [**contactsDelete**](docs/Api/ContactsDeleteApi.md#contactsdelete) | **POST** /api/contacts/delete | Delete multiple contacts |
-| *ContactsSearchApi* | [**contactsSearch**](docs/Api/ContactsSearchApi.md#contactssearch) | **GET** /api/contacts/search | Search contacts |
 | *EmailApi* | [**emailSend**](docs/Api/EmailApi.md#emailsend) | **POST** /api/email/send-emails | Send Email |
 | *EmailApi* | [**emailTemplateSend**](docs/Api/EmailApi.md#emailtemplatesend) | **POST** /api/email/send-template-emails | Send Email template |
-| *EmailSendApi* | [**emailSend**](docs/Api/EmailSendApi.md#emailsend) | **POST** /api/email/send-emails | Send Email |
-| *EmailTemplateSendApi* | [**emailTemplateSend**](docs/Api/EmailTemplateSendApi.md#emailtemplatesend) | **POST** /api/email/send-template-emails | Send Email template |
-| *GetMessagesApi* | [**getMessages**](docs/Api/GetMessagesApi.md#getmessages) | **GET** /api/messages | Find messages |
-| *GetSettingsAddressBookFieldsByIdApi* | [**getSettingsAddressBookFieldsById**](docs/Api/GetSettingsAddressBookFieldsByIdApi.md#getsettingsaddressbookfieldsbyid) | **GET** /api/settings/address-book-fields/{id} | Get settings value |
-| *LoginApi* | [**login**](docs/Api/LoginApi.md#login) | **POST** /api/auth/login | Receive JWT token |
 | *MessageRCSApi* | [**rcsSingle**](docs/Api/MessageRCSApi.md#rcssingle) | **POST** /api/messages/rcs/send | Send single RCS message |
 | *MessagesApi* | [**sendMessage**](docs/Api/MessagesApi.md#sendmessage) | **POST** /api/messages/send | Send single message |
 | *MessagesSMSApi* | [**getMessages**](docs/Api/MessagesSMSApi.md#getmessages) | **GET** /api/messages | Find messages |
 | *MessagesWhatsAppApi* | [**whatsappSingle**](docs/Api/MessagesWhatsAppApi.md#whatsappsingle) | **POST** /api/messages/whatsapp/send | Send single WhatsApp message |
-| *OtpListApi* | [**otpList**](docs/Api/OtpListApi.md#otplist) | **GET** /api/2fa/authentications | List of authentication sessions |
-| *OtpTemplateApi* | [**otpTemplate**](docs/Api/OtpTemplateApi.md#otptemplate) | **GET** /api/2fa/authentications/templates/{templateId} | Get message template |
-| *OtpTemplateCreateApi* | [**otpTemplateCreate**](docs/Api/OtpTemplateCreateApi.md#otptemplatecreate) | **POST** /api/2fa/authentications/templates | Create a message template |
-| *OtpTemplateDeleteApi* | [**otpTemplateDelete**](docs/Api/OtpTemplateDeleteApi.md#otptemplatedelete) | **DELETE** /api/2fa/authentications/templates/{templateId} | Delete a message template |
-| *OtpTemplateListApi* | [**otpTemplateList**](docs/Api/OtpTemplateListApi.md#otptemplatelist) | **GET** /api/2fa/authentications/templates | List of message templates |
-| *PostCampaignsWhatsappSendApi* | [**postCampaignsWhatsappSend**](docs/Api/PostCampaignsWhatsappSendApi.md#postcampaignswhatsappsend) | **POST** /api/campaigns/whatsapp/send | Send WhatsApp campaign |
-| *PostContactsFieldsDeleteApi* | [**postContactsFieldsDelete**](docs/Api/PostContactsFieldsDeleteApi.md#postcontactsfieldsdelete) | **POST** /api/contacts/fields/delete | Delete contact fields by ids |
-| *RcsSendGroupsApi* | [**rcsSend**](docs/Api/RcsSendGroupsApi.md#rcssend) | **POST** /api/campaigns/rcs/send | Send RCS message |
-| *RcsSingleApi* | [**rcsSingle**](docs/Api/RcsSingleApi.md#rcssingle) | **POST** /api/messages/rcs/send | Send single RCS message |
-| *RefreshTokenApi* | [**refreshToken**](docs/Api/RefreshTokenApi.md#refreshtoken) | **POST** /api/auth/refresh | Refresh JWT token |
-| *ResendOtpApi* | [**resendOtp**](docs/Api/ResendOtpApi.md#resendotp) | **POST** /api/2fa/authentications/otp/{id}/resend | Resend the one-time code |
-| *SendOtpApi* | [**sendOtp**](docs/Api/SendOtpApi.md#sendotp) | **POST** /api/2fa/authentications/otp | Send One-time password |
-| *SenderRequestLegalApi* | [**senderRequestLegal**](docs/Api/SenderRequestLegalApi.md#senderrequestlegal) | **POST** /api/senders/requests/legal | Sender registration by a legal entity |
-| *SenderRequestNaturalApi* | [**senderRequestNatural**](docs/Api/SenderRequestNaturalApi.md#senderrequestnatural) | **POST** /api/senders/requests/natural | Sender registration by an individual |
-| *SenderRequestsApi* | [**senderRequests**](docs/Api/SenderRequestsApi.md#senderrequests) | **GET** /api/senders/requests/sms | List of Sender Requests |
 | *SendersApi* | [**senderRequestLegal**](docs/Api/SendersApi.md#senderrequestlegal) | **POST** /api/senders/requests/legal | Sender registration by a legal entity |
 | *SendersApi* | [**senderRequestNatural**](docs/Api/SendersApi.md#senderrequestnatural) | **POST** /api/senders/requests/natural | Sender registration by an individual |
 | *SendersApi* | [**senderRequests**](docs/Api/SendersApi.md#senderrequests) | **GET** /api/senders/requests/sms | List of Sender Requests |
 | *SendersApi* | [**senders**](docs/Api/SendersApi.md#senders) | **GET** /api/senders | List of Senders |
-| *SendersTagApi* | [**senders**](docs/Api/SendersTagApi.md#senders) | **GET** /api/senders | List of Senders |
 | *ShortDomainsApi* | [**shortUrlsDomain**](docs/Api/ShortDomainsApi.md#shorturlsdomain) | **GET** /api/short-url/domains/{uuid} | Get domain by uuid |
 | *ShortDomainsApi* | [**shortUrlsDomainCreate**](docs/Api/ShortDomainsApi.md#shorturlsdomaincreate) | **POST** /api/short-url/domains | Add domain |
 | *ShortDomainsApi* | [**shortUrlsDomainRemove**](docs/Api/ShortDomainsApi.md#shorturlsdomainremove) | **DELETE** /api/short-url/domains/{uuid} | Remove domain |
@@ -179,33 +132,14 @@ All URIs are relative to *https://one-api.bsg.world*
 | *ShortLinksApi* | [**shortUrlsLinkDelete**](docs/Api/ShortLinksApi.md#shorturlslinkdelete) | **DELETE** /api/short-url/links/{uuid} | Remove short link |
 | *ShortLinksApi* | [**shortUrlsLinkUpdate**](docs/Api/ShortLinksApi.md#shorturlslinkupdate) | **PUT** /api/short-url/links/{uuid} | Update short link |
 | *ShortLinksApi* | [**shortUrlsLinks**](docs/Api/ShortLinksApi.md#shorturlslinks) | **GET** /api/short-url/links | List of short links |
-| *ShortUrlsClicksApi* | [**shortUrlsClicks**](docs/Api/ShortUrlsClicksApi.md#shorturlsclicks) | **GET** /api/short-url/clicks | List of clicks |
-| *ShortUrlsDomainApi* | [**shortUrlsDomain**](docs/Api/ShortUrlsDomainApi.md#shorturlsdomain) | **GET** /api/short-url/domains/{uuid} | Get domain by uuid |
-| *ShortUrlsDomainCreateApi* | [**shortUrlsDomainCreate**](docs/Api/ShortUrlsDomainCreateApi.md#shorturlsdomaincreate) | **POST** /api/short-url/domains | Add domain |
-| *ShortUrlsDomainRemoveApi* | [**shortUrlsDomainRemove**](docs/Api/ShortUrlsDomainRemoveApi.md#shorturlsdomainremove) | **DELETE** /api/short-url/domains/{uuid} | Remove domain |
-| *ShortUrlsDomainUpdateApi* | [**shortUrlsDomainUpdate**](docs/Api/ShortUrlsDomainUpdateApi.md#shorturlsdomainupdate) | **PUT** /api/short-url/domains/{uuid} | Update domain |
-| *ShortUrlsDomainsApi* | [**shortUrlsDomains**](docs/Api/ShortUrlsDomainsApi.md#shorturlsdomains) | **GET** /api/short-url/domains | List of domains |
-| *ShortUrlsLinkApi* | [**shortUrlsLink**](docs/Api/ShortUrlsLinkApi.md#shorturlslink) | **GET** /api/short-url/links/{uuid}/statistics | Get short link statistic |
-| *ShortUrlsLinkCreateApi* | [**shortUrlsLinkCreate**](docs/Api/ShortUrlsLinkCreateApi.md#shorturlslinkcreate) | **POST** /api/short-url/links | Create short link |
-| *ShortUrlsLinkDeleteApi* | [**shortUrlsLinkDelete**](docs/Api/ShortUrlsLinkDeleteApi.md#shorturlslinkdelete) | **DELETE** /api/short-url/links/{uuid} | Remove short link |
-| *ShortUrlsLinkUpdateApi* | [**shortUrlsLinkUpdate**](docs/Api/ShortUrlsLinkUpdateApi.md#shorturlslinkupdate) | **PUT** /api/short-url/links/{uuid} | Update short link |
-| *ShortUrlsLinksApi* | [**shortUrlsLinks**](docs/Api/ShortUrlsLinksApi.md#shorturlslinks) | **GET** /api/short-url/links | List of short links |
-| *SmsSendApi* | [**smsSend**](docs/Api/SmsSendApi.md#smssend) | **POST** /api/campaigns/sms/send | Send SMS campaign |
-| *SmsSendGroupsApi* | [**smsSendGroups**](docs/Api/SmsSendGroupsApi.md#smssendgroups) | **POST** /api/campaigns/sms/send-groups | Send SMS to contact list |
-| *SmsSendIndividualApi* | [**smsSendIndividual**](docs/Api/SmsSendIndividualApi.md#smssendindividual) | **POST** /api/campaigns/sms/send-individual | Send SMS with different text |
 | *StatisticApi* | [**statJobsCreate**](docs/Api/StatisticApi.md#statjobscreate) | **POST** /api/stat/jobs | Create new job |
 | *StatisticApi* | [**statJobsDelete**](docs/Api/StatisticApi.md#statjobsdelete) | **DELETE** /api/stat/jobs/{id} | Delete job result |
 | *StatisticApi* | [**statJobsList**](docs/Api/StatisticApi.md#statjobslist) | **GET** /api/stat/jobs | List statistic jobs |
 | *StatisticApi* | [**statJobsShow**](docs/Api/StatisticApi.md#statjobsshow) | **GET** /api/stat/jobs/{id} | Load job result |
-| *StatusOtpApi* | [**statusOtp**](docs/Api/StatusOtpApi.md#statusotp) | **GET** /api/2fa/authentications/{id} | Check authentication status |
 | *StopListApi* | [**stoplistAdd**](docs/Api/StopListApi.md#stoplistadd) | **POST** /api/stoplist/attach | Add contacts to stop list |
 | *StopListApi* | [**stoplistItems**](docs/Api/StopListApi.md#stoplistitems) | **GET** /api/stoplist | List the contacts of stop lists |
 | *StopListApi* | [**stoplistRemove**](docs/Api/StopListApi.md#stoplistremove) | **POST** /api/stoplist/detach | Remove contacts from stop list |
 | *StopListApi* | [**stoplistSearch**](docs/Api/StopListApi.md#stoplistsearch) | **GET** /api/stoplist/search | Search contacts in Stop lists |
-| *StoplistAddApi* | [**stoplistAdd**](docs/Api/StoplistAddApi.md#stoplistadd) | **POST** /api/stoplist/attach | Add contacts to stop list |
-| *StoplistItemsApi* | [**stoplistItems**](docs/Api/StoplistItemsApi.md#stoplistitems) | **GET** /api/stoplist | List the contacts of stop lists |
-| *StoplistRemoveApi* | [**stoplistRemove**](docs/Api/StoplistRemoveApi.md#stoplistremove) | **POST** /api/stoplist/detach | Remove contacts from stop list |
-| *StoplistSearchApi* | [**stoplistSearch**](docs/Api/StoplistSearchApi.md#stoplistsearch) | **GET** /api/stoplist/search | Search contacts in Stop lists |
 | *TwoFAOTPApi* | [**cancelOtp**](docs/Api/TwoFAOTPApi.md#cancelotp) | **POST** /api/2fa/authentications/{id}/cancel | Cancel the authentication session |
 | *TwoFAOTPApi* | [**otpList**](docs/Api/TwoFAOTPApi.md#otplist) | **GET** /api/2fa/authentications | List of authentication sessions |
 | *TwoFAOTPApi* | [**resendOtp**](docs/Api/TwoFAOTPApi.md#resendotp) | **POST** /api/2fa/authentications/otp/{id}/resend | Resend the one-time code |
@@ -216,7 +150,6 @@ All URIs are relative to *https://one-api.bsg.world*
 | *TwoFATemplatesApi* | [**otpTemplateCreate**](docs/Api/TwoFATemplatesApi.md#otptemplatecreate) | **POST** /api/2fa/authentications/templates | Create a message template |
 | *TwoFATemplatesApi* | [**otpTemplateDelete**](docs/Api/TwoFATemplatesApi.md#otptemplatedelete) | **DELETE** /api/2fa/authentications/templates/{templateId} | Delete a message template |
 | *TwoFATemplatesApi* | [**otpTemplateList**](docs/Api/TwoFATemplatesApi.md#otptemplatelist) | **GET** /api/2fa/authentications/templates | List of message templates |
-| *VerifyOtpApi* | [**verifyOtp**](docs/Api/VerifyOtpApi.md#verifyotp) | **POST** /api/2fa/authentications/otp/{id}/verify | Check one-time Code |
 
 ## Models
 
